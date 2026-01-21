@@ -13,7 +13,7 @@
     {{-- Main Content --}}
     <section class="bg-navy-900 py-16">
         <div class="container">
-            <div class="max-w-3xl mx-auto prose prose-invert prose-lg max-w-none">
+            <div class="max-w-3xl mx-auto prose prose-invert prose-lg max-w-none prose-p:mb-4 prose-h2:my-8 prose-h3:my-6 prose-h4:my-4 prose-ul:my-4 prose-ol:my-4">
                 {{-- Navigation --}}
                 <div class="bg-navy-800 rounded-lg p-6 mb-12">
                     <h3 class="text-white mb-4">Quick Navigation</h3>
