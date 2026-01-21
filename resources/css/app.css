@@ -1,3 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    /* Dark mode base styles */
+    .dark {
+        color-scheme: dark;
+    }
+
+    body {
+        position: relative;
+        background-image: url('/images/full-back.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .section-droid-bg {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .section-droid-bg .section-droid-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.2;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+}
+
+@layer components {
+    /* Card component base */
+    .card {
+        @apply bg-navy-800 rounded-xl border border-navy-700;
+    }
+
+    .card-glass {
+        @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl;
+    }
+
+    .card-hover {
+        @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-500/10;
+    }
+
+    /* Button components */
+    .btn {
+        @apply rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-navy-950;
+    }
+
+    .btn-primary {
+        @apply btn bg-accent-500 text-white hover:bg-accent-400;
+    }
+
+    .btn-secondary {
+        @apply btn bg-navy-800 text-white hover:bg-navy-700;
+    }
+
+    .btn-ghost {
+        @apply btn bg-transparent text-white hover:bg-white/10;
+    }
+
+    .btn-outline {
+        @apply btn border border-accent-500 text-accent-500 hover:bg-accent-500 hover:text-white;
+    }
+
+    /* Container */
+    .container {
+        @apply mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .container-narrow {
+        @apply container max-w-4xl;
+    }
+
+    .container-default {
+        @apply container max-w-6xl;
+    }
+
+    .container-wide {
+        @apply container max-w-7xl;
+    }
+
+    /* Section heading */
+    .section-heading {
+        @apply text-display-md md:text-display-lg font-bold mb-12;
+    }
+
+    .section-subtitle {
+        @apply text-lg text-gray-400 mt-4 max-w-2xl;
+    }
+
+    /* Gradient text */
+    .gradient-text {
+        @apply bg-gradient-to-r from-accent-400 to-purple-400 bg-clip-text text-transparent;
+    }
+
+    /* Animated background gradient */
+    .bg-animated-gradient {
+        background: linear-gradient(-45deg, #0a0f1c, #111827, #0a0f1c, #1e293b);
+        background-size: 400% 400%;
+        animation: gradient-shift 15s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    /* Hero circuit background */
+    .hero-circuit {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.2;
+        mix-blend-mode: screen;
+    }
+
+    .hero-circuit svg {
+        position: absolute;
+        inset: -10%;
+        width: 120%;
+        height: 120%;
+    }
+
+    .hero-circuit .circuit-lines path {
+        stroke: rgba(88, 160, 255, 0.65);
+        stroke-width: 1.1;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .hero-circuit .circuit-lines path.alt {
+        stroke: rgba(188, 128, 255, 0.55);
+    }
+
+    .hero-circuit .circuit-nodes circle {
+        fill: rgba(160, 230, 255, 0.9);
+    }
+
+    .hero-circuit .circuit-pulses path {
+        stroke: rgba(190, 245, 255, 1);
+        stroke-width: 2.6;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 3 640;
+        animation: circuit-pulse 8s linear infinite;
+        filter: drop-shadow(0 0 18px rgba(190, 245, 255, 1));
+    }
+
+    .hero-circuit .circuit-pulses .pulse-2 {
+        stroke: rgba(230, 190, 255, 1);
+        stroke-dasharray: 3 720;
+        animation-duration: 9s;
+        animation-delay: -4s;
+        filter: drop-shadow(0 0 20px rgba(230, 190, 255, 1));
+    }
+
+    .hero-circuit .circuit-pulses .pulse-3 {
+        stroke: rgba(175, 240, 255, 1);
+        stroke-dasharray: 4 680;
+        animation-duration: 7.5s;
+        animation-delay: -2s;
+    }
+
+    .hero-circuit .circuit-pulses .pulse-4 {
+        stroke: rgba(200, 175, 255, 1);
+        stroke-dasharray: 3 760;
+        animation-duration: 8.5s;
+        animation-delay: -6s;
+    }
+
+    .hero-circuit .circuit-pulses .pulse-5 {
+        stroke: rgba(190, 250, 255, 1);
+        stroke-dasharray: 3 700;
+        animation-duration: 7.8s;
+        animation-delay: -3s;
+    }
+
+    .hero-circuit .circuit-pulses .pulse-6 {
+        stroke: rgba(235, 200, 255, 1);
+        stroke-dasharray: 3 740;
+        animation-duration: 9.6s;
+        animation-delay: -5s;
+    }
+
+    .hero-circuit .circuit-pulses .pulse-7 {
+        stroke: rgba(175, 235, 255, 1);
+        stroke-dasharray: 4 620;
+        animation-duration: 7.2s;
+        animation-delay: -1.5s;
+    }
+
+    .hero-circuit .circuit-pulses .pulse-8 {
+        stroke: rgba(220, 180, 255, 1);
+        stroke-dasharray: 3 780;
+        animation-duration: 8.8s;
+        animation-delay: -6.5s;
+    }
+
+    @keyframes circuit-pulse {
+        0% {
+            stroke-dashoffset: 0;
+            opacity: 0.5;
+        }
+        15% {
+            opacity: 1;
+        }
+        100% {
+            stroke-dashoffset: -1200;
+            opacity: 0.5;
+        }
+    }
+
+    .hero-bleed {
+        margin-top: -1.25rem;
+        margin-bottom: -1.25rem;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+
+
+    .section-droid-bg > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-ai-video-bg {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .section-ai-video-bg .section-ai-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.2;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .section-ai-video-bg > * {
+        position: relative;
+        z-index: 2;
+    }
+}

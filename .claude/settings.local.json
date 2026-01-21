@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__context7__resolve-library-id",
+      "mcp__web-search-prime__webSearchPrime",
+      "mcp__web-reader__webReader",
+      "Bash(php:*)",
+      "Bash(composer:*)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(sudo:*)",
+      "Bash(ls:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(gh auth status:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo create:*)",
+      "Bash(psql:*)",
+      "Bash(echo:*)",
+      "mcp__zread__get_repo_structure",
+      "mcp__context7__query-docs",
+      "Bash(curl:*)",
+      "Bash(pkill:*)",
+      "Bash(kill:*)",
+      "Bash(lsof:*)",
+      "Bash(netstat:*)",
+      "Bash(wget:*)",
+      "Bash(killall:*)",
+      "Bash(cat:*)",
+      "WebSearch"
+    ]
+  }
+}
