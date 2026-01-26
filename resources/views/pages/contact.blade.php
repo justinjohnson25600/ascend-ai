@@ -7,7 +7,7 @@
     />
 
     {{-- Contact Section --}}
-    <section class="bg-navy-900 py-20 lg:py-32 relative overflow-hidden" style="background-image: linear-gradient(to right, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.3) 40%, rgba(15, 23, 42, 0.8) 70%, rgba(15, 23, 42, 1) 100%), url('{{ asset('images/digi-city.webp') }}'); background-size: cover; background-position: left center; background-repeat: no-repeat;">
+    <section class="bg-navy-900 py-20 lg:py-32 relative overflow-hidden" style="background-image: linear-gradient(to right, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.5) 40%, rgba(15, 23, 42, 0.8) 70%, rgba(15, 23, 42, 1) 100%), url('{{ asset('images/digi-city.webp') }}'); background-size: cover; background-position: left center; background-repeat: no-repeat;">
         <div class="container">
             <div class="max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
