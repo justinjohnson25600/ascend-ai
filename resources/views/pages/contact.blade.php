@@ -107,27 +107,30 @@
                                     minlength="50"
                                     maxlength="5000"
                                     rows="5"
-                                    class="w-full bg-navy-800 border border-navy-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-accent-500 focus:ring-1 focus:ring-accent-500 transition-colors resize-none"
+                                    :class="form.message.length >= 50 ? 'border-green-500' : 'border-red-500'"
+                                    class="w-full bg-navy-800 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:ring-1 focus:ring-accent-500 transition-colors resize-none"
                                     placeholder="Tell us about your interest in Ascend AI..."
                                 ></textarea>
-                                <p class="text-xs text-gray-500 mt-2">Minimum 50 characters</p>
+                                <p class="text-xs mt-2" :class="form.message.length >= 50 ? 'text-green-400' : 'text-red-400'">
+                                    <span x-text="form.message.length"></span>/50 characters minimum
+                                </p>
                             </div>
 
                             {{-- Success/Error Messages --}}
-                            <div x-show="form.message" x-cloak
-                                 :class="form.success ? 'bg-green-500/10 border-green-500/30 text-green-400' : 'bg-red-500/10 border-red-500/30 text-red-400'"
+                            <div x-show="statusMessage" x-cloak
+                                 :class="success ? 'bg-green-500/10 border-green-500/30 text-green-400' : 'bg-red-500/10 border-red-500/30 text-red-400'"
                                  class="p-4 rounded-lg border"
-                                 x-text="form.message">
+                                 x-text="statusMessage">
                             </div>
 
                             <button
                                 type="submit"
-                                :disabled="form.loading"
+                                :disabled="loading"
                                 class="w-full btn btn-primary py-4 text-lg flex items-center justify-center gap-3"
                             >
-                                <span x-show="!form.loading">Send Message</span>
-                                <span x-show="form.loading" x-cloak class="animate-spin">⟳</span>
-                                <span x-show="form.loading" x-cloak>Sending...</span>
+                                <span x-show="!loading">Send Message</span>
+                                <span x-show="loading" x-cloak class="animate-spin">⟳</span>
+                                <span x-show="loading" x-cloak>Sending...</span>
                             </button>
 
                             <p class="text-xs text-gray-500 text-center">
@@ -150,15 +153,15 @@
                     email: '',
                     organisation: '',
                     enquiry_type: '',
-                    message: '',
-                    loading: false,
-                    success: false,
                     message: ''
                 },
+                loading: false,
+                success: false,
+                statusMessage: '',
 
                 async submit() {
-                    this.form.loading = true;
-                    this.form.message = '';
+                    this.loading = true;
+                    this.statusMessage = '';
 
                     try {
                         const response = await this.$fetch('{{ route('contact.submit') }}', {
@@ -173,23 +176,25 @@
                         const data = await response.json();
 
                         if (data.success) {
-                            this.form.success = true;
-                            this.form.message = data.message || 'Thank you for your enquiry. We will respond within 48 hours.';
+                            this.success = true;
+                            this.statusMessage = data.message || 'Thank you for your enquiry. We will respond within 48 hours.';
                             // Reset form
-                            this.form.name = '';
-                            this.form.email = '';
-                            this.form.organisation = '';
-                            this.form.enquiry_type = '';
-                            this.form.message = '';
+                            this.form = {
+                                name: '',
+                                email: '',
+                                organisation: '',
+                                enquiry_type: '',
+                                message: ''
+                            };
                         } else {
-                            this.form.success = false;
-                            this.form.message = data.message || 'Failed to send message. Please try again.';
+                            this.success = false;
+                            this.statusMessage = data.message || 'Failed to send message. Please try again.';
                         }
                     } catch (error) {
-                        this.form.success = false;
-                        this.form.message = 'Failed to send message. Please try again or email us directly.';
+                        this.success = false;
+                        this.statusMessage = 'Failed to send message. Please try again or email us directly.';
                     } finally {
-                        this.form.loading = false;
+                        this.loading = false;
                     }
                 }
             };
