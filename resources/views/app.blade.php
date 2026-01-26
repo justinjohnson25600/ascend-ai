@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? 'Ascend AI' }}{{ $title ? ' - ' : '' }}Ascend AI</title>
+    <title>@if(isset($title)){{ $title }} - Ascend AI @else Ascend AI @endif</title>
 
     <meta name="description" content="{{ $description ?? 'Ascend AI builds SaaS companies from the ground up around artificial intelligence. Unbeatable economics. Infinite scalability. Margins that legacy competitors cannot match.' }}">
 
