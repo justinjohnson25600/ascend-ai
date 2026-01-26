@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactFormMail;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 final class PageController extends Controller
@@ -76,8 +78,9 @@ final class PageController extends Controller
             'message' => ['required', 'string', 'min:50', 'max:5000'],
         ]);
 
-        // TODO: Send email or store in database
-        // For now, just return success
+        // Send email to admin
+        Mail::to('justin@ascend-ai.co.uk')
+            ->send(new ContactFormMail($validated));
 
         return response()->json([
             'success' => true,
