@@ -1,10 +1,9 @@
-@extends('layouts.app')
+@php
+    $title = 'Profile';
+    $description = 'Manage your Ascend AI profile';
+@endphp
 
-@section('title', 'Profile')
-
-@section('description', 'Manage your Ascend AI profile')
-
-@section('content')
+<x-layout.app :title="$title" :description="$description">
 <div class="container-narrow py-16">
     {{-- Header --}}
     <div class="mb-8">
@@ -121,4 +120,4 @@
         </div>
     </div>
 </div>
-@endsection
+</x-layout.app>
