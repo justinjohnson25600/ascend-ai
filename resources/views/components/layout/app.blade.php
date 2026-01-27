@@ -54,8 +54,8 @@
     {{-- JSON-LD Structured Data --}}
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Organization",
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
         "name": "Ascend AI",
         "description": "Ascend AI builds SaaS companies from the ground up around artificial intelligence.",
         "url": "{{ url('/') }}",
@@ -68,7 +68,7 @@
             "https://facebook.com/ascend.ai"
         ],
         "contactPoint": {
-            "@type": "ContactPoint",
+            "@@type": "ContactPoint",
             "email": "contact@ascend-ai.co.uk",
             "contactType": "customer service"
         }
