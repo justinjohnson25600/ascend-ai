@@ -1,9 +1,10 @@
 @php
     $title = 'Dashboard';
     $description = 'Your Ascend AI dashboard';
+    $bodyClass = 'dashboard-bg';
 @endphp
 
-<x-layout.app :title="$title" :description="$description">
+<x-layout.app :title="$title" :description="$description" :body-class="$bodyClass">
     <div class="container-narrow py-16">
         {{-- Welcome Section --}}
         <div class="card-glass p-8 mb-8">

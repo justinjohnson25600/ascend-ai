@@ -12,13 +12,17 @@
 
     body {
         position: relative;
-        /* Dim the background image to ~15% visibility */
-        background-image:
-            linear-gradient(rgba(10, 15, 28, 0.85), rgba(10, 15, 28, 0.85)),
-            url('/images/full-back.webp');
+        background-image: url('/images/full-back.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+    }
+
+    /* Dashboard-only background dimming (~15% image visibility) */
+    body.dashboard-bg {
+        background-image:
+            linear-gradient(rgba(10, 15, 28, 0.85), rgba(10, 15, 28, 0.85)),
+            url('/images/full-back.webp');
     }
 
     .section-droid-bg {

@@ -1,4 +1,11 @@
-@props(['title' => null, 'description' => null, 'ogImage' => null, 'ogType' => 'website', 'noIndex' => false])
+@props([
+    'title' => null,
+    'description' => null,
+    'ogImage' => null,
+    'ogType' => 'website',
+    'noIndex' => false,
+    'bodyClass' => '',
+])
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -77,7 +84,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-navy-950 text-white font-sans antialiased">
+<body class="{{ trim('bg-navy-950 text-white font-sans antialiased ' . $bodyClass) }}">
     {{-- Header --}}
     <x-layout.header />
 
