@@ -21,11 +21,8 @@ if ($secretKey === '' || !hash_equals($secretKey, $keyFromUrl)) {
 
 require $laravelRoot . '/vendor/autoload.php';
 $app = require $laravelRoot . '/bootstrap/app.php';
-$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+$kernel = $app->make(\Illuminate\Contracts\Http\Kernel::class);
 $kernel->bootstrap();
-
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 $message = null;
 $error = null;
@@ -39,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Enter a user ID or email.';
     } else {
         $user = ctype_digit($idOrEmail)
-            ? User::find((int)$idOrEmail)
-            : User::where('email', $idOrEmail)->first();
+            ? \App\Models\User::find((int)$idOrEmail)
+            : \App\Models\User::where('email', $idOrEmail)->first();
 
         if (!$user) {
             $error = 'User not found.';
@@ -49,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $user->name = $newName;
             }
             if ($newPassword !== '') {
-                $user->password = Hash::make($newPassword);
+                $user->password = \Illuminate\Support\Facades\Hash::make($newPassword);
             }
 
             $user->save();
@@ -101,3 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </form>
 </body>
 </html>
+
+
+
+
