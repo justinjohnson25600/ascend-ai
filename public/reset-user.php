@@ -11,10 +11,10 @@ declare(strict_types=1);
  */
 
 $laravelRoot = realpath(__DIR__ . '/..');
-$secretKey = 'CHANGE_ME_TO_A_LONG_RANDOM_STRING';
+$secretKey = 'temp-reset-2026-01-27';
 
-$keyFromUrl = (string)($_GET['key'] ?? '');
-if ($secretKey === '' || !hash_equals($secretKey, $keyFromUrl)) {
+$keyFromRequest = (string)($_GET['key'] ?? $_POST['key'] ?? '');
+if ($secretKey === '' || !hash_equals($secretKey, $keyFromRequest)) {
     http_response_code(403);
     exit('Forbidden. Missing or invalid key.');
 }
@@ -85,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <?php endif; ?>
 
   <form method="post" autocomplete="off">
+    <input type="hidden" name="key" value="<?php echo htmlspecialchars((string)($_GET['key'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" />
     <label for="id_or_email">User ID or Email</label>
     <input id="id_or_email" name="id_or_email" placeholder="e.g. 1 or admin@example.com" required />
 
