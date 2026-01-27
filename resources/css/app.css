@@ -12,7 +12,10 @@
 
     body {
         position: relative;
-        background-image: url('/images/full-back.webp');
+        /* Dim the background image to ~15% visibility */
+        background-image:
+            linear-gradient(rgba(10, 15, 28, 0.85), rgba(10, 15, 28, 0.85)),
+            url('/images/full-back.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
