@@ -1,5 +1,33 @@
 <footer class="bg-navy-950 border-t border-navy-800 py-12 lg:py-16">
     <div class="container">
+        {{-- Newsletter Signup Section --}}
+        <div class="card-glass p-8 mb-12 max-w-2xl mx-auto text-center">
+            <h3 class="text-xl font-semibold text-white mb-2">Stay Updated</h3>
+            <p class="text-gray-400 text-sm mb-6">Get the latest insights on AI, venture building, and our portfolio companies.</p>
+
+            <form
+                x-data="newsletterForm()"
+                @submit.prevent="subscribe"
+                class="flex flex-col sm:flex-row gap-3"
+            >
+                <input
+                    type="email"
+                    x-model="email"
+                    required
+                    placeholder="Enter your email"
+                    class="flex-1 px-4 py-3 bg-navy-900/50 border border-navy-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent transition-colors"
+                >
+                <button
+                    type="submit"
+                    :disabled="loading"
+                    class="btn btn-primary px-6 py-3 whitespace-nowrap"
+                    x-text="loading ? 'Subscribing...' : 'Subscribe'"
+                ></button>
+            </form>
+
+            <p x-show="message" x-cloak :class="success ? 'text-green-400' : 'text-red-400'" class="text-sm mt-3" x-text="message"></p>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             {{-- Brand Column --}}
             <div class="lg:col-span-1">

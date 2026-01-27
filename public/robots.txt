@@ -1,2 +1,16 @@
+# robots.txt for ascend-ai.co.uk
+
 User-agent: *
-Disallow:
+Allow: /
+
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /profile/
+Disallow: /login/
+Disallow: /register/
+Disallow: /password/
+Disallow: /forgot-password
+Disallow: /reset-password
+
+# Sitemap
+Sitemap: https://ascend-ai.co.uk/sitemap.xml

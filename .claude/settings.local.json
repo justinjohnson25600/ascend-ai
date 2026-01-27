@@ -28,7 +28,8 @@
       "Bash(wget:*)",
       "Bash(killall:*)",
       "Bash(cat:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(grep:*)"
     ]
   }
 }

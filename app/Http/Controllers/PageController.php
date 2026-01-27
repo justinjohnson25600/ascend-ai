@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Mail\ContactFormMail;
+use App\Models\Contact;
+use App\Models\NewsletterSubscription;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 final class PageController extends Controller
@@ -68,6 +71,13 @@ final class PageController extends Controller
             ->with('description', 'Ascend AI terms and conditions of service.');
     }
 
+    public function dashboard(): View
+    {
+        return view('dashboard')
+            ->with('title', 'Dashboard')
+            ->with('description', 'Your Ascend AI dashboard.');
+    }
+
     public function submitContact(Request $request): JsonResponse
     {
         $validated = $request->validate([
@@ -78,6 +88,9 @@ final class PageController extends Controller
             'message' => ['required', 'string', 'min:50', 'max:5000'],
         ]);
 
+        // Store in database
+        Contact::create($validated);
+
         // Send email to admin
         Mail::to('justin@ascend-ai.co.uk')
             ->send(new ContactFormMail($validated));
@@ -85,6 +98,49 @@ final class PageController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Thank you for your enquiry. We will respond within 48 hours.',
+        ]);
+    }
+
+    public function subscribeNewsletter(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'email' => ['required', 'email', 'max:255'],
+        ]);
+
+        // Check if email already exists
+        $existing = NewsletterSubscription::where('email', $validated['email'])->first();
+
+        if ($existing) {
+            if ($existing->is_active) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'You are already subscribed to our newsletter.',
+                ], 409);
+            }
+
+            // Reactivate subscription
+            $existing->update([
+                'is_active' => true,
+                'subscribed_at' => now(),
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Welcome back! You have been resubscribed to our newsletter.',
+            ]);
+        }
+
+        // Create new subscription
+        NewsletterSubscription::create([
+            'email' => $validated['email'],
+            'is_active' => true,
+            'subscribed_at' => now(),
+            'unsubscribe_token' => Str::random(64),
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Thank you for subscribing to our newsletter!',
         ]);
     }
 }
