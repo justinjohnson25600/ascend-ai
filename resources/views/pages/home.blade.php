@@ -12,7 +12,7 @@
 
     {{-- Problem Statement Section with Scroll Reveal --}}
     <section class="bg-navy-900 py-20 lg:py-32 section-droid-bg relative overflow-hidden" data-scroll-section>
-        <video class="section-droid-video" autoplay muted loop playsinline poster="{{ asset('images/droid.webp') }}" data-parallax>
+        <video class="section-droid-video" autoplay muted loop playsinline poster="{{ asset('images/droid.webp') }}">
             <source src="{{ asset('video/andriod-p.mp4') }}" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-navy-950/50 via-transparent to-navy-950/50 pointer-events-none"></div>
@@ -191,7 +191,7 @@
 
     {{-- Proof Points Section with Animated Counters --}}
     <section class="bg-navy-900 py-20 lg:py-32 section-ai-video-bg relative overflow-hidden" data-scroll-section>
-        <video class="section-ai-video" autoplay muted loop playsinline data-parallax>
+        <video class="section-ai-video" autoplay muted loop playsinline>
             <source src="{{ asset('video/ai-video.mp4') }}" type="video/mp4">
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-navy-900/80 via-navy-900/60 to-navy-900/80 pointer-events-none"></div>
@@ -380,15 +380,6 @@
                 mouseGlow.style.transform = `translate(${x}px, ${y}px)`;
             });
         }
-
-        // Parallax effect on video backgrounds
-        document.querySelectorAll('[data-parallax]').forEach(el => {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const rate = scrolled * 0.3;
-                el.style.transform = `translateY(${rate}px)`;
-            });
-        });
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
