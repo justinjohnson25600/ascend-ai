@@ -26,6 +26,7 @@ $kernel->bootstrap();
 
 $message = null;
 $error = null;
+$matches = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idOrEmail = trim((string)($_POST['id_or_email'] ?? ''));
@@ -35,12 +36,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($idOrEmail === '') {
         $error = 'Enter a user ID or email.';
     } else {
-        $user = ctype_digit($idOrEmail)
-            ? \App\Models\User::find((int)$idOrEmail)
-            : \App\Models\User::where('email', $idOrEmail)->first();
+        if (ctype_digit($idOrEmail)) {
+            $user = \App\Models\User::find((int)$idOrEmail);
+        } else {
+            $user = \App\Models\User::where('email', $idOrEmail)->first();
+        }
 
         if (!$user) {
-            $error = 'User not found.';
+            // If this looks like an email and a password was provided, create the user.
+            if (!ctype_digit($idOrEmail) && filter_var($idOrEmail, FILTER_VALIDATE_EMAIL) && $newPassword !== '') {
+                $nameToUse = $newName !== '' ? $newName : (string)strtok($idOrEmail, '@');
+
+                $user = \App\Models\User::query()->create([
+                    'name' => $nameToUse,
+                    'email' => $idOrEmail,
+                    'password' => \Illuminate\Support\Facades\Hash::make($newPassword),
+                ]);
+
+                $message = sprintf('Created user ID %d (%s).', $user->id, $user->email);
+            } else {
+                $error = 'User not found. Enter a valid email and a new password to create the first user.';
+
+                if (!ctype_digit($idOrEmail) && $idOrEmail !== '') {
+                    $like = '%' . str_replace(['%', '_'], '', $idOrEmail) . '%';
+                    $matches = \App\Models\User::query()
+                        ->select(['id', 'email', 'name'])
+                        ->where('email', 'like', $like)
+                        ->orWhere('name', 'like', $like)
+                        ->orderBy('id')
+                        ->limit(10)
+                        ->get()
+                        ->all();
+                }
+            }
         } else {
             if ($newName !== '') {
                 $user->name = $newName;
@@ -84,10 +112,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="err"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></div>
   <?php endif; ?>
 
+  <?php if (!empty($matches)): ?>
+    <div class="msg">
+      <strong>Possible matches:</strong>
+      <ul>
+        <?php foreach ($matches as $m): ?>
+          <li>
+            <?php
+              $label = sprintf(
+                  '#%d | %s | %s',
+                  (int)$m->id,
+                  (string)($m->email ?? '(no email)'),
+                  (string)($m->name ?? '(no name)')
+              );
+              echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8');
+            ?>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+      <p>Copy the exact email or ID into the form above.</p>
+    </div>
+  <?php endif; ?>
+
   <form method="post" autocomplete="off">
     <input type="hidden" name="key" value="<?php echo htmlspecialchars((string)($_GET['key'] ?? ''), ENT_QUOTES, 'UTF-8'); ?>" />
     <label for="id_or_email">User ID or Email</label>
-    <input id="id_or_email" name="id_or_email" placeholder="e.g. 1 or admin@example.com" required />
+    <input id="id_or_email" name="id_or_email" placeholder="e.g. 1 or admin@example.com (email + password will create user)" required />
 
     <label for="new_name">New Name (optional)</label>
     <input id="new_name" name="new_name" placeholder="e.g. Admin User" />
