@@ -3,6 +3,7 @@
     'subtitle' => null,
     'alignment' => 'center', // left, center
     'size' => 'default', // default, large
+    'class' => '',
 ])
 
 @php
@@ -10,7 +11,7 @@ $alignmentClasses = $alignment === 'center' ? 'text-center mx-auto' : 'text-left
 $sizeClasses = $size === 'large' ? 'text-display-lg md:text-display-xl' : 'text-display-md md:text-display-lg';
 @endphp
 
-<div class="{{ $alignmentClasses }} mb-12">
+<div class="{{ $alignmentClasses }} mb-12 {{ $class }}">
     <h2 class="{{ $sizeClasses }} font-bold gradient-text">
         {{ $title }}
     </h2>
