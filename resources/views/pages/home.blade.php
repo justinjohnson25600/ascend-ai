@@ -221,8 +221,9 @@
                 </div>
                 <div class="text-center reveal-up stagger-2 group" data-counter="99">
                     <div class="relative inline-block">
-                        <p class="text-4xl md:text-5xl font-bold gradient-text mb-2 counter-value" data-target="99">0</p>
-                        <span class="text-accent-500 text-2xl">%</span>
+                        <p class="text-4xl md:text-5xl font-bold gradient-text mb-2">
+                            <span class="counter-value" data-target="99">0</span><span class="text-accent-500 text-2xl align-top">%</span>
+                        </p>
                     </div>
                     <p class="text-gray-400 text-sm group-hover:text-accent-400 transition-colors">Gross Margins</p>
                 </div>
