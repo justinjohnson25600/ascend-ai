@@ -42,6 +42,7 @@
                             class="space-y-6"
                         >
                             @csrf
+                            <x-forms.honeypot model="form.website" />
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name *</label>
                                 <input
@@ -168,6 +169,7 @@
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
+                                'Accept': 'application/json',
                                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
                             },
                             body: JSON.stringify(this.form)
@@ -184,7 +186,8 @@
                                 email: '',
                                 organisation: '',
                                 enquiry_type: '',
-                                message: ''
+                                message: '',
+                                website: ''
                             };
                         } else {
                             this.success = false;

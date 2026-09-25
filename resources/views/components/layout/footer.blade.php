@@ -10,6 +10,7 @@
                 @submit.prevent="subscribe"
                 class="flex flex-col sm:flex-row gap-3"
             >
+                <x-forms.honeypot model="website" />
                 <input
                     type="email"
                     x-model="email"

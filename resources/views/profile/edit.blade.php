@@ -15,7 +15,7 @@
     <div class="card-glass p-8 mb-8">
         <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
             @csrf
-            @method('PUT')
+            @method('PATCH')
 
             <!-- Name -->
             <div class="mb-6">

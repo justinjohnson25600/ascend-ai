@@ -99,13 +99,4 @@
         </button>
     </form>
 
-    <!-- Register Link -->
-    <div class="mt-6 text-center">
-        <p class="text-sm text-gray-400">
-            Don't have an account?
-            <a href="{{ route('register') }}" class="text-accent-400 hover:text-accent-300 font-medium transition-colors">
-                Sign up
-            </a>
-        </p>
-    </div>
 @endsection

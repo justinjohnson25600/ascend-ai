@@ -1,27 +1,36 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class DatabaseSeeder extends Seeder
+final class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Create the first user from ADMIN_EMAIL / ADMIN_PASSWORD. No defaults exist on purpose.
      */
     public function run(): void
     {
-        // Create admin user directly (no Faker needed for production)
+        $email = config('ascend.admin.email');
+        $password = config('ascend.admin.password');
+
+        if (! $email || ! $password) {
+            $this->command?->warn('ADMIN_EMAIL and ADMIN_PASSWORD are not set. Skipping admin user.');
+
+            return;
+        }
+
         User::firstOrCreate(
-            ['email' => 'admin@ascend-ai.com'],
+            ['email' => $email],
             [
-                'name' => 'Admin User',
-                'email' => 'admin@ascend-ai.com',
-                'password' => Hash::make('ChangeThisPassword123!'),
+                'name' => config('ascend.admin.name'),
+                'password' => Hash::make($password),
                 'email_verified_at' => now(),
-            ]
+            ],
         );
     }
 }

@@ -9,6 +9,7 @@ window.Alpine = Alpine;
 // Newsletter form component
 Alpine.data('newsletterForm', () => ({
     email: '',
+    website: '',
     loading: false,
     message: '',
     success: false,
@@ -22,9 +23,10 @@ Alpine.data('newsletterForm', () => ({
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json',
                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
                 },
-                body: JSON.stringify({ email: this.email })
+                body: JSON.stringify({ email: this.email, website: this.website })
             });
 
             const data = await response.json();

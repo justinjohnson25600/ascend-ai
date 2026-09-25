@@ -1,303 +1,64 @@
-# CLAUDE.md - Ascend AI Project Instructions
+# CLAUDE.md - Ascend AI
 
-## Project Overview
+## What this is
 
-**Ascend AI** is a modern AI/technology company website built with Laravel 12.
+The brochure website for Ascend AI (ascend-ai.co.uk). A Laravel 12 monolith with eight public marketing pages, a contact form and a newsletter signup. There is no API and no product logic. Laravel Breeze provides login for a future admin area; public registration is disabled.
 
-### Vision & Purpose
-- [To be defined - awaiting specification documents]
+**Repositioning in progress (September 2026).** The site copy still describes an "AI venture studio". The company is repositioning as **Business Automation Solutions: AI automation platforms for small businesses**. Read `docs/REPOSITIONING-PLAN.md` before changing any copy. Do not invent claims, metrics or customers.
 
-### Target Users
-- [To be defined - awaiting specification documents]
+## Stack as it actually is
 
----
+| Layer | Actual |
+|-------|--------|
+| Framework | Laravel 12, PHP 8.4. `declare(strict_types=1)` on all new files |
+| Database | PostgreSQL in production. SQLite in-memory for tests |
+| Views | Blade components, Tailwind CSS 3.4, Alpine.js 3 |
+| Build | Vite 7. `public/build` is committed because production deploys by `git pull` |
+| Auth | Laravel Breeze (Blade). Register routes removed |
+| Tests | Pest 3 function style (`tests/Pest.php`) alongside Breeze's PHPUnit classes |
+| Formatter | Laravel Pint, default preset |
 
-## Technology Stack
+## Where things live
 
-| Layer | Technology | Version |
-|-------|------------|---------|
-| Framework | Laravel | 12.x |
-| Language | PHP | 8.4 |
-| Database | PostgreSQL | 18 |
-| Frontend | Blade + Tailwind CSS + Alpine.js | Latest |
-| Build Tool | Vite | Latest |
-| Authentication | Laravel Breeze | Latest |
+- `routes/web.php`: all public pages, the two POST endpoints (throttled 5 per minute per IP), dashboard and profile.
+- `app/Http/Controllers/PageController.php`: every page plus the contact and newsletter handlers. Deliberately one thin controller. There is no service layer; add one only when a second consumer of the logic appears.
+- `app/Http/Requests/`: a Form Request for every POST. `Concerns/DetectsHoneypot` provides `isSpam()`.
+- `app/Models/Contact.php` and `NewsletterSubscription.php`: the only custom tables.
+- `app/Mail/ContactFormMail.php`: sent synchronously to `config('ascend.contact_to')`. A send failure is logged and the visitor still sees success, because the row is already stored.
+- `config/ascend.php`: project settings (contact mailbox, seeded admin). Put new project config here.
+- `resources/views/components/`: `layout/` (app, header, footer), `sections/` (hero, cta), `ui/` (card, section-heading), `buttons/`, `forms/honeypot`.
+- `resources/views/pages/`: one Blade file per public page, wrapped in `<x-layout.app :title :description>`.
+- `resources/js/app.js`: Alpine bootstrap and the `newsletterForm` component. Page-specific Alpine lives in `@push('scripts')` inside that page.
+- `docs/`: the January 2026 content blueprint, technical spec and agent notes. They describe the old venture-studio positioning and are reference only.
 
----
+## Conventions in use
 
-## Architecture Decisions
+- A page is a route, a `PageController` method and `resources/views/pages/<slug>.blade.php`. The meta description is passed from the controller.
+- Forms post JSON with `fetch`, send `Accept: application/json`, and expect `{ success, message }`. Validation failures come back as 422 with Laravel's `message`.
+- Every public form includes `<x-forms.honeypot model="..." />` and its Alpine state has a `website: ''` field.
+- Dark theme only. Colours are the `navy` and `accent` scales in `tailwind.config.js`. No inline styles except background images.
+- British English in copy and comments (organisation, enquiry).
+- Tables are snake_case plural, models singular PascalCase, casts via the `casts()` method.
 
-### Project Structure
-```
-ascend-ai/
-├── app/
-│   ├── Http/
-│   │   ├── Controllers/
-│   │   ├── Middleware/
-│   │   └── Requests/
-│   ├── Models/
-│   ├── Services/
-│   ├── Actions/
-│   └── Traits/
-├── resources/
-│   ├── views/
-│   │   ├── components/      # Reusable Blade components
-│   │   ├── layouts/         # Base layouts
-│   │   └── pages/           # Page templates
-│   ├── css/
-│   └── js/
-├── routes/
-│   ├── web.php
-│   └── api.php
-└── database/
-    ├── migrations/
-    └── seeders/
-```
+## Commands
 
-### Service Layer Pattern
-- Business logic lives in `app/Services/`
-- Use Actions for single-purpose operations
-- Controllers remain thin, delegating to Services
-
-### Frontend Architecture
-- **Blade Components**: Reusable UI elements
-- **Alpine.js**: Lightweight interactivity (no heavy framework needed)
-- **Tailwind CSS**: Utility-first styling with AI-inspired theme
-- **Vite**: Fast asset building with HMR
-
----
-
-## Design System & Theme
-
-### AI/Tech Company Aesthetic (2026 Trends)
-
-#### Color Palette
-```css
-/* Primary - High Contrast Tech */
---ai-blue: #1e40af;        /* Trust, intelligence */
---neon-accent: #6366f1;    /* Innovation highlight */
---tech-black: #0f172a;     /* Sophisticated dark mode */
-
-/* Secondary - Organic Balance */
---ai-green: #10b981;       /* Natural counterbalance */
---ai-purple: #8b5cf6;      /* Creativity */
-
-/* Neutrals */
---gray-50: #f9fafb;
---gray-900: #111827;
-
-/* Semantic */
---success: #10b981;
---warning: #f59e0b;
---error: #ef4444;
---info: #3b82f6;
-```
-
-#### Typography
-- **Headings**: Inter or Plus Jakarta Sans (modern, clean)
-- **Body**: Inter (excellent readability)
-- **Code/Technical**: JetBrains Mono (monospace)
-
-```css
-font-family: 'Inter', system-ui, sans-serif;
-font-feature-settings: 'cv11', 'ss01';
-```
-
-#### Design Patterns
-1. **Dark Mode First** - 80% of AI companies use dark themes
-2. **Minimalist + Kinetic** - Clean layouts with animated elements
-3. **High Contrast** - Essential for accessibility on dark backgrounds
-4. **Glassmorphism** - Subtle transparency effects
-5. **Gradient Accents** - Neon/glowing highlights on CTAs
-
-#### Animation Principles
-- Purposeful micro-interactions
-- Smooth transitions (300-500ms)
-- Kinetic typography for headlines
-- Loading states for AI operations
-
----
-
-## Naming Conventions
-
-### Routes
-```php
-// Public pages
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/solutions', [SolutionsController::class, 'index'])->name('solutions');
-
-// API routes (if applicable)
-Route::prefix('api/v1')->group(function () {
-    Route::apiResource('contacts', ContactController::class);
-});
-```
-
-### Database
-- Tables: `snake_case` plural (e.g., `contact_submissions`, `newsletter_subscribers`)
-- Columns: `snake_case` (e.g., `created_at`, `is_published`)
-- Foreign keys: `{table}_id` (e.g., `user_id`)
-
-### Models
-- Singular PascalCase: `ContactSubmission`, `NewsletterSubscriber`
-- Use associated factories for testing
-
-### Blade Components
-- kebab-case: `<x-hero-section />`, `<x-feature-card />`
-- Slot naming: `heading`, `content`, `actions`
-
----
-
-## Coding Standards
-
-### PHP/Laravel
-- Follow PSR-12 coding standards
-- Use strict types: `declare(strict_types=1);`
-- Type hint all parameters and return values
-- Use Laravel's built-in features (Eloquent, Collections, Validation)
-
-### Form Requests
-```php
-class ContactRequest extends FormRequest
-{
-    public function rules(): array
-    {
-        return [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email'],
-            'message' => ['required', 'string', 'max:5000'],
-        ];
-    }
-}
-```
-
-### Services
-```php
-class ContactService
-{
-    public function __construct(
-        private readonly Mailer $mailer
-    ) {}
-
-    public function submitContact(array $data): void
-    {
-        // Business logic here
-        $submission = ContactSubmission::create($data);
-
-        $this->mailer->send(new ContactNotification($submission));
-    }
-}
-```
-
-### Frontend
-- Use Tailwind utility classes
-- Alpine.js for interactivity (data binding, events)
-- Create reusable Blade components
-- Ensure mobile responsiveness (mobile-first)
-- Follow accessibility guidelines (ARIA labels, keyboard navigation)
-
----
-
-## What NOT to Do (Critical Constraints)
-
-- ❌ DO NOT add features without explicit approval
-- ❌ DO NOT refactor existing code unless requested
-- ❌ DO NOT add logging/monitoring unless specified
-- ❌ DO NOT change authentication logic without review
-- ❌ DO NOT use heavy frontend frameworks (React/Vue) unless approved
-- ❌ DO NOT break dark mode compatibility
-- ❌ DO NOT ignore accessibility (WCAG 2.1 AA minimum)
-- ❌ DO NOT use inline styles - use Tailwind classes
-- ❌ DO NOT create components that aren't reusable
-- ❌ DO NOT skip testing for user-facing features
-
----
-
-## Development Workflow
-
-### Before Starting Work
-1. Check if feature already exists
-2. Verify the request matches project goals
-3. Plan component reusability
-4. Consider dark mode implications
-5. Think about mobile experience
-
-### Creating a New Page
 ```bash
-# 1. Create controller
-php artisan make:controller AboutController
-
-# 2. Create view
-touch resources/views/pages/about.blade.php
-
-# 3. Add route
-# Add to routes/web.php
-
-# 4. Create Blade components if needed
-touch resources/views/components/feature-card.blade.php
+composer dev            # serve, queue, logs and vite together
+php artisan test        # must be green before committing
+vendor/bin/pint         # format
+npm run build           # regenerate public/build; commit it with any view or CSS change
 ```
 
-### Testing
-```bash
-# Run tests
-php artisan test
+## Environment
 
-# Run specific test
-php artisan test --filter=ContactTest
+`CONTACT_EMAIL_TO` sets the enquiry mailbox. `ADMIN_EMAIL` and `ADMIN_PASSWORD` let `php artisan db:seed` create the first user; the seeder skips when they are missing and has no default credentials on purpose. See `.env.example`.
 
-# Run with coverage
-php artisan test --coverage
-```
+## Do not
 
-### Asset Building
-```bash
-# Development
-npm run dev
-
-# Production
-npm run build
-
-# Watch for changes
-npm run dev -- --watch
-```
-
----
-
-## AI-Specific Considerations
-
-### AI Operation UI Patterns
-- Always show loading states for AI operations
-- Provide progress feedback for long-running tasks
-- Handle errors gracefully with user-friendly messages
-- Implement rate limiting for AI endpoints (if applicable)
-
-### Performance
-- Lazy load AI components
-- Use queues for heavy operations
-- Implement caching where appropriate
-- Optimize images (WebP format)
-
-### Trust & Transparency
-- Include security badges
-- Showcase technical capabilities
-- Provide clear privacy policy
-- Display testimonials/social proof
-
----
-
-## Sources & References
-
-### Design Inspiration
-- [OpenAI](https://openai.com) - Minimalist, content-focused
-- [Anthropic](https://anthropic.com) - Professional, research-oriented
-- [Perplexity](https://perplexity.ai) - Bold, modern aesthetic
-
-### Documentation
-- [Laravel 12 Documentation](https://laravel.com/docs/12.x)
-- [Tailwind CSS](https://tailwindcss.com/docs)
-- [Alpine.js](https://alpinejs.dev/)
-
----
-
-*Last Updated: 19 January 2026*
-*Version: 1.0 - Initial Draft*
+- Re-add public registration, or any "temporary" script under `public/`.
+- Add packages for features that are not being built. Filament, Horizon, Pulse, Reverb, Inertia, Ziggy and Sanctum were removed for this reason.
+- Queue the contact mail unless a queue worker is confirmed running in production.
+- Add analytics or marketing cookies without a consent banner (UK PECR).
+- Write copy with metric claims (margins, timelines, customer counts) that the founder has not approved.
+- Change authentication or the legal pages without asking.
+- Refactor code you were not asked to touch.

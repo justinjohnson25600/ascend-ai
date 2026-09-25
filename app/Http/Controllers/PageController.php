@@ -4,17 +4,22 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactEnquiryRequest;
+use App\Http\Requests\NewsletterSubscribeRequest;
 use App\Mail\ContactFormMail;
 use App\Models\Contact;
 use App\Models\NewsletterSubscription;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Throwable;
 
 final class PageController extends Controller
 {
+    private const CONTACT_THANKS = 'Thank you for your enquiry. We will respond within 48 hours.';
+
     public function home(): View
     {
         return view('pages.home')
@@ -78,69 +83,72 @@ final class PageController extends Controller
             ->with('description', 'Your Ascend AI dashboard.');
     }
 
-    public function submitContact(Request $request): JsonResponse
+    public function submitContact(ContactEnquiryRequest $request): JsonResponse
     {
-        $validated = $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255'],
-            'organisation' => ['nullable', 'string', 'max:255'],
-            'enquiry_type' => ['required', 'in:investment,partnership,advisory,general'],
-            'message' => ['required', 'string', 'min:50', 'max:5000'],
-        ]);
+        if ($request->isSpam()) {
+            return $this->success(self::CONTACT_THANKS);
+        }
 
-        // Store in database
+        $validated = $request->validated();
+
         Contact::create($validated);
 
-        // Send email to admin
-        Mail::to('justin@ascend-ai.co.uk')
-            ->send(new ContactFormMail($validated));
+        // The enquiry is already safe in the database, so a mail outage must not
+        // turn into an error for the visitor. Log it and let them see success.
+        try {
+            Mail::to(config('ascend.contact_to'))
+                ->send(new ContactFormMail($validated));
+        } catch (Throwable $exception) {
+            Log::error('Contact enquiry notification failed to send.', [
+                'email' => $validated['email'],
+                'exception' => $exception,
+            ]);
+        }
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Thank you for your enquiry. We will respond within 48 hours.',
-        ]);
+        return $this->success(self::CONTACT_THANKS);
     }
 
-    public function subscribeNewsletter(Request $request): JsonResponse
+    public function subscribeNewsletter(NewsletterSubscribeRequest $request): JsonResponse
     {
-        $validated = $request->validate([
-            'email' => ['required', 'email', 'max:255'],
-        ]);
+        if ($request->isSpam()) {
+            return $this->success('Thank you for subscribing to our newsletter!');
+        }
 
-        // Check if email already exists
-        $existing = NewsletterSubscription::where('email', $validated['email'])->first();
+        $email = $request->validated('email');
+
+        $existing = NewsletterSubscription::where('email', $email)->first();
+
+        if ($existing?->is_active) {
+            return response()->json([
+                'success' => false,
+                'message' => 'You are already subscribed to our newsletter.',
+            ], 409);
+        }
 
         if ($existing) {
-            if ($existing->is_active) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'You are already subscribed to our newsletter.',
-                ], 409);
-            }
-
-            // Reactivate subscription
             $existing->update([
                 'is_active' => true,
                 'subscribed_at' => now(),
             ]);
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Welcome back! You have been resubscribed to our newsletter.',
-            ]);
+            return $this->success('Welcome back! You have been resubscribed to our newsletter.');
         }
 
-        // Create new subscription
         NewsletterSubscription::create([
-            'email' => $validated['email'],
+            'email' => $email,
             'is_active' => true,
             'subscribed_at' => now(),
             'unsubscribe_token' => Str::random(64),
         ]);
 
+        return $this->success('Thank you for subscribing to our newsletter!');
+    }
+
+    private function success(string $message): JsonResponse
+    {
         return response()->json([
             'success' => true,
-            'message' => 'Thank you for subscribing to our newsletter!',
+            'message' => $message,
         ]);
     }
 }
