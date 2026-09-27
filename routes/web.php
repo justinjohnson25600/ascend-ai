@@ -13,15 +13,19 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-// Ascend AI Pages
+// Public pages
 Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/solutions', [PageController::class, 'solutions'])->name('solutions');
+Route::get('/how-it-works', [PageController::class, 'howItWorks'])->name('how-it-works');
 Route::get('/about', [PageController::class, 'about'])->name('about');
-Route::get('/what-we-do', [PageController::class, 'whatWeDo'])->name('what-we-do');
-Route::get('/portfolio', [PageController::class, 'portfolio'])->name('portfolio');
-Route::get('/work-with-us', [PageController::class, 'workWithUs'])->name('work-with-us');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('/terms-and-conditions', [PageController::class, 'termsAndConditions'])->name('terms-and-conditions');
+
+// Permanent redirects from the venture-studio site map (September 2026 repositioning)
+Route::redirect('/what-we-do', '/solutions', 301);
+Route::redirect('/work-with-us', '/how-it-works', 301);
+Route::redirect('/portfolio', '/solutions', 301);
 
 // Public form endpoints (rate limited per IP)
 Route::post('/contact', [PageController::class, 'submitContact'])

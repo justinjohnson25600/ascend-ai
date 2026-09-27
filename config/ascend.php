@@ -17,6 +17,42 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Company Details
+    |--------------------------------------------------------------------------
+    |
+    | Used by the footer, the legal pages and the structured data in the layout.
+    |
+    */
+
+    'company' => [
+        'name' => 'Ascend AI',
+        'descriptor' => 'Business Automation Solutions',
+        'email' => 'contact@ascend-ai.co.uk',
+        'address' => [
+            'Matrix House',
+            '12-16 Lionel Road',
+            'Canvey Island',
+            'Essex',
+            'SS8 9DE',
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Social Profiles
+    |--------------------------------------------------------------------------
+    */
+
+    'social' => [
+        'linkedin' => 'https://linkedin.com/company/ascend-ai',
+        'youtube' => 'https://youtube.com/@ascend-ai',
+        'instagram' => 'https://instagram.com/ascend.ai',
+        'x' => 'https://x.com/ascend_ai',
+        'facebook' => 'https://facebook.com/ascend.ai',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Seeded Admin User
     |--------------------------------------------------------------------------
     |
