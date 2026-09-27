@@ -1,20 +1,19 @@
 @props([
     'slides' => [],      // each: eyebrow, title, body, points (optional list), ctaText, ctaUrl, secondaryCtaText, secondaryCtaUrl, note
-    'interval' => 8000,  // ms between automatic advances; paused on hover, focus and reduced-motion
+    'interval' => 6000,  // ms between automatic advances; paused while a control has keyboard focus, stopped once a visitor takes over
     'label' => 'Highlights',
 ])
 
 <section
     x-data="heroCarousel({{ count($slides) }}, {{ (int) $interval }})"
     x-init="start()"
-    @mouseenter="pause()"
-    @mouseleave="resume()"
-    @focusin="pause()"
-    @focusout="resume()"
-    @keydown.left.prevent="previous()"
-    @keydown.right.prevent="next()"
+    @focusin="paused = true"
+    @focusout="paused = false"
+    @keydown.left.prevent="previous(); stop()"
+    @keydown.right.prevent="next(); stop()"
     @touchstart.passive="touchStart($event)"
     @touchend.passive="touchEnd($event)"
+    @visibilitychange.document="hidden = document.hidden"
     class="bg-navy-950 hero-bleed flex items-center justify-center py-20 relative overflow-hidden"
     style="min-height:45vh;"
     role="region"
@@ -29,8 +28,8 @@
             <div class="grid" aria-live="polite">
                 @foreach ($slides as $i => $slide)
                     <div
-                        class="col-start-1 row-start-1 transition-opacity duration-700 ease-out"
-                        :class="active === {{ $i }} ? 'opacity-100' : 'opacity-0 pointer-events-none'"
+                        class="col-start-1 row-start-1 transition-all duration-700 ease-out motion-reduce:transition-none"
+                        :class="active === {{ $i }} ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'"
                         :aria-hidden="active !== {{ $i }}"
                         :inert="active !== {{ $i }}"
                         role="group"
@@ -38,7 +37,7 @@
                         aria-label="{{ $i + 1 }} of {{ count($slides) }}"
                     >
                         @if (!empty($slide['eyebrow']))
-                            <p class="text-sm uppercase tracking-[0.2em] text-accent-400 mb-5">{{ $slide['eyebrow'] }}</p>
+                            <p class="text-sm uppercase tracking-widest text-accent-400 mb-5">{{ $slide['eyebrow'] }}</p>
                         @endif
 
                         @if ($i === 0)
@@ -81,7 +80,7 @@
 
             {{-- Controls --}}
             <div class="mt-12 flex items-center justify-center gap-6">
-                <button type="button" @click="previous(); pause()" class="p-2 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors" aria-label="Previous slide">
+                <button type="button" @click="previous(); stop()" class="p-2 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors" aria-label="Previous slide">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
 
@@ -89,16 +88,24 @@
                     @foreach ($slides as $i => $slide)
                         <button
                             type="button"
-                            @click="go({{ $i }}); pause()"
-                            class="h-2 rounded-full transition-all duration-300"
-                            :class="active === {{ $i }} ? 'w-8 bg-accent-400' : 'w-2 bg-white/30 hover:bg-white/60'"
+                            @click="go({{ $i }}); stop()"
+                            class="relative h-2 rounded-full overflow-hidden transition-all duration-300"
+                            :class="active === {{ $i }} ? 'w-10 bg-white/30' : 'w-2 bg-white/30 hover:bg-white/60'"
                             :aria-current="active === {{ $i }} ? 'true' : 'false'"
                             aria-label="Go to slide {{ $i + 1 }}: {{ $slide['eyebrow'] ?? $slide['title'] }}"
-                        ></button>
+                        >
+                            {{-- Progress fill shows time until the next slide --}}
+                            <span
+                                class="absolute inset-y-0 left-0 bg-accent-400 rounded-full"
+                                :class="active === {{ $i }} && running ? 'carousel-progress' : ''"
+                                :style="active === {{ $i }} ? (running ? `animation-duration: ${interval}ms` : 'width: 100%') : 'width: 0'"
+                                aria-hidden="true"
+                            ></span>
+                        </button>
                     @endforeach
                 </div>
 
-                <button type="button" @click="next(); pause()" class="p-2 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors" aria-label="Next slide">
+                <button type="button" @click="next(); stop()" class="p-2 rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors" aria-label="Next slide">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
@@ -108,6 +115,11 @@
 
 @once
     @push('scripts')
+    <style>
+        @keyframes carousel-progress { from { width: 0; } to { width: 100%; } }
+        .carousel-progress { animation-name: carousel-progress; animation-timing-function: linear; animation-fill-mode: forwards; }
+        @media (prefers-reduced-motion: reduce) { .carousel-progress { animation: none; width: 100%; } }
+    </style>
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('heroCarousel', (count, interval) => ({
@@ -115,16 +127,21 @@
                 count,
                 interval,
                 timer: null,
-                paused: false,
+                paused: false,   // a control has keyboard focus
+                stopped: false,  // the visitor took over; auto-advance stays off
+                hidden: false,   // the tab is in the background
                 touchX: null,
-                reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+
+                get running() { return this.timer !== null && !this.paused && !this.stopped && !this.hidden; },
 
                 start() {
-                    if (this.reducedMotion || this.count < 2) return;
-                    this.timer = setInterval(() => { if (!this.paused) this.next(); }, this.interval);
+                    if (this.count < 2) return;
+                    this.timer = setInterval(() => { if (this.running) this.next(); }, this.interval);
                 },
-                pause() { this.paused = true; },
-                resume() { this.paused = false; },
+                stop() {
+                    this.stopped = true;
+                    if (this.timer !== null) { clearInterval(this.timer); this.timer = null; }
+                },
                 go(i) { this.active = (i + this.count) % this.count; },
                 next() { this.go(this.active + 1); },
                 previous() { this.go(this.active - 1); },
@@ -132,7 +149,7 @@
                 touchEnd(e) {
                     if (this.touchX === null) return;
                     const delta = e.changedTouches[0].clientX - this.touchX;
-                    if (Math.abs(delta) > 50) { delta < 0 ? this.next() : this.previous(); this.pause(); }
+                    if (Math.abs(delta) > 50) { delta < 0 ? this.next() : this.previous(); this.stop(); }
                     this.touchX = null;
                 },
             }));
