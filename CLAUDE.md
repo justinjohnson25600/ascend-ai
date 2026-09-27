@@ -4,7 +4,7 @@
 
 The brochure website for Ascend AI (ascend-ai.co.uk). A Laravel 12 monolith with eight public marketing pages, a contact form and a newsletter signup. There is no API and no product logic. Laravel Breeze provides login for a future admin area; public registration is disabled.
 
-**Repositioning in progress (September 2026).** The site copy still describes an "AI venture studio". The company is repositioning as **Business Automation Solutions: AI automation platforms for small businesses**. Read `docs/REPOSITIONING-PLAN.md` before changing any copy. Do not invent claims, metrics or customers.
+**Positioning (since September 2026): Business Automation Solutions.** Bespoke AI automation for UK owner-run small businesses. The copy on every page comes from `docs/CONTENT_BLUEPRINT_V2.md`; change the blueprint first, then the Blade. Do not invent claims, metrics or customers. Phase 2 items (examples page, imagery, analytics with consent, newsletter double opt-in) are listed in `docs/REPOSITIONING-PLAN.md`.
 
 ## Stack as it actually is
 
@@ -20,13 +20,15 @@ The brochure website for Ascend AI (ascend-ai.co.uk). A Laravel 12 monolith with
 
 ## Where things live
 
-- `routes/web.php`: all public pages, the two POST endpoints (throttled 5 per minute per IP), dashboard and profile.
+- `routes/web.php`: all public pages, 301 redirects from the old venture-studio URLs, the two POST endpoints (throttled 5 per minute per IP), dashboard and profile.
+- `app/Enums/EnquiryType.php`: the contact form's enquiry types and their labels. The form select, validation, the Mailable subject and the email template all read from it. Add a case here, nowhere else.
 - `app/Http/Controllers/PageController.php`: every page plus the contact and newsletter handlers. Deliberately one thin controller. There is no service layer; add one only when a second consumer of the logic appears.
 - `app/Http/Requests/`: a Form Request for every POST. `Concerns/DetectsHoneypot` provides `isSpam()`.
 - `app/Models/Contact.php` and `NewsletterSubscription.php`: the only custom tables.
 - `app/Mail/ContactFormMail.php`: sent synchronously to `config('ascend.contact_to')`. A send failure is logged and the visitor still sees success, because the row is already stored.
-- `config/ascend.php`: project settings (contact mailbox, seeded admin). Put new project config here.
-- `resources/views/components/`: `layout/` (app, header, footer), `sections/` (hero, cta), `ui/` (card, section-heading), `buttons/`, `forms/honeypot`.
+- `config/ascend.php`: project settings (contact mailbox, company name and registered address, social profile URLs, seeded admin). Put new project config here. The footer, legal pages and JSON-LD all read from it.
+- `resources/views/components/`: `layout/` (app, header, footer), `sections/` (hero, cta), `ui/` (card, section-heading, social-links), `buttons/`, `forms/honeypot`.
+- `resources/views/errors/404.blade.php`: the branded not-found page.
 - `resources/views/pages/`: one Blade file per public page, wrapped in `<x-layout.app :title :description>`.
 - `resources/js/app.js`: Alpine bootstrap and the `newsletterForm` component. Page-specific Alpine lives in `@push('scripts')` inside that page.
 - `docs/`: the January 2026 content blueprint, technical spec and agent notes. They describe the old venture-studio positioning and are reference only.
@@ -39,6 +41,8 @@ The brochure website for Ascend AI (ascend-ai.co.uk). A Laravel 12 monolith with
 - Dark theme only. Colours are the `navy` and `accent` scales in `tailwind.config.js`. No inline styles except background images.
 - British English in copy and comments (organisation, enquiry).
 - Tables are snake_case plural, models singular PascalCase, casts via the `casts()` method.
+- Every audit call to action links to `route('contact', ['type' => 'audit'])`, which preselects the enquiry type.
+- Blade gotcha: never mix the one-line `@php(...)` form with a `@php ... @endphp` block in the same file. Blade pairs the first `@php` with the first `@endphp` and swallows everything between them. Use the block form for both.
 
 ## Commands
 

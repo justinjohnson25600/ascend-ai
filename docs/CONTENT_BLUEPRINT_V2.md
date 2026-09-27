@@ -1,6 +1,6 @@
 # Ascend AI Content Blueprint v2
 
-Status: DRAFT for approval. Nothing here is in Blade yet.
+Status: APPROVED 27 September 2026 and implemented. Section 11 decisions: 1 one working day, 2 minimum 20, 3 founder bio included (to be honed), 4 all social links kept, 5 registered address on legal pages, 6 labels as listed, 7 monthly.
 Date: 26 September 2026
 Domain: ascend-ai.co.uk
 Supersedes: `ASCEND_AI_CONTENT_BLUEPRINT.md` (January 2026, venture-studio positioning)
