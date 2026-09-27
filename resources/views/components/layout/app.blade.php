@@ -6,44 +6,64 @@
     'noIndex' => false,
     'bodyClass' => '',
 ])
+@php
+    $company = config('ascend.company');
+    $defaultDescription = 'Ascend AI builds AI automation around the way your small business already works. Delivered in stages, kept running by us.';
+    $description ??= $defaultDescription;
+    $structuredData = [
+        '@context' => 'https://schema.org',
+        '@type' => 'ProfessionalService',
+        'name' => $company['name'],
+        'description' => $defaultDescription,
+        'serviceType' => 'Business process automation',
+        'areaServed' => 'GB',
+        'url' => url('/'),
+        'logo' => asset('images/ascend-logo.webp'),
+        'email' => $company['email'],
+        'address' => [
+            '@type' => 'PostalAddress',
+            'streetAddress' => $company['address'][0].', '.$company['address'][1],
+            'addressLocality' => $company['address'][2],
+            'addressRegion' => $company['address'][3],
+            'postalCode' => $company['address'][4],
+            'addressCountry' => 'GB',
+        ],
+        'sameAs' => array_values(config('ascend.social')),
+    ];
+@endphp
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en-GB" class="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- Title --}}
-    <title>{{ $title ? "$title - " : "" }}Ascend AI</title>
+    <title>{{ $title ? "$title | " : "" }}Ascend AI</title>
 
-    {{-- SEO Meta Tags --}}
-    <meta name="description" content="{{ $description ?? 'Ascend AI builds SaaS companies from the ground up around artificial intelligence. Unbeatable economics. Infinite scalability. Margins that legacy competitors cannot match.' }}">
-    <meta name="keywords" content="AI, artificial intelligence, SaaS, venture builder, startup, AI companies, business intelligence, enterprise AI">
+    <meta name="description" content="{{ $description }}">
     <meta name="author" content="Ascend AI">
 
     @if ($noIndex)
         <meta name="robots" content="noindex, nofollow">
     @else
         <meta name="robots" content="index, follow">
-        <meta name="googlebot" content="index, follow">
     @endif
 
-    {{-- Open Graph / Facebook --}}
-    <meta property="og:type" content="{{ $ogType ?? 'website' }}">
+    {{-- Open Graph --}}
+    <meta property="og:type" content="{{ $ogType }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $title ?? 'Ascend AI' }}">
-    <meta property="og:description" content="{{ $description ?? 'Ascend AI builds SaaS companies from the ground up around artificial intelligence.' }}">
+    <meta property="og:description" content="{{ $description }}">
     <meta property="og:image" content="{{ $ogImage ?? asset('images/ascend-logo.webp') }}">
     <meta property="og:site_name" content="Ascend AI">
+    <meta property="og:locale" content="en_GB">
 
     {{-- Twitter Card --}}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{{ url()->current() }}">
     <meta name="twitter:title" content="{{ $title ?? 'Ascend AI' }}">
-    <meta name="twitter:description" content="{{ $description ?? 'Ascend AI builds SaaS companies from the ground up around artificial intelligence.' }}">
+    <meta name="twitter:description" content="{{ $description }}">
     <meta name="twitter:image" content="{{ $ogImage ?? asset('images/ascend-logo.webp') }}">
 
-    {{-- Canonical URL --}}
     <link rel="canonical" href="{{ url()->current() }}">
 
     {{-- Favicon --}}
@@ -58,57 +78,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    {{-- JSON-LD Structured Data --}}
-    <script type="application/ld+json">
-    {
-        "@@context": "https://schema.org",
-        "@@type": "Organization",
-        "name": "Ascend AI",
-        "description": "Ascend AI builds SaaS companies from the ground up around artificial intelligence.",
-        "url": "{{ url('/') }}",
-        "logo": "{{ asset('images/ascend-logo.webp') }}",
-        "sameAs": [
-            "https://linkedin.com/company/ascend-ai",
-            "https://youtube.com/@ascend-ai",
-            "https://instagram.com/ascend.ai",
-            "https://x.com/ascend_ai",
-            "https://facebook.com/ascend.ai"
-        ],
-        "contactPoint": {
-            "@@type": "ContactPoint",
-            "email": "contact@ascend-ai.co.uk",
-            "contactType": "customer service"
-        }
-    }
-    </script>
+    {{-- Structured data --}}
+    <script type="application/ld+json">{!! json_encode($structuredData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="{{ trim('bg-navy-950 text-white font-sans antialiased ' . $bodyClass) }}">
-    {{-- Header --}}
     <x-layout.header />
 
-    {{-- Main Content --}}
     <main class="pt-20">
         {{ $slot }}
     </main>
 
-    {{-- Footer --}}
     <x-layout.footer />
 
-    {{-- Scripts Stack --}}
     @stack('scripts')
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const video = document.querySelector('.section-droid-video');
-            if (!video) return;
-
-            const hidePoster = () => {
-                video.removeAttribute('poster');
-            };
-
-            video.addEventListener('playing', hidePoster, { once: true });
+            document.querySelectorAll('.section-droid-video').forEach((video) => {
+                video.addEventListener('playing', () => video.removeAttribute('poster'), { once: true });
+            });
         });
     </script>
 </body>

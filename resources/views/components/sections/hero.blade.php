@@ -5,6 +5,7 @@
     'ctaUrl' => '/contact',
     'secondaryCtaText' => null,
     'secondaryCtaUrl' => null,
+    'note' => null,
     'background' => 'bg-navy-950',
     'fullHeight' => false,
 ])
@@ -111,6 +112,10 @@
                         </a>
                     @endif
                 </div>
+            @endif
+
+            @if($note)
+                <p class="mt-6 text-sm text-gray-400">{{ $note }}</p>
             @endif
         </div>
     </div>
