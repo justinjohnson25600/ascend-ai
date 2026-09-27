@@ -48,6 +48,7 @@
             </div>
 
             <p class="text-center mt-16 text-2xl md:text-3xl font-bold gradient-text reveal-up">None of this needs a bigger team. It needs the repetitive parts done for you.</p>
+            <p class="text-center mt-6 text-gray-400 reveal-up">New to all this? <a href="{{ route('what-is-business-automation') }}" class="text-accent-400 hover:text-accent-300">Start with what business automation actually is</a>.</p>
         </div>
     </section>
 

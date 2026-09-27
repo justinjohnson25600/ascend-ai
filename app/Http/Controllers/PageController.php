@@ -29,6 +29,13 @@ final class PageController extends Controller
             ->with('description', 'Ascend AI builds AI automation around the way your small business already works. Enquiries, quotes, scheduling, admin. Delivered in stages and kept running. Book a free automation audit.');
     }
 
+    public function whatIsBusinessAutomation(): View
+    {
+        return view('pages.what-is-business-automation')
+            ->with('title', 'What Is Business Automation? A Plain-English Guide')
+            ->with('description', 'Business automation explained without jargon: what it is, what it looks like in a normal week for a small business, what it is not, and how to tell if it would help you.');
+    }
+
     public function solutions(): View
     {
         return view('pages.solutions')

@@ -52,3 +52,15 @@ test('the contact form defaults to the audit enquiry type', function () {
 test('the legal pages carry the registered address', function (string $path) {
     $this->get($path)->assertOk()->assertSee('Matrix House');
 })->with(['/privacy-policy', '/terms-and-conditions']);
+
+test('the what is business automation page is served and linked from the menu', function () {
+    $this->get('/what-is-business-automation')->assertOk()
+        ->assertSee('What is business automation?')
+        ->assertSee('What if your emails answered themselves');
+
+    $this->get('/')->assertSee('What is Business Automation?');
+});
+
+test('the sitemap lists the explainer page', function () {
+    $this->get('/sitemap.xml')->assertSee(url('/what-is-business-automation'));
+});

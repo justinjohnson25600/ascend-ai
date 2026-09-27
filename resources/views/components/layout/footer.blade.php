@@ -46,6 +46,7 @@
                 <h3 class="text-white font-semibold mb-4">Site</h3>
                 <ul class="space-y-2">
                     <li><a href="{{ route('home') }}" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
+                    <li><a href="{{ route('what-is-business-automation') }}" class="text-gray-400 hover:text-white transition-colors text-sm">What is Business Automation?</a></li>
                     <li><a href="{{ route('solutions') }}" class="text-gray-400 hover:text-white transition-colors text-sm">Solutions</a></li>
                     <li><a href="{{ route('how-it-works') }}" class="text-gray-400 hover:text-white transition-colors text-sm">How It Works</a></li>
                     <li><a href="{{ route('about') }}" class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>

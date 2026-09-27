@@ -503,3 +503,25 @@ Logo, then: Solutions, How It Works, About. Button: **Book a free audit** (links
 7. **Newsletter frequency.** Copy promises one email a month. Confirm or change.
 
 Answer these and the next step is code: routes and redirects, the enquiry-type migration, the form, then each page from this document.
+
+---
+
+## Addendum, 27 September 2026: What is Business Automation? (`/what-is-business-automation`)
+
+Added at Justin's request. Most of the target audience does not know business automation exists, so a page that assumes nothing goes first in the menu.
+
+**Nav label:** What is Business Automation? (first item, before Solutions)
+**Meta title:** What Is Business Automation? A Plain-English Guide
+**Meta description:** Business automation explained without jargon: what it is, what it looks like in a normal week for a small business, what it is not, and how to tell if it would help you.
+
+Sections, in order:
+
+1. **Hero.** "What is business automation?" / "A plain answer, for people who have never had a reason to ask."
+2. **The short answer.** Software doing the repetitive, pattern-following parts of the business the way a good assistant would. Why it is now practical for a three-person business: AI can read and understand, not just move data.
+3. **You don't know what you don't know.** The evenings on email and the drawer of receipts feel like what running a business is. They are the part that can be handed off.
+4. **What it looks like in a normal week.** Six "what if" cards: emails answered with the important ones texted to you; website chat doing the same; receipts photographed or forwarded, entered into the accounts, matched to the bank, gaps flagged; missed calls texted back within a minute; quotes chasing themselves; tomorrow's appointments confirming themselves. Close: "That list is a typical first stage."
+5. **What it is not.** Not a robot replacing staff, not another app, not a big IT project, not something that makes things up to customers.
+6. **How to tell if this is for you.** Six honest signs. "If two of those are you, the audit is worth thirty minutes."
+7. **CTA.** Book a free automation audit.
+
+Home page gains one line under the problem section pointing here. Footer site list gains the link. Sitemap priority 0.9.

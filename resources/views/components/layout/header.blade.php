@@ -1,5 +1,6 @@
 @php
     $links = [
+        ['route' => 'what-is-business-automation', 'label' => 'What is Business Automation?'],
         ['route' => 'solutions', 'label' => 'Solutions'],
         ['route' => 'how-it-works', 'label' => 'How It Works'],
         ['route' => 'about', 'label' => 'About'],
