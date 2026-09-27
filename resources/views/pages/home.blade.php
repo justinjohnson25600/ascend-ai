@@ -1,16 +1,78 @@
-@php $auditUrl = route('contact', ['type' => 'audit']); @endphp
+@php
+    $auditUrl = route('contact', ['type' => 'audit']);
+    $solutions = fn (string $anchor) => route('solutions').'#'.$anchor;
+
+    $slides = [
+        [
+            'eyebrow' => 'What is business automation?',
+            'title' => 'Run your business on autopilot, not overtime.',
+            'body' => 'Business automation is AI quietly taking the repetitive, time-consuming jobs off your plate. Reading and answering email. Chasing quotes. Filing receipts. Booking customers in and reminding them to turn up. It works in your words and by your rules, around the clock, for a fraction of the cost of another pair of hands. You get the hours back for the work only you can do.',
+            'points' => ['Built around your business, not a template', 'Works with the software you already use', 'Live in weeks, not months', 'Yours to keep'],
+            'ctaText' => 'Book a free automation audit',
+            'ctaUrl' => $auditUrl,
+            'secondaryCtaText' => 'Read the plain-English guide',
+            'secondaryCtaUrl' => route('what-is-business-automation'),
+            'note' => '30 minutes. No obligation. You leave with a written list of what could be automated in your business.',
+        ],
+        [
+            'eyebrow' => 'What we automate',
+            'title' => 'Every enquiry answered in minutes, not days.',
+            'body' => 'Website, email, socials, voicemail. Each one gets a proper reply in your voice, gets qualified, and gets followed up until it is a booking or a polite no. The ones that matter reach you by text. You see everything and step in whenever you like.',
+            'ctaText' => 'See how',
+            'ctaUrl' => $solutions('enquiries'),
+            'secondaryCtaText' => 'Book a free audit',
+            'secondaryCtaUrl' => $auditUrl,
+        ],
+        [
+            'eyebrow' => 'What we automate',
+            'title' => 'Quotes sent the same day and chased until they are answered.',
+            'body' => 'Drafted from your own price list, sent for your nod or straight to the customer, then nudged politely on a schedule you set. When the job is done, the invoice goes out and gets chased too, inside the accounts software you already use.',
+            'ctaText' => 'See how',
+            'ctaUrl' => $solutions('quotes'),
+            'secondaryCtaText' => 'Book a free audit',
+            'secondaryCtaUrl' => $auditUrl,
+        ],
+        [
+            'eyebrow' => 'What we automate',
+            'title' => 'A diary that fills itself and reminds people to turn up.',
+            'body' => 'Customers book, move and cancel within the rules you set. Confirmations and reminders go out by text. Your diary, your staff and your job list stay in step, and no-shows are followed up without anyone remembering to do it.',
+            'ctaText' => 'See how',
+            'ctaUrl' => $solutions('scheduling'),
+            'secondaryCtaText' => 'Book a free audit',
+            'secondaryCtaUrl' => $auditUrl,
+        ],
+        [
+            'eyebrow' => 'What we automate',
+            'title' => 'The twenty questions you answer every week, answered for you.',
+            'body' => 'On your website, by email or by message, day and night. It answers only from your own information, your prices, your hours, your policies, and hands anything it cannot answer to a person with the conversation attached.',
+            'ctaText' => 'See how',
+            'ctaUrl' => $solutions('questions'),
+            'secondaryCtaText' => 'Book a free audit',
+            'secondaryCtaUrl' => $auditUrl,
+        ],
+        [
+            'eyebrow' => 'What we automate',
+            'title' => 'Type it once. It lands everywhere it needs to be.',
+            'body' => 'A form, an email, a photo of a receipt or a call note is read, checked and pushed into every system that needs it. Accounts, job sheets, compliance records, supplier orders. Anything that does not add up is flagged to you, not found by your accountant in January.',
+            'ctaText' => 'See how',
+            'ctaUrl' => $solutions('paperwork'),
+            'secondaryCtaText' => 'Book a free audit',
+            'secondaryCtaUrl' => $auditUrl,
+        ],
+        [
+            'eyebrow' => 'What we automate',
+            'title' => 'Monday morning numbers, without building the spreadsheet.',
+            'body' => 'The handful of figures you actually run the business on, pulled from your systems and sent to you on the schedule you choose. Jobs booked, quotes outstanding, cash due, hours by person. You decide what to do about them.',
+            'ctaText' => 'See how',
+            'ctaUrl' => $solutions('reporting'),
+            'secondaryCtaText' => 'Book a free audit',
+            'secondaryCtaUrl' => $auditUrl,
+        ],
+    ];
+@endphp
 <x-layout.app :title="$title" :description="$description">
-    {{-- Hero --}}
-    <x-sections.hero
-        title="Run your business on autopilot, not overtime."
-        subtitle="Ascend AI builds AI automation for small businesses. Not off-the-shelf software you have to fit around. Systems built for the way you already work, that take the repetitive jobs off your desk and keep running while you get on with the business."
-        ctaText="Book a free automation audit"
-        :ctaUrl="$auditUrl"
-        secondaryCtaText="See what we automate"
-        :secondaryCtaUrl="route('solutions')"
-        note="30 minutes. No obligation. You leave with a written list of what could be automated in your business."
-        :fullHeight="true"
-    />
+    {{-- Hero carousel: slide 1 explains business automation, slides 2 to 7 are what we automate --}}
+    <x-sections.hero-carousel :slides="$slides" label="What Ascend AI does" />
 
     {{-- The problem --}}
     <section class="bg-navy-900 py-20 lg:py-32 section-droid-bg relative overflow-hidden">

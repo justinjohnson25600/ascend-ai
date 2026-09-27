@@ -64,3 +64,11 @@ test('the what is business automation page is served and linked from the menu', 
 test('the sitemap lists the explainer page', function () {
     $this->get('/sitemap.xml')->assertSee(url('/what-is-business-automation'));
 });
+
+test('the home hero is a carousel that opens on what business automation is', function () {
+    $this->get('/')->assertOk()
+        ->assertSee('aria-roledescription="carousel"', false)
+        ->assertSee('What is business automation?')
+        ->assertSee('Run your business on autopilot, not overtime.')
+        ->assertSee('Every enquiry answered in minutes, not days.');
+});

@@ -525,3 +525,10 @@ Sections, in order:
 7. **CTA.** Book a free automation audit.
 
 Home page gains one line under the problem section pointing here. Footer site list gains the link. Sitemap priority 0.9.
+
+## Addendum, 27 September 2026: home hero becomes a carousel
+
+Seven slides, auto-advancing every 8 seconds, paused on hover, focus and for visitors who prefer reduced motion. Arrows, dots, keyboard and swipe all work.
+
+1. **What is business automation?** (eyebrow) / "Run your business on autopilot, not overtime." / "Business automation is AI quietly taking the repetitive, time-consuming jobs off your plate. Reading and answering email. Chasing quotes. Filing receipts. Booking customers in and reminding them to turn up. It works in your words and by your rules, around the clock, for a fraction of the cost of another pair of hands. You get the hours back for the work only you can do." Four USP points: built around your business, works with the software you already use, live in weeks, yours to keep. CTAs: audit, plain-English guide.
+2. to 7. **What we automate** (eyebrow), one per area, each linking to its section on Solutions: "Every enquiry answered in minutes, not days." / "Quotes sent the same day and chased until they are answered." / "A diary that fills itself and reminds people to turn up." / "The twenty questions you answer every week, answered for you." / "Type it once. It lands everywhere it needs to be." / "Monday morning numbers, without building the spreadsheet."
