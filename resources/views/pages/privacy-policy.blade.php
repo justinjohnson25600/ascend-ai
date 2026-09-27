@@ -1,368 +1,177 @@
+@php
+    $company = config('ascend.company');
+    $address = implode(', ', $company['address']);
+    $sections = [
+        ['who-we-are', '1. Who we are'],
+        ['scope', '2. What this policy covers'],
+        ['information', '3. Information we collect'],
+        ['use', '4. How we use it and why we are allowed to'],
+        ['client-data', '5. Client data we process on your behalf'],
+        ['sharing', '6. Who we share information with'],
+        ['transfers', '7. International transfers'],
+        ['retention', '8. How long we keep information'],
+        ['security', '9. Security'],
+        ['rights', '10. Your rights'],
+        ['cookies', '11. Cookies'],
+        ['children', '12. Children'],
+        ['changes', '13. Changes to this policy'],
+        ['complaints', '14. Complaints and contact'],
+    ];
+@endphp
 <x-layout.app :title="$title" :description="$description">
-    {{-- Hero Section --}}
-    <section class="bg-navy-950 py-20 relative overflow-hidden">
-        {{-- Background gradient effect --}}
-        <div class="absolute inset-0 bg-gradient-to-br from-accent-500/10 via-transparent to-purple-500/10 pointer-events-none"></div>
-        <div class="hero-circuit" aria-hidden="true">
-            <svg viewBox="0 0 1200 600" preserveAspectRatio="none">
-                <g class="circuit-lines">
-                    <path d="M40 60 H260 V140 H420 V110 H620 V220 H840" />
-                    <path class="alt" d="M80 520 H320 V430 H520 V500 H760 V380 H1020" />
-                    <path d="M200 40 V240 H140 V320 H420 V280 H660 V90 H980" />
-                    <path class="alt" d="M60 300 H240 V230 H380 V330 H560 V210 H740" />
-                    <path d="M700 60 V220 H900 V300 H1120" />
-                    <path class="alt" d="M500 360 V520 H740 V460 H940" />
-                    <path d="M120 120 H320 V200 H520 V160 H720 V260 H960" />
-                    <path class="alt" d="M180 480 H380 V380 H600 V440 H820 V320 H1080" />
-                    <path d="M260 100 V280 H220 V360 H500 V320 H740 V120 H1060" />
-                    <path class="alt" d="M100 260 H300 V200 H460 V300 H640 V180 H820" />
-                    <path d="M760 120 V260 H980 V340 H1160" />
-                    <path class="alt" d="M560 320 V500 H800 V420 H1020" />
-                    <path d="M300 80 H520 V180 H700 V140 H900 V240 H1100" />
-                    <path class="alt" d="M140 340 H360 V260 H540 V360 H720 V240 H900" />
-                    <path d="M420 60 V240 H360 V320 H600 V280 H860 V100 H1140" />
-                    <path class="alt" d="M220 540 H440 V460 H640 V520 H880 V400 H1120" />
-                </g>
-                <g class="circuit-nodes">
-                    <circle cx="280" cy="170" r="2" />
-                    <circle cx="420" cy="120" r="2" />
-                    <circle cx="610" cy="240" r="2" />
-                    <circle cx="340" cy="420" r="2" />
-                    <circle cx="520" cy="500" r="2" />
-                    <circle cx="740" cy="380" r="2" />
-                    <circle cx="160" cy="340" r="2" />
-                    <circle cx="440" cy="300" r="2" />
-                    <circle cx="640" cy="110" r="2" />
-                    <circle cx="260" cy="240" r="2" />
-                    <circle cx="360" cy="340" r="2" />
-                    <circle cx="520" cy="220" r="2" />
-                    <circle cx="930" cy="320" r="2" />
-                    <circle cx="720" cy="460" r="2" />
-                    <circle cx="320" cy="200" r="2" />
-                    <circle cx="520" cy="160" r="2" />
-                    <circle cx="720" cy="260" r="2" />
-                    <circle cx="380" cy="380" r="2" />
-                    <circle cx="600" cy="440" r="2" />
-                    <circle cx="820" cy="320" r="2" />
-                    <circle cx="220" cy="360" r="2" />
-                    <circle cx="500" cy="320" r="2" />
-                    <circle cx="740" cy="120" r="2" />
-                    <circle cx="300" cy="200" r="2" />
-                    <circle cx="460" cy="300" r="2" />
-                    <circle cx="640" cy="180" r="2" />
-                    <circle cx="980" cy="340" r="2" />
-                    <circle cx="800" cy="420" r="2" />
-                    <circle cx="700" cy="140" r="2" />
-                    <circle cx="900" cy="240" r="2" />
-                    <circle cx="360" cy="320" r="2" />
-                    <circle cx="600" cy="280" r="2" />
-                    <circle cx="860" cy="100" r="2" />
-                    <circle cx="440" cy="460" r="2" />
-                    <circle cx="640" cy="520" r="2" />
-                    <circle cx="880" cy="400" r="2" />
-                </g>
-                <g class="circuit-pulses">
-                    <path class="pulse pulse-1" d="M40 60 H260 V140 H420 V110 H620 V220 H840" />
-                    <path class="pulse pulse-2" d="M80 520 H320 V430 H520 V500 H760 V380 H1020" />
-                    <path class="pulse pulse-3" d="M200 40 V240 H140 V320 H420 V280 H666 V90 H980" />
-                    <path class="pulse pulse-4" d="M500 360 V520 H740 V460 H940" />
-                    <path class="pulse pulse-5" d="M120 120 H320 V200 H520 V160 H720 V260 H960" />
-                    <path class="pulse pulse-6" d="M180 480 H380 V380 H600 V440 H820 V320 H1080" />
-                    <path class="pulse pulse-7" d="M300 80 H520 V180 H700 V140 H900 V240 H1100" />
-                    <path class="pulse pulse-8" d="M140 340 H360 V260 H540 V360 H720 V240 H900" />
-                </g>
-            </svg>
-        </div>
+    <x-sections.hero
+        title="Privacy Policy"
+        subtitle="How Ascend AI collects, uses and protects personal information, whether you visit this site, send an enquiry, join the newsletter, or become a client."
+        :ctaText="null"
+        :fullHeight="false"
+    />
 
-        <div class="container relative z-10">
-            <div class="max-w-3xl mx-auto text-center">
-                <p class="text-sm text-accent-400 mb-4">Last Updated: January 2026 | Version: 1.0</p>
-                <h1 class="text-display-md md:text-display-lg font-bold text-white mb-6">Privacy Policy</h1>
-                <p class="text-gray-400 mb-8">Ascend AI builds SaaS companies from the ground up around artificial intelligence. We are committed to protecting your personal information and handling your data responsibly in accordance with UK data protection laws.</p>
-            </div>
-        </div>
-    </section>
-
-    {{-- Main Content --}}
     <section class="bg-navy-900 py-16">
         <div class="container">
             <div class="max-w-3xl mx-auto">
-                {{-- Navigation --}}
+                <p class="text-sm text-accent-400 mb-8">Last updated: September 2026. Version 2.0.</p>
+
                 <div class="bg-navy-800 rounded-lg p-6 mb-12">
-                    <h3 class="text-white mb-4">Quick Navigation</h3>
-                    <nav class="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-                        <a href="#introduction" class="text-accent-400 hover:text-accent-300">1. Introduction</a>
-                        <a href="#information-we-collect" class="text-accent-400 hover:text-accent-300">2. Information We Collect</a>
-                        <a href="#how-we-use-your-information" class="text-accent-400 hover:text-accent-300">3. How We Use Your Information</a>
-                        <a href="#legal-basis" class="text-accent-400 hover:text-accent-300">4. Legal Basis for Processing</a>
-                        <a href="#data-sharing" class="text-accent-400 hover:text-accent-300">5. Data Sharing</a>
-                        <a href="#data-retention" class="text-accent-400 hover:text-accent-300">6. Data Retention</a>
-                        <a href="#your-rights" class="text-accent-400 hover:text-accent-300">7. Your Rights</a>
-                        <a href="#security" class="text-accent-400 hover:text-accent-300">8. Data Security</a>
-                        <a href="#cookies" class="text-accent-400 hover:text-accent-300">9. Cookies & Tracking</a>
-                        <a href="#your-age" class="text-accent-400 hover:text-accent-300">10. Children's Privacy</a>
-                        <a href="#international" class="text-accent-400 hover:text-accent-300">11. International Transfers</a>
-                        <a href="#changes" class="text-accent-400 hover:text-accent-300">12. Changes to This Policy</a>
-                        <a href="#complaints" class="text-accent-400 hover:text-accent-300">13. Complaints & Contact</a>
+                    <h3 class="text-white mb-4">On this page</h3>
+                    <nav class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                        @foreach ($sections as [$id, $label])
+                            <a href="#{{ $id }}" class="text-accent-400 hover:text-accent-300">{{ $label }}</a>
+                        @endforeach
                     </nav>
                 </div>
 
                 <div class="prose prose-invert prose-lg max-w-none">
-                    {{-- Section 1: Introduction --}}
-                    <h2 id="introduction" class="text-2xl font-bold text-white mt-12 mb-4">1. Introduction</h2>
-                    <p class="text-gray-300 mb-4">Ascend AI ("we", "us", "our") is committed to protecting your privacy and handling your personal data responsibly. This Privacy Policy explains how we collect, use, store, and share your personal information when you interact with our website.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">Legal Framework</h3>
-                    <p class="text-gray-300 mb-4">We are registered in England and Wales and operate in full compliance with the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018, and the Privacy and Electronic Communications Regulations (PECR).</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">Scope of This Policy</h3>
-                    <p class="text-gray-300 mb-4">This policy applies to all personal data processed by Ascend AI through our website located at <strong>ascend-ai.co.uk</strong> (the "Site"). It does not apply to our portfolio companies, which maintain their own separate privacy policies.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">Data Controller</h3>
-                    <p class="text-gray-300 mb-2"><strong>Ascend AI</strong> is the data controller responsible for your personal data.</p>
+                    <h2 id="who-we-are" class="text-2xl font-bold text-white mt-12 mb-4">1. Who we are</h2>
+                    <p class="text-gray-300 mb-4">Ascend AI ("we", "us") provides business automation services to small businesses in the United Kingdom. We are the data controller for the personal information described in sections 3 and 4.</p>
                     <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1"><strong>Email:</strong> contact@ascend-ai.co.uk</li>
-                        <li class="mb-1"><strong>Website:</strong> ascend-ai.co.uk</li>
-                        <li><strong>Registered in:</strong> England and Wales</li>
-                    </ul>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 2: Information We Collect --}}
-                    <h2 id="information-we-collect" class="text-2xl font-bold text-white mt-12 mb-4">2. Information We Collect</h2>
-                    <p class="text-gray-300 mb-4">We collect information directly from you when you interact with our Site.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">2.1 Information You Provide Directly</h3>
-                    <p class="text-gray-300 mb-4">When you submit an enquiry through our contact form, we collect the following information:</p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1"><strong>Name</strong> (required)</li>
-                        <li class="mb-1"><strong>Email address</strong> (required)</li>
-                        <li class="mb-1"><strong>Organisation name</strong> (optional)</li>
-                        <li class="mb-1"><strong>Nature of enquiry</strong> (Investment, Partnership, Advisory, or General) (required)</li>
-                        <li><strong>Message</strong> (required, minimum 50 characters)</li>
-                    </ul>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">2.2 Information Collected Automatically</h3>
-                    <p class="text-gray-300 mb-4"><strong>Our website does NOT use cookies or analytics.</strong> Unlike many websites, we do not track your browsing behaviour or collect technical data such as IP addresses or device information.</p>
-                    <p class="text-gray-300 mb-4">We use Google Workspace solely to forward contact form submissions to our email inbox. Google's data processing practices apply only to email transmission, not to our website directly.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">2.3 Information We Do NOT Collect</h3>
-                    <p class="text-gray-300 mb-4">To be clear, Ascend AI does NOT collect:</p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1">Website analytics or visitor tracking data</li>
-                        <li class="mb-1">Marketing cookies or tracking pixels</li>
-                        <li class="mb-1">Social media data (we have no social media integration)</li>
-                        <li class="mb-1">User accounts or authentication data</li>
-                        <li class="mb-1">Payment information (we do not process payments on this website)</li>
-                        <li>Location data or device fingerprinting</li>
-                    </ul>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 3: How We Use Your Information --}}
-                    <h2 id="how-we-use-your-information" class="text-2xl font-bold text-white mt-12 mb-4">3. How We Use Your Information</h2>
-                    <p class="text-gray-300 mb-4">We use the personal data collected from our contact form solely for the following purposes:</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">3.1 Primary Purpose</h3>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1"><strong>Responding to enquiries:</strong> To reply to your business enquiries and provide the information you have requested</li>
-                        <li><strong>Business communication:</strong> To communicate with you about potential investment, partnership, or advisory opportunities relevant to your enquiry</li>
-                    </ul>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">3.2 Secondary Purposes</h3>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1"><strong>Record keeping:</strong> To maintain a record of our communications for business continuity</li>
-                        <li class="mb-1"><strong>Legal compliance:</strong> To comply with our legal and regulatory obligations</li>
-                        <li><strong>Fraud prevention:</strong> To detect and prevent fraudulent or malicious enquiries</li>
-                    </ul>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">3.3 No Automated Processing or Profiling</h3>
-                    <p class="text-gray-300 mb-4">We do not use your data for automated decision-making, profiling or automated analysis of your characteristics, marketing or promotional communications (unless you specifically request ongoing updates), or selling or renting your data to third parties.</p>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 4: Legal Basis --}}
-                    <h2 id="legal-basis" class="text-2xl font-bold text-white mt-12 mb-4">4. Legal Basis for Processing (UK GDPR)</h2>
-                    <p class="text-gray-300 mb-4">Under UK GDPR, we must have a lawful basis for processing your personal data. We rely on the following legal bases:</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">4.1 Legitimate Interests (Article 6(1)(f) UK GDPR)</h3>
-                    <p class="text-gray-300 mb-4">Our primary legal basis is <strong>legitimate interests</strong>. We process your personal data for responding to business enquiries in a timely and efficient manner, evaluating potential investment, partnership, or advisory opportunities, maintaining accurate business records, and preventing fraudulent or malicious communications.</p>
-                    <p class="text-gray-300 mb-4">Our legitimate interests do not override your fundamental rights and freedoms. We process only the minimum data necessary to achieve these purposes.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">4.2 Legal Obligation (Article 6(1)(c) UK GDPR)</h3>
-                    <p class="text-gray-300 mb-4">We may process your data to comply with legal obligations, such as tax and accounting record-keeping requirements, anti-money laundering regulations, or court orders or legal requests from regulatory authorities.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">4.3 Consent (Article 6(1)(a) UK GDPR)</h3>
-                    <p class="text-gray-300 mb-4">Where we send you information beyond what you initially requested, we will obtain your explicit consent first. You may withdraw your consent at any time by contacting us.</p>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 5: Data Sharing --}}
-                    <h2 id="data-sharing" class="text-2xl font-bold text-white mt-12 mb-4">5. Data Sharing</h2>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">5.1 Who We Share Your Data With</h3>
-                    <p class="text-gray-300 mb-4">We do NOT sell, rent, or trade your personal information. We may share your data only in the following limited circumstances:</p>
-                    <p class="text-gray-300 mb-2"><strong>Service Providers:</strong></p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1"><strong>Google Workspace:</strong> For email forwarding services only. Google processes emails solely for transmission purposes and does not use the content for any other purpose. Google's privacy policy governs their use of data.</li>
-                        <li><strong>Web Hosting Provider:</strong> Our website is hosted by a third-party provider who may have access to server logs for technical maintenance purposes only.</li>
-                    </ul>
-                    <p class="text-gray-300 mb-2"><strong>Professional Advisers:</strong></p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1">Lawyers, accountants, or other professional advisers where necessary for our business operations</li>
-                        <li>All such advisers are bound by strict confidentiality obligations</li>
-                    </ul>
-                    <p class="text-gray-300 mb-2"><strong>Legal Requirements:</strong></p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1">Law enforcement or regulatory authorities when required by law</li>
-                        <li class="mb-1">To protect our rights, property, or safety</li>
-                        <li>In connection with any legal proceedings</li>
-                    </ul>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">5.2 Who We Do NOT Share With</h3>
-                    <p class="text-gray-300 mb-4">We will NEVER sell your personal data to third parties, share your data with marketing companies, share your data with data brokers, or share your data with other organisations for their direct marketing purposes.</p>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 6: Data Retention --}}
-                    <h2 id="data-retention" class="text-2xl font-bold text-white mt-12 mb-4">6. Data Retention</h2>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">6.1 Retention Periods</h3>
-                    <p class="text-gray-300 mb-4">We retain your personal information only for as long as necessary:</p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1"><strong>Contact form submissions:</strong> 3 years from the date of your last communication with us</li>
-                        <li><strong>Email communications:</strong> 3 years from the date of the last message in the email thread</li>
-                    </ul>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">6.2 Retention Criteria</h3>
-                    <p class="text-gray-300 mb-4">The retention periods are based on business needs and potential future opportunities, limitation periods for legal claims (typically 6 years), and the nature of our relationship (one-off enquiries vs. ongoing relationships).</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">6.3 Data Deletion</h3>
-                    <p class="text-gray-300 mb-4">You may request the deletion of your personal data at any time by contacting us at contact@ascend-ai.co.uk. We will comply unless we have compelling legitimate grounds to retain your data, such as establishment, exercise, or defence of legal claims or compliance with legal obligations.</p>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 7: Your Rights --}}
-                    <h2 id="your-rights" class="text-2xl font-bold text-white mt-12 mb-4">7. Your Rights</h2>
-                    <p class="text-gray-300 mb-4">Under UK GDPR, you have the following rights regarding your personal data:</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">7.1 Right of Access (Article 15)</h3>
-                    <p class="text-gray-300 mb-4">You have the right to request a copy of the personal data we hold about you. We will provide this within 30 days of your request.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">7.2 Right to Rectification (Article 16)</h3>
-                    <p class="text-gray-300 mb-4">You have the right to request correction of inaccurate or incomplete personal data.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">7.3 Right to Erasure (Article 17)</h3>
-                    <p class="text-gray-300 mb-4">You have the right to request deletion of your personal data, subject to certain exceptions such as legal obligations.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">7.4 Right to Restrict Processing (Article 18)</h3>
-                    <p class="text-gray-300 mb-4">You have the right to request that we limit how we process your personal data in certain circumstances.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">7.5 Right to Data Portability (Article 20)</h3>
-                    <p class="text-gray-300 mb-4">You have the right to receive your personal data in a structured, commonly used format and to request that we transfer it to another organisation where technically feasible.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">7.6 Right to Object (Article 21)</h3>
-                    <p class="text-gray-300 mb-4">You have the right to object to processing based on legitimate interests. We will stop processing your data unless we have compelling legitimate grounds that override your interests.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">7.7 Rights Related to Automated Decision-Making (Article 22)</h3>
-                    <p class="text-gray-300 mb-4">We do not use automated decision-making or profiling, so this right is not applicable to our processing activities.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">How to Exercise Your Rights</h3>
-                    <p class="text-gray-300 mb-4">To exercise any of these rights, contact us at:</p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1"><strong>Email:</strong> contact@ascend-ai.co.uk</li>
-                        <li class="mb-1"><strong>Subject line:</strong> "Data Rights Request"</li>
-                        <li><strong>Response time:</strong> We will respond within 30 days of receiving your request</li>
-                    </ul>
-                    <p class="text-gray-300 mb-4">We may request verification of your identity before providing access to your data to protect your privacy.</p>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 8: Data Security --}}
-                    <h2 id="security" class="text-2xl font-bold text-white mt-12 mb-4">8. Data Security</h2>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">8.1 Technical Measures</h3>
-                    <p class="text-gray-300 mb-4">We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, accidental loss or destruction, unauthorised disclosure or access, and alteration or misuse.</p>
-                    <p class="text-gray-300 mb-2"><strong>Security Measures Include:</strong></p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1"><strong>Encryption:</strong> HTTPS/TLS encryption for all data transmitted between your browser and our website</li>
-                        <li class="mb-1"><strong>Access controls:</strong> Restricted access to personal data on a need-to-know basis</li>
-                        <li class="mb-1"><strong>Secure email:</strong> Emails are transmitted through encrypted connections (TLS)</li>
-                        <li><strong>Regular security assessments:</strong> We review our security practices regularly</li>
-                    </ul>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">8.2 Data Breaches</h3>
-                    <p class="text-gray-300 mb-4">In the unlikely event of a personal data breach that poses a risk to your rights and freedoms, we will notify you without undue delay and no later than 72 hours after becoming aware of the breach, where required to do so by law.</p>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 9: Cookies --}}
-                    <h2 id="cookies" class="text-2xl font-bold text-white mt-12 mb-4">9. Cookies & Tracking</h2>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">9.1 Our Position on Cookies</h3>
-                    <p class="text-gray-300 mb-4"><strong>Our website does NOT use cookies.</strong> Unlike many websites, Ascend AI does NOT use essential cookies (for user preferences or shopping carts), analytics cookies (such as Google Analytics), marketing cookies, or any other form of tracking technology.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">9.2 Third-Party Cookies</h3>
-                    <p class="text-gray-300 mb-4">Our website contains no third-party widgets, social media plugins, or embedded content that would set cookies on your device.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">9.3 Browser Settings</h3>
-                    <p class="text-gray-300 mb-4">Since we do not use cookies, you do not need to adjust your browser settings for our website. However, your browser may still set cookies for other websites you visit.</p>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 10: Children's Privacy --}}
-                    <h2 id="your-age" class="text-2xl font-bold text-white mt-12 mb-4">10. Children's Privacy</h2>
-                    <p class="text-gray-300 mb-4">Our website and services are not intended for children under the age of 18. We do not knowingly collect personal data from children under 18. If you are under 18, please do not submit your contact form or provide any personal information to us.</p>
-                    <p class="text-gray-300 mb-4">If we discover that we have inadvertently collected personal data from a child under 18, we will delete it immediately.</p>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 11: International Transfers --}}
-                    <h2 id="international" class="text-2xl font-bold text-white mt-12 mb-4">11. International Transfers</h2>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">11.1 Email Forwarding via Google Workspace</h3>
-                    <p class="text-gray-300 mb-4">Contact form submissions are forwarded via Google Workspace. Google may transfer data outside the UK/EEA. Google provides appropriate safeguards under the UK GDPR, including Standard Contractual Clauses (SCCs), Binding corporate rules where applicable, and compliance with UK adequacy regulations for data transfers.</p>
-                    <p class="text-gray-300 mb-4">For more information, see Google's privacy policy at <a href="https://policies.google.com/privacy" class="text-accent-400 hover:text-accent-300" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</p>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">11.2 No Other International Transfers</h3>
-                    <p class="text-gray-300 mb-4">We do not transfer your personal data to any other countries outside the UK.</p>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 12: Changes --}}
-                    <h2 id="changes" class="text-2xl font-bold text-white mt-12 mb-4">12. Changes to This Policy</h2>
-                    <p class="text-gray-300 mb-4">We may update this Privacy Policy from time to time to reflect changes in our practices, applicable laws, or regulatory guidance.</p>
-                    <p class="text-gray-300 mb-4">If we make material changes to this policy, we will update the "Last Updated" date at the top of this policy, notify you via email if we have your contact details on file, and post a prominent notice on our website.</p>
-                    <p class="text-gray-300 mb-4">Minor clarifications or corrections may not warrant notification but will be reflected in the updated date.</p>
-
-                    <hr class="border-navy-700 my-8">
-
-                    {{-- Section 13: Complaints & Contact --}}
-                    <h2 id="complaints" class="text-2xl font-bold text-white mt-12 mb-4">13. Complaints & Contact</h2>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">13.1 Contact Us</h3>
-                    <p class="text-gray-300 mb-4">If you have any questions, concerns, or complaints about this Privacy Policy or our data practices, please contact us:</p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1"><strong>Email:</strong> contact@ascend-ai.co.uk</li>
+                        <li class="mb-1"><strong>Trading name:</strong> {{ $company['name'] }}</li>
+                        <li class="mb-1"><strong>Address:</strong> {{ $address }}</li>
+                        <li class="mb-1"><strong>Email:</strong> {{ $company['email'] }}</li>
                         <li><strong>Website:</strong> ascend-ai.co.uk</li>
                     </ul>
-
-                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">13.2 Right to Lodge a Complaint</h3>
-                    <p class="text-gray-300 mb-4">You have the right to lodge a complaint with the Information Commissioner's Office (ICO), the UK's supervisory authority for data protection matters.</p>
-                    <p class="text-gray-300 mb-2"><strong>ICO Contact Details:</strong></p>
-                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
-                        <li class="mb-1"><strong>Website:</strong> <a href="https://ico.org.uk" class="text-accent-400 hover:text-accent-300" target="_blank" rel="noopener noreferrer">ico.org.uk</a></li>
-                        <li class="mb-1"><strong>Phone:</strong> 0303 123 1113</li>
-                        <li class="mb-1"><strong>Helpline:</strong> 0303 123 1115 (for small organisations)</li>
-                        <li><strong>Email:</strong> casework@ico.org.uk</li>
-                    </ul>
-                    <p class="text-gray-300 mb-4">The ICO can investigate your complaint and provide independent advice about your rights under data protection law.</p>
+                    <p class="text-gray-300 mb-4">We comply with the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018 and the Privacy and Electronic Communications Regulations (PECR).</p>
 
                     <hr class="border-navy-700 my-8">
 
-                    {{-- Disclaimer --}}
+                    <h2 id="scope" class="text-2xl font-bold text-white mt-12 mb-4">2. What this policy covers</h2>
+                    <p class="text-gray-300 mb-4">This policy applies to personal information we handle as a <strong>controller</strong>: visitors to this website, people who send us an enquiry or book an audit, newsletter subscribers, and the business contacts of our clients.</p>
+                    <p class="text-gray-300 mb-4">When we build and run automation for a client, we also handle information belonging to that client and its customers. There we act as a <strong>processor</strong> on the client's instructions. Section 5 explains how that works. The client's own privacy notice governs what its customers are told.</p>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="information" class="text-2xl font-bold text-white mt-12 mb-4">3. Information we collect</h2>
+                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">3.1 When you send an enquiry or book an audit</h3>
+                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
+                        <li class="mb-1">Your name and email address</li>
+                        <li class="mb-1">Your business name, if you give it</li>
+                        <li class="mb-1">What you need help with and the message you write</li>
+                        <li>Anything you tell us during the audit call and the notes we take</li>
+                    </ul>
+                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">3.2 When you join the newsletter</h3>
+                    <p class="text-gray-300 mb-4">Your email address, the date you subscribed, and whether you later unsubscribe.</p>
+                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">3.3 When you become a client</h3>
+                    <p class="text-gray-300 mb-4">Contact details for the people we work with at your business, billing details, scope documents, correspondence, and records of the work we do.</p>
+                    <h3 class="text-xl font-semibold text-white mt-8 mb-3">3.4 Collected automatically</h3>
+                    <p class="text-gray-300 mb-4">Our web server keeps standard access logs, which include your IP address, the pages requested and your browser type. We use these only to keep the site secure and working. We do not use analytics or advertising trackers on this site.</p>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="use" class="text-2xl font-bold text-white mt-12 mb-4">4. How we use it and why we are allowed to</h2>
+                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
+                        <li class="mb-2"><strong>Replying to your enquiry and running the audit.</strong> Lawful basis: taking steps at your request before entering a contract, and our legitimate interest in responding to people who contact us.</li>
+                        <li class="mb-2"><strong>Delivering and supporting services to clients.</strong> Lawful basis: performance of our contract with you.</li>
+                        <li class="mb-2"><strong>Sending the newsletter.</strong> Lawful basis: your consent, which you can withdraw at any time using the link in every email or by emailing us.</li>
+                        <li class="mb-2"><strong>Invoicing, accounting and tax records.</strong> Lawful basis: legal obligation.</li>
+                        <li class="mb-2"><strong>Keeping the website and our systems secure.</strong> Lawful basis: legitimate interest.</li>
+                        <li><strong>Establishing or defending legal claims.</strong> Lawful basis: legitimate interest.</li>
+                    </ul>
+                    <p class="text-gray-300 mb-4">We do not sell personal information and we do not use it for automated decisions that have a legal or similarly significant effect on you.</p>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="client-data" class="text-2xl font-bold text-white mt-12 mb-4">5. Client data we process on your behalf</h2>
+                    <p class="text-gray-300 mb-4">To build and run automation we usually need access to a client's systems: for example a calendar, an inbox, an accounts package or a customer list. That access is granted by the client, limited to what the agreed scope needs, and can be revoked by the client at any time.</p>
+                    <p class="text-gray-300 mb-4">In that role we:</p>
+                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
+                        <li class="mb-1">act only on the client's documented instructions, as set out in the scope;</li>
+                        <li class="mb-1">keep the data within the client's own systems wherever the design allows;</li>
+                        <li class="mb-1">use sub-processors only as named in the scope (see section 6) and tell the client before any change;</li>
+                        <li class="mb-1">choose AI model providers whose terms do not permit training on the data we send them;</li>
+                        <li class="mb-1">help the client respond to requests from individuals about their data;</li>
+                        <li>delete or return the data at the end of the engagement, as the client instructs.</li>
+                    </ul>
+                    <p class="text-gray-300 mb-4">A data processing agreement setting this out in full is available to every client on request and forms part of our terms.</p>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="sharing" class="text-2xl font-bold text-white mt-12 mb-4">6. Who we share information with</h2>
+                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
+                        <li class="mb-2"><strong>Hosting and infrastructure providers</strong> that run this website and the automation we build.</li>
+                        <li class="mb-2"><strong>Email and messaging providers</strong> used to send enquiry notifications, the newsletter and automated messages on behalf of clients.</li>
+                        <li class="mb-2"><strong>AI model providers</strong> used within client automation, named in each client's scope.</li>
+                        <li class="mb-2"><strong>Software connected to a client's automation</strong> at the client's instruction, such as their accounts or booking system.</li>
+                        <li class="mb-2"><strong>Professional advisers</strong> such as our accountants, where necessary.</li>
+                        <li><strong>Authorities</strong> where the law requires it.</li>
+                    </ul>
+                    <p class="text-gray-300 mb-4">Each provider is bound by contract to protect the information and use it only to provide their service to us.</p>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="transfers" class="text-2xl font-bold text-white mt-12 mb-4">7. International transfers</h2>
+                    <p class="text-gray-300 mb-4">Some providers, in particular AI model providers, process data outside the United Kingdom. Where that happens we rely on the UK's adequacy regulations or the International Data Transfer Agreement, and we choose providers with appropriate security certifications. Clients can ask us to restrict a design to UK or EU processing, and we will say in the scope if that is not possible.</p>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="retention" class="text-2xl font-bold text-white mt-12 mb-4">8. How long we keep information</h2>
+                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
+                        <li class="mb-1"><strong>Enquiries and audit documents:</strong> three years from our last contact with you.</li>
+                        <li class="mb-1"><strong>Client records:</strong> for the length of the engagement and twelve months afterwards, except financial records, which we keep for six years as the law requires.</li>
+                        <li class="mb-1"><strong>Client data processed on your behalf:</strong> for the length of the engagement, then deleted or returned as you instruct.</li>
+                        <li class="mb-1"><strong>Newsletter:</strong> until you unsubscribe. We keep a record that you unsubscribed so we do not email you again.</li>
+                        <li><strong>Server logs:</strong> ninety days.</li>
+                    </ul>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="security" class="text-2xl font-bold text-white mt-12 mb-4">9. Security</h2>
+                    <p class="text-gray-300 mb-4">Information is transmitted over encrypted connections and stored on access-controlled systems. Access to client systems uses credentials or permissions granted by the client, kept in an encrypted secrets store, and limited to the people working on that client's project. We review access when a project ends. No system is perfectly secure, and if a breach affects your information we will tell you and the Information Commissioner's Office as the law requires.</p>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="rights" class="text-2xl font-bold text-white mt-12 mb-4">10. Your rights</h2>
+                    <p class="text-gray-300 mb-4">You can ask us to:</p>
+                    <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
+                        <li class="mb-1">tell you what personal information we hold about you and give you a copy;</li>
+                        <li class="mb-1">correct information that is wrong;</li>
+                        <li class="mb-1">delete information, where we have no lawful reason to keep it;</li>
+                        <li class="mb-1">stop or restrict a particular use, including all marketing;</li>
+                        <li class="mb-1">give you your information in a portable format;</li>
+                        <li>withdraw consent you have given, at any time.</li>
+                    </ul>
+                    <p class="text-gray-300 mb-4">Email {{ $company['email'] }}. We respond within one month. If your request concerns data we process for one of our clients, we will pass it to them and help them respond.</p>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="cookies" class="text-2xl font-bold text-white mt-12 mb-4">11. Cookies</h2>
+                    <p class="text-gray-300 mb-4">This site sets only the cookies it needs to work: a session cookie and a security token that protects forms from misuse. Neither identifies you or tracks you across other sites, and neither needs your consent under PECR. We do not use analytics, advertising or social media cookies. If that changes, we will ask for your consent first.</p>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="children" class="text-2xl font-bold text-white mt-12 mb-4">12. Children</h2>
+                    <p class="text-gray-300 mb-4">Our services are for businesses. We do not knowingly collect information from anyone under 18. If you believe a child has given us information, email us and we will delete it.</p>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="changes" class="text-2xl font-bold text-white mt-12 mb-4">13. Changes to this policy</h2>
+                    <p class="text-gray-300 mb-4">We will update this page when our practices change and update the date at the top. If a change materially affects clients or subscribers, we will email them.</p>
+
+                    <hr class="border-navy-700 my-8">
+
+                    <h2 id="complaints" class="text-2xl font-bold text-white mt-12 mb-4">14. Complaints and contact</h2>
+                    <p class="text-gray-300 mb-4">Questions and complaints go to {{ $company['email'] }} or to {{ $address }}. If you are not satisfied with our response you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk" class="text-accent-400 hover:text-accent-300" target="_blank" rel="noopener noreferrer">ico.org.uk</a> or on 0303 123 1113.</p>
+
                     <div class="bg-navy-800 rounded-lg p-6 text-sm text-gray-400 mt-8">
-                        <p class="mb-2"><strong>Disclaimer:</strong> This Privacy Policy is for information purposes only and does not constitute legal advice. Data protection laws are complex and subject to change. If you have specific questions about your rights under UK GDPR, we recommend consulting with a qualified legal professional or the ICO directly.</p>
+                        <p>This policy explains our practices in plain language and is not legal advice. Clients receive a data processing agreement that takes precedence where the two differ.</p>
                     </div>
                 </div>
             </div>
