@@ -1,483 +1,178 @@
+@php $auditUrl = route('contact', ['type' => 'audit']); @endphp
 <x-layout.app :title="$title" :description="$description">
-    {{-- Hero Section with Animated Background --}}
+    {{-- Hero --}}
     <x-sections.hero
-        :title="'The Companies That Make Traditional Business Obsolete'"
-        :subtitle="'Ascend AI builds software companies from the ground up around artificial intelligence—not humans. The result: unbeatable economics, infinite scalability, and margins that legacy competitors can\'t touch.'"
-        :ctaText="'Learn How We Do It'"
-        :ctaUrl="'#methodology'"
-        :secondaryCtaText="'Get In Touch'"
-        :secondaryCtaUrl="route('contact')"
+        title="Run your business on autopilot, not overtime."
+        subtitle="Ascend AI builds AI automation for small businesses. Not off-the-shelf software you have to fit around. Systems built for the way you already work, that take the repetitive jobs off your desk and keep running while you get on with the business."
+        ctaText="Book a free automation audit"
+        :ctaUrl="$auditUrl"
+        secondaryCtaText="See what we automate"
+        :secondaryCtaUrl="route('solutions')"
+        note="30 minutes. No obligation. You leave with a written list of what could be automated in your business."
         :fullHeight="true"
     />
 
-    {{-- Problem Statement Section with Scroll Reveal --}}
-    <section class="bg-navy-900 py-20 lg:py-32 section-droid-bg relative overflow-hidden" data-scroll-section>
+    {{-- The problem --}}
+    <section class="bg-navy-900 py-20 lg:py-32 section-droid-bg relative overflow-hidden">
         <video class="section-droid-video" autoplay muted loop playsinline poster="{{ asset('images/droid.webp') }}">
             <source src="{{ asset('video/andriod-p.mp4') }}" type="video/mp4">
         </video>
-        <div class="absolute inset-0 bg-gradient-to-b from-navy-950/50 via-transparent to-navy-950/50 pointer-events-none"></div>
-        
+        <div class="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-transparent to-navy-950/60 pointer-events-none"></div>
+
         <div class="container relative z-10">
             <x-ui.section-heading
-                title="Traditional Software Companies Are Economically Broken"
+                title="The work that never makes it onto the invoice"
                 alignment="center"
                 class="reveal-up"
             />
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                {{-- Development --}}
-                <div class="reveal-up stagger-1 group" data-tilt>
-                    <div class="text-center p-8 rounded-2xl bg-navy-800/50 border border-navy-700/50 backdrop-blur-sm transition-all duration-500 hover:border-accent-500/50 hover:bg-navy-800/80 hover:shadow-2xl hover:shadow-accent-500/10 hover:-translate-y-2">
-                        <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-navy-700/50 rounded-xl group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-500 relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-accent-500/0 to-accent-500/0 group-hover:from-accent-500/20 group-hover:to-purple-500/20 transition-all duration-500"></div>
-                            <svg class="w-8 h-8 text-accent-500 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-white mb-3">Development</h3>
-                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors">Months of coding. Hundreds of thousands in developer costs. Features that arrive too late.</p>
+                <div class="reveal-up stagger-1">
+                    <div class="h-full p-8 rounded-2xl bg-navy-800/60 border border-navy-700/50 backdrop-blur-sm">
+                        <h3 class="text-xl font-semibold text-white mb-3">The admin never stops</h3>
+                        <p class="text-gray-300">Enquiries answered at 9pm. Quotes chased on a Sunday. The same customer details typed into your diary, your accounts package and a spreadsheet. None of it is billable and all of it lands on you.</p>
                     </div>
                 </div>
-
-                {{-- Operations --}}
-                <div class="reveal-up stagger-2 group" data-tilt>
-                    <div class="text-center p-8 rounded-2xl bg-navy-800/50 border border-navy-700/50 backdrop-blur-sm transition-all duration-500 hover:border-accent-500/50 hover:bg-navy-800/80 hover:shadow-2xl hover:shadow-accent-500/10 hover:-translate-y-2">
-                        <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-navy-700/50 rounded-xl group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-500 relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-accent-500/0 to-accent-500/0 group-hover:from-accent-500/20 group-hover:to-purple-500/20 transition-all duration-500"></div>
-                            <svg class="w-8 h-8 text-accent-500 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-white mb-3">Operations</h3>
-                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors">Support teams. Server administrators. Account managers. Salaries that scale with growth.</p>
+                <div class="reveal-up stagger-2">
+                    <div class="h-full p-8 rounded-2xl bg-navy-800/60 border border-navy-700/50 backdrop-blur-sm">
+                        <h3 class="text-xl font-semibold text-white mb-3">You are the bottleneck</h3>
+                        <p class="text-gray-300">If a job needs your say-so, it waits until you are free. Customers wait. Staff wait. Growth waits, because taking on more work means more of the same evenings.</p>
                     </div>
                 </div>
-
-                {{-- Limitations --}}
-                <div class="reveal-up stagger-3 group" data-tilt>
-                    <div class="text-center p-8 rounded-2xl bg-navy-800/50 border border-navy-700/50 backdrop-blur-sm transition-all duration-500 hover:border-accent-500/50 hover:bg-navy-800/80 hover:shadow-2xl hover:shadow-accent-500/10 hover:-translate-y-2">
-                        <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-navy-700/50 rounded-xl group-hover:bg-accent-500/20 group-hover:scale-110 transition-all duration-500 relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-accent-500/0 to-accent-500/0 group-hover:from-accent-500/20 group-hover:to-purple-500/20 transition-all duration-500"></div>
-                            <svg class="w-8 h-8 text-accent-500 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold text-white mb-3">Limitations</h3>
-                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors">9-to-5 availability. Holiday cover. Sick leave. Employment obligations that never end.</p>
+                <div class="reveal-up stagger-3">
+                    <div class="h-full p-8 rounded-2xl bg-navy-800/60 border border-navy-700/50 backdrop-blur-sm">
+                        <h3 class="text-xl font-semibold text-white mb-3">Software that made more work</h3>
+                        <p class="text-gray-300">You bought the CRM. The booking app. The accounts add-on. Now there are four logins, none of them talk to each other, and somebody still has to copy things between them.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="text-center mt-16 reveal-up">
-                <p class="text-2xl md:text-3xl font-bold gradient-text animate-pulse-slow">What if you could eliminate all of it?</p>
-            </div>
+            <p class="text-center mt-16 text-2xl md:text-3xl font-bold gradient-text reveal-up">None of this needs a bigger team. It needs the repetitive parts done for you.</p>
         </div>
     </section>
 
-    {{-- Methodology Section with Interactive Cards --}}
-    <section id="methodology" class="bg-navy-950 py-20 lg:py-32 relative overflow-hidden" data-scroll-section>
-        {{-- Animated gradient orbs --}}
+    {{-- What we automate --}}
+    <section class="bg-navy-950 py-20 lg:py-32 relative overflow-hidden">
         <div class="absolute top-1/4 -left-32 w-64 h-64 bg-accent-500/20 rounded-full blur-3xl animate-float"></div>
         <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
-        
+
         <div class="container relative z-10">
             <x-ui.section-heading
-                title="Built Around AI From Day One"
-                subtitle="Not retrofitting AI onto legacy systems. Architecting entire businesses where AI handles development, operations, and support from the first day."
+                title="Built around the jobs that eat your week"
+                subtitle="Every business is different, so we start with what costs you the most time. These are the areas we are asked about most."
                 alignment="center"
                 class="reveal-up"
             />
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-                {{-- AI-Accelerated Development --}}
-                <div class="reveal-up stagger-1 group" data-tilt>
-                    <x-ui.card variant="glass" padding="lg" class="h-full border border-white/5 hover:border-accent-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent-500/10">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-accent-500/20 rounded-lg group-hover:bg-accent-500/30 group-hover:scale-110 transition-all duration-300 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-accent-400/0 to-purple-400/0 group-hover:from-accent-400/20 group-hover:to-purple-400/20 transition-all duration-500"></div>
-                                <svg class="w-6 h-6 text-accent-500 relative z-10 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-accent-400 transition-colors">AI-Accelerated Development</h3>
-                                <p class="text-gray-400 group-hover:text-gray-300 transition-colors">Concepts become production software in days, not months. What traditionally costs hundreds of thousands costs almost nothing.</p>
-                            </div>
-                        </div>
-                        <div class="mt-4 flex items-center gap-2 text-accent-500/0 group-hover:text-accent-500/100 transition-all duration-500 transform translate-x-[-10px] group-hover:translate-x-0">
-                            <span class="text-sm font-medium">Learn more</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
-                        </div>
-                    </x-ui.card>
-                </div>
+            @php
+                $areas = [
+                    ['enquiries', 'Enquiries and follow-up', 'Every enquiry answered fast, qualified, and followed up until it becomes a booking or a polite no.', 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'],
+                    ['quotes', 'Quotes and invoicing', 'Quotes drafted from your pricing, sent, chased, and turned into invoices when the job is done.', 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'],
+                    ['scheduling', 'Scheduling and reminders', 'Bookings, confirmations, reschedules and reminders handled without anyone picking up the phone.', 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'],
+                    ['questions', 'Customer questions', 'The questions you answer twenty times a week, answered accurately from your own information, day and night.', 'M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z'],
+                    ['paperwork', 'Paperwork and data entry', 'Details captured once and pushed to every system that needs them.', 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4'],
+                    ['reporting', 'Reporting', 'The numbers you want on a Monday morning, in your inbox, without building the spreadsheet.', 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'],
+                ];
+            @endphp
 
-                {{-- Autonomous Operations --}}
-                <div class="reveal-up stagger-2 group" data-tilt>
-                    <x-ui.card variant="glass" padding="lg" class="h-full border border-white/5 hover:border-accent-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent-500/10">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-accent-500/20 rounded-lg group-hover:bg-accent-500/30 group-hover:scale-110 transition-all duration-300 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-accent-400/0 to-purple-400/0 group-hover:from-accent-400/20 group-hover:to-purple-400/20 transition-all duration-500"></div>
-                                <svg class="w-6 h-6 text-accent-500 relative z-10 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                @foreach ($areas as $i => [$anchor, $heading, $body, $icon])
+                    <a href="{{ route('solutions') }}#{{ $anchor }}" class="reveal-up stagger-{{ ($i % 3) + 1 }} group block h-full">
+                        <x-ui.card variant="glass" padding="lg" class="h-full border border-white/5 group-hover:border-accent-500/30 transition-all duration-300">
+                            <div class="w-12 h-12 mb-5 flex items-center justify-center bg-accent-500/20 rounded-lg group-hover:bg-accent-500/30 transition-colors">
+                                <svg class="w-6 h-6 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $icon }}"/></svg>
                             </div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-accent-400 transition-colors">Autonomous Operations</h3>
-                                <p class="text-gray-400 group-hover:text-gray-300 transition-colors">24/7/365 without shifts, overtime, or human bottlenecks. AI handles customer support, monitoring, and maintenance.</p>
-                            </div>
-                        </div>
-                        <div class="mt-4 flex items-center gap-2 text-accent-500/0 group-hover:text-accent-500/100 transition-all duration-500 transform translate-x-[-10px] group-hover:translate-x-0">
-                            <span class="text-sm font-medium">Learn more</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
-                        </div>
-                    </x-ui.card>
-                </div>
+                            <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-accent-400 transition-colors">{{ $heading }}</h3>
+                            <p class="text-gray-400">{{ $body }}</p>
+                        </x-ui.card>
+                    </a>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
-                {{-- Infinite Scalability --}}
-                <div class="reveal-up stagger-3 group" data-tilt>
-                    <x-ui.card variant="glass" padding="lg" class="h-full border border-white/5 hover:border-accent-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent-500/10">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-accent-500/20 rounded-lg group-hover:bg-accent-500/30 group-hover:scale-110 transition-all duration-300 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-accent-400/0 to-purple-400/0 group-hover:from-accent-400/20 group-hover:to-purple-400/20 transition-all duration-500"></div>
-                                <svg class="w-6 h-6 text-accent-500 relative z-10 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-accent-400 transition-colors">Infinite Scalability</h3>
-                                <p class="text-gray-400 group-hover:text-gray-300 transition-colors">Add customers without adding headcount. Ever. Our architecture scales horizontally without proportional cost increases.</p>
-                            </div>
-                        </div>
-                        <div class="mt-4 flex items-center gap-2 text-accent-500/0 group-hover:text-accent-500/100 transition-all duration-500 transform translate-x-[-10px] group-hover:translate-x-0">
-                            <span class="text-sm font-medium">Learn more</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
-                        </div>
-                    </x-ui.card>
+    {{-- Why bespoke --}}
+    <section class="bg-navy-900 py-20 lg:py-32">
+        <div class="container">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
+                <div class="reveal-up">
+                    <h2 class="text-display-md md:text-display-lg font-bold gradient-text mb-6">We don't make your business fit the software</h2>
+                    <p class="text-gray-300 text-lg mb-4">Most automation tools are built for an average business. Yours is not average. Your pricing has exceptions. Your best customers get treated differently. Your diary has rules that only you know.</p>
+                    <p class="text-gray-300 text-lg">So we don't sell a package. We look at how you work, find the parts that repeat, and build automation that follows your rules. It runs alongside the tools you already use, and you keep working the way you want to.</p>
                 </div>
-
-                {{-- Unassailable Margins --}}
-                <div class="reveal-up stagger-4 group" data-tilt>
-                    <x-ui.card variant="glass" padding="lg" class="h-full border border-white/5 hover:border-accent-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent-500/10">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-accent-500/20 rounded-lg group-hover:bg-accent-500/30 group-hover:scale-110 transition-all duration-300 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-accent-400/0 to-purple-400/0 group-hover:from-accent-400/20 group-hover:to-purple-400/20 transition-all duration-500"></div>
-                                <svg class="w-6 h-6 text-accent-500 relative z-10 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-accent-400 transition-colors">Unassailable Margins</h3>
-                                <p class="text-gray-400 group-hover:text-gray-300 transition-colors">99%+ gross margins aren't aspirational. They're structural. When your costs are measured in server fees, not salaries, the maths changes entirely.</p>
-                            </div>
-                        </div>
-                        <div class="mt-4 flex items-center gap-2 text-accent-500/0 group-hover:text-accent-500/100 transition-all duration-500 transform translate-x-[-10px] group-hover:translate-x-0">
-                            <span class="text-sm font-medium">Learn more</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                            </svg>
-                        </div>
-                    </x-ui.card>
+                <div class="reveal-up stagger-2">
+                    <ul class="space-y-4">
+                        @foreach ([
+                            'Built on how you operate today, not a template',
+                            'Works with the software you already pay for',
+                            'Delivered in stages, so something useful is live early',
+                            'Kept running, monitored and improved by us',
+                        ] as $point)
+                            <li class="flex items-start gap-4 p-5 rounded-xl bg-navy-800/60 border border-navy-700/50">
+                                <svg class="w-6 h-6 text-accent-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span class="text-gray-200 text-lg">{{ $point }}</span>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- Proof Points Section with Animated Counters --}}
-    <section class="bg-navy-900 py-20 lg:py-32 section-ai-video-bg relative overflow-hidden" data-scroll-section>
-        <video class="section-ai-video" autoplay muted loop playsinline>
-            <source src="{{ asset('video/ai-video.mp4') }}" type="video/mp4">
-        </video>
-        <div class="absolute inset-0 bg-gradient-to-b from-navy-900/80 via-navy-900/60 to-navy-900/80 pointer-events-none"></div>
-        
-        <div class="container relative z-10">
+    {{-- How it works --}}
+    <section class="bg-navy-950 py-20 lg:py-32">
+        <div class="container">
             <x-ui.section-heading
-                title="Proven. Replicable. Scalable."
+                title="From first call to running in the background"
                 alignment="center"
                 class="reveal-up"
             />
 
-            <div class="max-w-3xl mx-auto text-center reveal-up stagger-1">
-                <p class="text-lg text-gray-300 mb-8">
-                    Our methodology has already produced multiple ventures across accounting technology, genetic analysis, and business intelligence—each built in weeks, each operating autonomously, each disrupting markets dominated by legacy players.
-                </p>
-                <p class="text-xl font-semibold gradient-text">These aren't experiments. They're the first wave.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                @foreach ([
+                    ['Audit', 'A 30 minute call about how your business runs and where the hours go. You get a written list of what could be automated and what we would do first. Free, whether or not you go ahead.'],
+                    ['Build in stages', 'We scope the first stage, agree a fixed price for it, and build. It goes live. You see it working before the next stage starts.'],
+                    ['Run and improve', 'We host it, monitor it, fix it when your suppliers change their systems, and keep adding to it as your business changes.'],
+                ] as $i => [$heading, $body])
+                    <div class="reveal-up stagger-{{ $i + 1 }} flex gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-accent-500 rounded-full font-bold text-lg text-white">
+                            {{ str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT) }}
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-white mb-2">{{ $heading }}</h3>
+                            <p class="text-gray-400">{{ $body }}</p>
+                        </div>
+                    </div>
+                @endforeach
             </div>
 
-            {{-- Animated Stats --}}
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mt-16">
-                <div class="text-center reveal-up stagger-1 group" data-counter="14">
-                    <div class="relative inline-block">
-                        <p class="text-4xl md:text-5xl font-bold gradient-text mb-2 counter-value" data-target="14">0</p>
-                        <span class="absolute -top-2 -right-4 text-accent-500 text-xl opacity-0 group-hover:opacity-100 transition-opacity">+</span>
-                    </div>
-                    <p class="text-gray-400 text-sm group-hover:text-accent-400 transition-colors">Days to Production</p>
-                </div>
-                <div class="text-center reveal-up stagger-2 group" data-counter="99">
-                    <div class="relative inline-block">
-                        <p class="text-4xl md:text-5xl font-bold gradient-text mb-2">
-                            <span class="counter-value" data-target="99">0</span><span class="text-accent-500 text-2xl align-top">%</span>
-                        </p>
-                    </div>
-                    <p class="text-gray-400 text-sm group-hover:text-accent-400 transition-colors">Gross Margins</p>
-                </div>
-                <div class="text-center reveal-up stagger-3 group" data-counter="0">
-                    <div class="relative inline-block">
-                        <p class="text-4xl md:text-5xl font-bold gradient-text mb-2 counter-value" data-target="0">0</p>
-                    </div>
-                    <p class="text-gray-400 text-sm group-hover:text-accent-400 transition-colors">Support Staff</p>
-                </div>
-                <div class="text-center reveal-up stagger-4 group">
-                    <div class="relative inline-block">
-                        <p class="text-4xl md:text-5xl font-bold gradient-text mb-2">24/7</p>
-                    </div>
-                    <p class="text-gray-400 text-sm group-hover:text-accent-400 transition-colors">Operational Availability</p>
-                </div>
+            <div class="text-center mt-14 reveal-up">
+                <a href="{{ route('how-it-works') }}" class="btn btn-ghost px-8 py-4">How it works and what it costs</a>
             </div>
         </div>
     </section>
 
-    {{-- Opportunity Section with Interactive Glow --}}
-    <section class="bg-navy-950 py-20 lg:py-32 relative overflow-hidden" data-scroll-section>
-        {{-- Interactive mouse-following glow --}}
-        <div id="mouse-glow" class="pointer-events-none absolute w-[600px] h-[600px] rounded-full bg-accent-500/10 blur-3xl opacity-0 transition-opacity duration-500"></div>
-        
-        <div class="container relative z-10">
-            <div class="max-w-4xl mx-auto text-center">
-                <x-ui.section-heading
-                    title="Every Legacy Market Is Vulnerable"
-                    subtitle="Any industry reliant on human-heavy operations. Any SaaS vertical with inflated pricing. Any market where incumbents have grown complacent."
-                    alignment="center"
-                    class="reveal-up"
-                />
-
-                <div class="card-glass p-8 mt-12 reveal-up stagger-1 border border-white/5 hover:border-accent-500/30 transition-all duration-500 group" data-tilt>
-                    <p class="text-lg text-gray-200 mb-6 group-hover:text-white transition-colors">
-                        Ascend AI identifies these opportunities, builds the challenger, and captures value that traditional companies leave on the table.
-                    </p>
-                    <p class="text-xl font-semibold text-accent-400 group-hover:text-accent-300 transition-colors">
-                        We're not building one company. We're building a portfolio of market leaders—each with the same economic advantages, each compounding the value of the Ascend AI methodology.
-                    </p>
-                    <div class="mt-6 flex justify-center">
-                        <div class="h-1 w-24 bg-gradient-to-r from-transparent via-accent-500 to-transparent rounded-full group-hover:w-32 transition-all duration-500"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- CTA Section --}}
+    {{-- Final CTA --}}
     <x-sections.cta
-        title="Interested in the Future of Business?"
-        subtitle="Whether you're an investor looking for the next generation of software companies, or a collaborator seeking transformation—there's a path to working with Ascend AI."
-        ctaText="Contact Us"
-        :ctaUrl="route('contact')"
+        title="Find out what is costing you hours"
+        subtitle="Book a free automation audit. Thirty minutes on a call, no slides, no obligation. You will come away with a list of what could be automated in your business and a rough order to do it in."
+        ctaText="Book a free automation audit"
+        :ctaUrl="$auditUrl"
         variant="gradient"
     />
 
     @push('scripts')
     <script>
-        // Intersection Observer for scroll-triggered animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
         const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
-                    
-                    // Trigger counter animation if it's a counter
-                    const counter = entry.target.querySelector('.counter-value');
-                    if (counter) {
-                        animateCounter(counter);
-                    }
-                    
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        // Animate numbers counting up
-        function animateCounter(element) {
-            const target = parseInt(element.dataset.target);
-            const duration = 2000;
-            const start = performance.now();
-            
-            function update(currentTime) {
-                const elapsed = currentTime - start;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                // Easing function (easeOutExpo)
-                const easeProgress = 1 - Math.pow(2, -10 * progress);
-                const current = Math.floor(easeProgress * target);
-                
-                element.textContent = current;
-                
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                } else {
-                    element.textContent = target;
-                }
-            }
-            
-            requestAnimationFrame(update);
-        }
-
-        // Initialize observers
-        document.querySelectorAll('.reveal-up').forEach(el => {
-            revealObserver.observe(el);
-        });
-
-        // 3D Tilt effect on cards
-        document.querySelectorAll('[data-tilt]').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-            });
-        });
-
-        // Mouse-following glow effect
-        const mouseGlow = document.getElementById('mouse-glow');
-        if (mouseGlow) {
-            const section = mouseGlow.closest('section');
-            
-            section.addEventListener('mouseenter', () => {
-                mouseGlow.classList.remove('opacity-0');
-                mouseGlow.classList.add('opacity-100');
-            });
-            
-            section.addEventListener('mouseleave', () => {
-                mouseGlow.classList.remove('opacity-100');
-                mouseGlow.classList.add('opacity-0');
-            });
-            
-            section.addEventListener('mousemove', (e) => {
-                const rect = section.getBoundingClientRect();
-                const x = e.clientX - rect.left - 300;
-                const y = e.clientY - rect.top - 300;
-                
-                mouseGlow.style.transform = `translate(${x}px, ${y}px)`;
-            });
-        }
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        document.querySelectorAll('.reveal-up').forEach((el) => revealObserver.observe(el));
     </script>
-
-    <style>
-        /* Reveal animations */
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .reveal-up.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Staggered delays */
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
-
-        /* Floating animation for gradient orbs */
-        @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
-        }
-
-        @keyframes float-delayed {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(-40px, 30px) scale(1.05);
-            }
-            66% {
-                transform: translate(30px, -30px) scale(0.95);
-            }
-        }
-
-        .animate-float {
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .animate-float-delayed {
-            animation: float-delayed 25s ease-in-out infinite;
-        }
-
-        /* Pulse animation for text */
-        @keyframes pulse-slow {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.7;
-            }
-        }
-
-        .animate-pulse-slow {
-            animation: pulse-slow 3s ease-in-out infinite;
-        }
-
-        /* Card hover transitions */
-        [data-tilt] {
-            transition: transform 0.1s ease-out;
-            transform-style: preserve-3d;
-        }
-
-        /* Counter value styling */
-        .counter-value {
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Smooth section transitions */
-        [data-scroll-section] {
-            position: relative;
-        }
-    </style>
     @endpush
 </x-layout.app>
