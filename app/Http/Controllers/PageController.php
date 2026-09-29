@@ -4,21 +4,16 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Actions\RecordEnquiry;
 use App\Enums\EnquiryType;
 use App\Http\Requests\ContactEnquiryRequest;
 use App\Http\Requests\NewsletterSubscribeRequest;
-use App\Mail\ContactFormMail;
-use App\Mail\EnquiryReceivedMail;
-use App\Models\Contact;
 use App\Models\NewsletterSubscription;
 use App\Support\Booking;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
-use Throwable;
 
 final class PageController extends Controller
 {
@@ -106,48 +101,15 @@ final class PageController extends Controller
             ->with('description', 'Your Ascend AI dashboard.');
     }
 
-    public function submitContact(ContactEnquiryRequest $request): JsonResponse
+    public function submitContact(ContactEnquiryRequest $request, RecordEnquiry $recordEnquiry): JsonResponse
     {
         if ($request->isSpam()) {
             return $this->success(self::CONTACT_THANKS);
         }
 
-        $validated = $request->validated();
-
-        Contact::create($validated);
-
-        // The enquiry is already safe in the database, so a mail outage must not
-        // turn into an error for the visitor. Log it and let them see success.
-        $this->sendSafely(
-            fn () => Mail::to(config('ascend.contact_to'))->send(new ContactFormMail($validated)),
-            'Contact enquiry notification failed to send.',
-            $validated['email'],
-        );
-
-        // Instant reply to the visitor, at most once a day per address so the form
-        // cannot be used to flood someone's inbox. The row just stored counts as one.
-        $recentFromSameAddress = Contact::where('email', $validated['email'])
-            ->where('created_at', '>=', now()->subDay())
-            ->count();
-
-        if ($recentFromSameAddress === 1) {
-            $this->sendSafely(
-                fn () => Mail::to($validated['email'])->send(EnquiryReceivedMail::forEnquiry($validated)),
-                'Instant reply to an enquiry failed to send.',
-                $validated['email'],
-            );
-        }
+        $recordEnquiry->handle($request->validated());
 
         return $this->success(self::CONTACT_THANKS);
-    }
-
-    private function sendSafely(callable $send, string $failureMessage, string $email): void
-    {
-        try {
-            $send();
-        } catch (Throwable $exception) {
-            Log::error($failureMessage, ['email' => $email, 'exception' => $exception]);
-        }
     }
 
     public function subscribeNewsletter(NewsletterSubscribeRequest $request): JsonResponse

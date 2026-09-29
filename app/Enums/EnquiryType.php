@@ -24,6 +24,19 @@ enum EnquiryType: string
     }
 
     /**
+     * How a text alert to the owner describes this enquiry, or null when it should not trigger one.
+     * Only new business is texted; everything else waits for the inbox.
+     */
+    public function alertLabel(): ?string
+    {
+        return match ($this) {
+            self::Audit => 'audit request',
+            self::Quote => 'quote request',
+            default => null,
+        };
+    }
+
+    /**
      * @return array<int, string>
      */
     public static function values(): array

@@ -30,6 +30,23 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Text Alerts
+    |--------------------------------------------------------------------------
+    |
+    | Audit and quote requests are texted to the owner's mobile. The driver is
+    | "log" (write to the log, the default) or "twilio" (needs TWILIO_* in
+    | config/services.php). Nothing is sent until SMS_ALERT_TO is set, in
+    | international format, for example +447700900000.
+    |
+    */
+
+    'sms' => [
+        'driver' => env('SMS_DRIVER', 'log'),
+        'to' => env('SMS_ALERT_TO'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Company Details
     |--------------------------------------------------------------------------
     |

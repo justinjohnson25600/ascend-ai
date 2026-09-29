@@ -25,7 +25,10 @@ The brochure website for Ascend AI (ascend-ai.co.uk). A Laravel 12 monolith with
 - `app/Http/Controllers/PageController.php`: every page plus the contact and newsletter handlers. Deliberately one thin controller. There is no service layer; add one only when a second consumer of the logic appears.
 - `app/Http/Requests/`: a Form Request for every POST. `Concerns/DetectsHoneypot` provides `isSpam()`.
 - `app/Models/Contact.php` and `NewsletterSubscription.php`: the only custom tables.
-- `app/Mail/ContactFormMail.php`: sent synchronously to `config('ascend.contact_to')`. A send failure is logged and the visitor still sees success, because the row is already stored.
+- `app/Actions/RecordEnquiry.php`: what happens when anyone gets in touch (contact form or website assistant): store the `Contact`, email `config('ascend.contact_to')` (`ContactFormMail`), send the visitor an instant reply (`EnquiryReceivedMail`, at most once a day per address, never echoing their text), and text the owner about audit and quote requests. Every send is synchronous and wrapped, so a failure is logged and the visitor still sees success.
+- `app/Services/Sms/`: `SmsSender` with `TwilioSmsSender` (plain HTTP, no SDK) and `LogSmsSender` (the default). Bound in `AppServiceProvider` from `SMS_DRIVER`.
+- `app/Support/`: `Booking::url()` (https-only booking link or null) and `AutomationIdeas` (the ideas library data).
+- `resources/views/components/vignettes/`: the animated "automation in action" stories, driven by the `vignette` Alpine component in `app.js`. `components/graphics/`: static hero graphics.
 - `config/ascend.php`: project settings (contact mailbox, company name and registered address, social profile URLs, seeded admin). Put new project config here. The footer, legal pages and JSON-LD all read from it.
 - `resources/views/components/`: `layout/` (app, header, footer), `sections/` (hero, cta), `ui/` (card, section-heading, social-links), `buttons/`, `forms/honeypot`.
 - `resources/views/errors/404.blade.php`: the branded not-found page.
