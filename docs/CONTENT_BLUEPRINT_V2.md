@@ -747,3 +747,5 @@ A chat button on every page, bottom right. Hidden until an AI provider key is co
 **Rules it follows:** answers only from the website's content; never invents prices, timescales, clients or results; never gives legal, tax or financial advice; keeps answers short and in British English; asks for no more personal information than name, email and a line about the business.
 
 **Privacy Policy addition (sections 3, 6 and 8):** Website chat messages are sent to our AI provider, Anthropic, to generate replies. We do not keep chat transcripts. If you ask us to contact you through the chat, we keep your name, email and the summary you agree to, in the same way as a contact form enquiry.
+
+**Your data page closing call to action:** "Questions about your data?" / "Ask them on the audit call. We will go through exactly what a first stage would touch." / Book a free automation audit. The How It Works answer to "Is my data safe?" now ends with a link to this page instead of "Details are in the Privacy Policy."

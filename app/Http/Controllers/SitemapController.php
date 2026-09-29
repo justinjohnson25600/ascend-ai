@@ -20,6 +20,7 @@ final class SitemapController extends Controller
             ['automation-ideas', 'monthly', '0.8'],
             ['about', 'monthly', '0.7'],
             ['contact', 'monthly', '0.8'],
+            ['your-data', 'yearly', '0.5'],
             ['privacy-policy', 'yearly', '0.3'],
             ['terms-and-conditions', 'yearly', '0.3'],
         ];

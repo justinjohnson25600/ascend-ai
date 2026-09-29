@@ -60,6 +60,7 @@
                 <h3 class="text-white font-semibold mb-4">Legal</h3>
                 <ul class="space-y-2">
                     <li><a href="{{ route('privacy-policy') }}" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
+                    <li><a href="{{ route('your-data') }}" class="text-gray-400 hover:text-white transition-colors text-sm">Your data</a></li>
                     <li><a href="{{ route('terms-and-conditions') }}" class="text-gray-400 hover:text-white transition-colors text-sm">Terms and Conditions</a></li>
                 </ul>
             </div>

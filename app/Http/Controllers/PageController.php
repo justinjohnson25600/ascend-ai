@@ -78,6 +78,13 @@ final class PageController extends Controller
             ->with('bookingUrl', Booking::url());
     }
 
+    public function yourData(): View
+    {
+        return view('pages.your-data')
+            ->with('title', 'Your Data, in Plain English')
+            ->with('description', 'What Ascend AI can access when we build automation for you, where your data goes, what AI providers can and cannot do with it, and what happens when you leave.');
+    }
+
     public function privacyPolicy(): View
     {
         return view('pages.privacy-policy')

@@ -1,4 +1,4 @@
-@php($auditUrl = route('contact', ['type' => 'audit']))
+@php $auditUrl = route('contact', ['type' => 'audit']); @endphp
 <x-layout.app :title="$title" :description="$description">
     <x-sections.hero
         title="How it works, and what it costs"
@@ -124,8 +124,9 @@
                     ['Who owns it?', 'You own the automation built for your business. We host and run it for the monthly fee. If you ever want to move it elsewhere, we hand it over with documentation.'],
                     ['What happens when something breaks?', 'We are monitoring it, so we usually know before you do. Fixes are covered by the ongoing fee. If a supplier changes their system in a way that needs a rebuild, we quote that separately and tell you first.'],
                     ['How long does a stage take?', 'It depends on what it does and how many systems it touches. Most first stages are measured in weeks, not months. The scope tells you before you commit.'],
-                    ['Is my data safe?', 'Your data stays in your systems. We access it with permissions you grant and can revoke. Where an AI model is used, we choose providers that do not train on your data, and we say which ones in the scope. Details are in the Privacy Policy.'],
-                ] as $i => [$question, $answer])
+                    ['Is my data safe?', 'Your data stays in your systems. We access it with permissions you grant and can revoke. Where an AI model is used, we choose providers that do not train on your data, and we say which ones in the scope.', [route('your-data'), 'Your data, in plain English']],
+                ] as $i => $faq)
+                    @php [$question, $answer, $link] = $faq + [2 => null]; @endphp
                     <div class="card overflow-hidden">
                         <button type="button" @click="open = open === {{ $i }} ? null : {{ $i }}" :aria-expanded="open === {{ $i }}" class="w-full flex items-center justify-between gap-4 p-6 text-left">
                             <span class="text-lg font-semibold text-white">{{ $question }}</span>
@@ -133,6 +134,9 @@
                         </button>
                         <div x-show="open === {{ $i }}" x-transition x-cloak class="px-6 pb-6">
                             <p class="text-gray-300">{{ $answer }}</p>
+                            @if ($link)
+                                <p class="mt-3"><a href="{{ $link[0] }}" class="text-accent-400 hover:text-accent-300 font-medium">{{ $link[1] }}</a></p>
+                            @endif
                         </div>
                     </div>
                 @endforeach
