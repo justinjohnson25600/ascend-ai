@@ -17,6 +17,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Online Booking
+    |--------------------------------------------------------------------------
+    |
+    | The public booking page for free automation audits (Cal.com, Calendly or
+    | similar). When set, the contact page offers it and the instant reply to
+    | every enquiry links to it. Leave empty to hide both.
+    |
+    */
+
+    'booking_url' => env('BOOKING_URL'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Company Details
     |--------------------------------------------------------------------------
     |

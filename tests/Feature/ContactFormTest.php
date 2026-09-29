@@ -88,7 +88,7 @@ test('a submission with the honeypot filled is silently discarded', function () 
 });
 
 test('the enquiry is still stored when the email fails to send', function () {
-    Mail::shouldReceive('to')->once()->andThrow(new RuntimeException('SMTP unavailable'));
+    Mail::shouldReceive('to')->andThrow(new RuntimeException('SMTP unavailable'));
 
     $response = $this->postJson(route('contact.submit'), validEnquiry());
 

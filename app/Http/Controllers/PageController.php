@@ -8,6 +8,7 @@ use App\Enums\EnquiryType;
 use App\Http\Requests\ContactEnquiryRequest;
 use App\Http\Requests\NewsletterSubscribeRequest;
 use App\Mail\ContactFormMail;
+use App\Mail\EnquiryReceivedMail;
 use App\Models\Contact;
 use App\Models\NewsletterSubscription;
 use Illuminate\Http\JsonResponse;
@@ -101,17 +102,36 @@ final class PageController extends Controller
 
         // The enquiry is already safe in the database, so a mail outage must not
         // turn into an error for the visitor. Log it and let them see success.
-        try {
-            Mail::to(config('ascend.contact_to'))
-                ->send(new ContactFormMail($validated));
-        } catch (Throwable $exception) {
-            Log::error('Contact enquiry notification failed to send.', [
-                'email' => $validated['email'],
-                'exception' => $exception,
-            ]);
+        $this->sendSafely(
+            fn () => Mail::to(config('ascend.contact_to'))->send(new ContactFormMail($validated)),
+            'Contact enquiry notification failed to send.',
+            $validated['email'],
+        );
+
+        // Instant reply to the visitor, at most once a day per address so the form
+        // cannot be used to flood someone's inbox. The row just stored counts as one.
+        $recentFromSameAddress = Contact::where('email', $validated['email'])
+            ->where('created_at', '>=', now()->subDay())
+            ->count();
+
+        if ($recentFromSameAddress === 1) {
+            $this->sendSafely(
+                fn () => Mail::to($validated['email'])->send(EnquiryReceivedMail::forEnquiry($validated)),
+                'Instant reply to an enquiry failed to send.',
+                $validated['email'],
+            );
         }
 
         return $this->success(self::CONTACT_THANKS);
+    }
+
+    private function sendSafely(callable $send, string $failureMessage, string $email): void
+    {
+        try {
+            $send();
+        } catch (Throwable $exception) {
+            Log::error($failureMessage, ['email' => $email, 'exception' => $exception]);
+        }
     }
 
     public function subscribeNewsletter(NewsletterSubscribeRequest $request): JsonResponse
