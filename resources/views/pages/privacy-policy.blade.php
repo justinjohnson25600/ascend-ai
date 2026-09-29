@@ -22,7 +22,6 @@
     <x-sections.hero
         title="Privacy Policy"
         subtitle="How Ascend AI collects, uses and protects personal information, whether you visit this site, send an enquiry, join the newsletter, or become a client."
-        :ctaText="null"
         :fullHeight="false"
     />
 

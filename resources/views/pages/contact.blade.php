@@ -3,7 +3,6 @@
     <x-sections.hero
         title="Book your free automation audit"
         subtitle="Tell us a little about your business. We will reply within one working day to arrange a 30 minute call. If you just have a question, the same form works."
-        :ctaText="null"
         :fullHeight="false"
     />
 

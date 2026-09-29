@@ -23,7 +23,6 @@
     <x-sections.hero
         title="Terms and Conditions"
         subtitle="The terms on which Ascend AI provides audits, automation development and the ongoing service to business clients."
-        :ctaText="null"
         :fullHeight="false"
     />
 

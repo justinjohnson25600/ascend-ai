@@ -1,8 +1,8 @@
 @props([
     'title' => '',
     'subtitle' => null,
-    'ctaText' => 'Get Started',
-    'ctaUrl' => '/contact',
+    'ctaText' => null,   // no button unless a page asks for one
+    'ctaUrl' => null,
     'secondaryCtaText' => null,
     'secondaryCtaUrl' => null,
     'note' => null,
@@ -17,25 +17,25 @@
 
     <div class="container relative z-10">
         <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-display-xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 {{ $title }}
             </h1>
 
             @if($subtitle)
-                <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+                <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed {{ ($ctaText || $secondaryCtaText || $note) ? 'mb-10' : '' }}">
                     {{ $subtitle }}
                 </p>
             @endif
 
-            @if(isset($ctaText) || isset($secondaryCtaText))
+            @if($ctaText || $secondaryCtaText)
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    @if(isset($ctaText))
+                    @if($ctaText)
                         <a href="{{ $ctaUrl }}" class="btn btn-primary px-8 py-4 text-lg">
                             {{ $ctaText }}
                         </a>
                     @endif
 
-                    @if(isset($secondaryCtaText))
+                    @if($secondaryCtaText)
                         <a href="{{ $secondaryCtaUrl }}" class="btn btn-ghost px-8 py-4 text-lg">
                             {{ $secondaryCtaText }}
                         </a>

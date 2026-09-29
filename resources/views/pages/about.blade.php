@@ -3,7 +3,6 @@
     <x-sections.hero
         title="Built by people who run small businesses"
         subtitle="We didn't come to automation from a software company. We came to it from doing the admin ourselves."
-        :ctaText="null"
         :fullHeight="false"
     />
 
@@ -26,7 +25,7 @@
         <div class="container">
             <x-ui.section-heading title="How we work" alignment="center" />
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <div class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
                 @foreach ([
                     ['Built around you', 'We start with how your business runs, not with a product we want to sell.'],
                     ['Plain English', 'You will always know what it does, what it costs and what happens next. If we cannot explain it simply, we have not understood it yet.'],
@@ -34,7 +33,7 @@
                     ['Kept running', 'Automation is not a one-off. Suppliers change things, your business changes things. We stay on it.'],
                     ['No hype', 'AI is good at some jobs and hopeless at others. We tell you which is which, including when the answer is "don\'t automate that".'],
                 ] as [$heading, $body])
-                    <x-ui.card variant="glass" padding="lg" class="h-full border border-white/5">
+                    <x-ui.card variant="glass" padding="lg" class="w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] border border-white/5">
                         <h3 class="text-xl font-semibold text-white mb-3">{{ $heading }}</h3>
                         <p class="text-gray-400">{{ $body }}</p>
                     </x-ui.card>

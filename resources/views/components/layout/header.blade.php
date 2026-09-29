@@ -7,7 +7,7 @@
     ];
     $auditUrl = route('contact', ['type' => 'audit']);
 @endphp
-<header x-data="{ mobileMenuOpen: false }" class="fixed top-0 left-0 right-0 z-50 bg-navy-950/80 backdrop-blur-md border-b border-white/10">
+<header x-data="{ mobileMenuOpen: false }" class="sticky top-0 z-50 bg-navy-950/80 backdrop-blur-md border-b border-white/10">
     <div class="container h-16 md:h-20 flex items-center justify-between">
         {{-- Logo --}}
         <a href="{{ route('home') }}" class="flex items-center" aria-label="Ascend AI home">

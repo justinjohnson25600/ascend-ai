@@ -86,7 +86,8 @@
 <body class="{{ trim('bg-navy-950 text-white font-sans antialiased ' . $bodyClass) }}">
     <x-layout.header />
 
-    <main class="pt-20">
+    {{-- The header is sticky and in the page flow, so content never sits underneath it at any screen size --}}
+    <main>
         {{ $slot }}
     </main>
 

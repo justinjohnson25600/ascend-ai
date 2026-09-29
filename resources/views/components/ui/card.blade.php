@@ -17,10 +17,8 @@ $paddingClasses = match($padding) {
     'lg' => 'p-8',
     default => 'p-6',
 };
-
-$hoverClass = $hover ? 'card-hover' : '';
 @endphp
 
-<div class="{{ $classes }} {{ $paddingClasses }} {{ $hoverClass }} {{ $attributes->class ?? '' }}">
+<div {{ $attributes->class([$classes, $paddingClasses, 'card-hover' => $hover]) }}>
     {{ $slot }}
 </div>

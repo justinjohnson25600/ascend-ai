@@ -28,7 +28,7 @@
             <div class="grid" aria-live="polite">
                 @foreach ($slides as $i => $slide)
                     <div
-                        class="col-start-1 row-start-1 transition-all duration-700 ease-out motion-reduce:transition-none"
+                        class="col-start-1 row-start-1 self-center transition-all duration-700 ease-out motion-reduce:transition-none"
                         :class="active === {{ $i }} ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'"
                         :aria-hidden="active !== {{ $i }}"
                         :inert="active !== {{ $i }}"
@@ -41,17 +41,17 @@
                         @endif
 
                         @if ($i === 0)
-                            <h1 class="text-display-xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{{ $slide['title'] }}</h1>
+                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{{ $slide['title'] }}</h1>
                         @else
-                            <h2 class="text-display-xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{{ $slide['title'] }}</h2>
+                            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{{ $slide['title'] }}</h2>
                         @endif
 
                         @if (!empty($slide['body']))
-                            <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">{{ $slide['body'] }}</p>
+                            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">{{ $slide['body'] }}</p>
                         @endif
 
                         @if (!empty($slide['points']))
-                            <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10 text-sm text-gray-300">
+                            <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10 max-w-2xl mx-auto text-sm text-gray-300">
                                 @foreach ($slide['points'] as $point)
                                     <li class="flex items-center gap-2">
                                         <span class="w-1.5 h-1.5 rounded-full bg-accent-400" aria-hidden="true"></span>{{ $point }}

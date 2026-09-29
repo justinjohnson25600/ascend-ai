@@ -5,12 +5,12 @@
 ])
 
 @if($href)
-    <a href="{{ $href }}" class="btn btn-secondary {{ $attributes->class ?? '' }}">
+    <a href="{{ $href }}" {{ $attributes->class(['btn', 'btn-secondary']) }}>
         {{ $text }}
         {{ $slot }}
     </a>
 @else
-    <button type="{{ $type }}" class="btn btn-secondary {{ $attributes->class ?? '' }}">
+    <button type="{{ $type }}" {{ $attributes->class(['btn', 'btn-secondary']) }}>
         {{ $text }}
         {{ $slot }}
     </button>

@@ -3,7 +3,6 @@
     <x-sections.hero
         title="What is business automation?"
         subtitle="A plain answer, for people who have never had a reason to ask."
-        :ctaText="null"
         :fullHeight="false"
     />
 
