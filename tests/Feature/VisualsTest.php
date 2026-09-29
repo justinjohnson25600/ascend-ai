@@ -24,3 +24,13 @@ test('animated examples are labelled as examples and described for screen reader
         ->assertSee('aria-label="Example: a missed call', false)
         ->assertSee('>Example<', false);
 });
+
+test('each solutions area sits beside its animated example', function () {
+    $response = $this->get('/solutions')->assertOk();
+
+    foreach (['email', 'quote', 'diary', 'chat', 'receipt', 'report'] as $name) {
+        $response->assertSee('data-vignette="'.$name.'"', false);
+    }
+
+    $response->assertSeeInOrder(['id="enquiries"', 'data-vignette="email"', 'id="quotes"', 'data-vignette="quote"', 'id="reporting"', 'data-vignette="report"'], false);
+});

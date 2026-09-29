@@ -3,6 +3,7 @@
     $areas = [
         [
             'id' => 'enquiries',
+            'visual' => 'email',
             'heading' => 'Enquiries and follow-up',
             'problem' => 'An enquiry comes in while you are on a job. By the time you reply, they have booked someone else.',
             'build' => 'Every enquiry, from your website, email, social pages or phone message, gets an immediate reply in your tone of voice. It asks the questions you would ask, works out whether it is a job you want, books a call or a visit, and follows up until there is an answer. You see every conversation and can step in at any point.',
@@ -10,6 +11,7 @@
         ],
         [
             'id' => 'quotes',
+            'visual' => 'quote',
             'heading' => 'Quotes and invoicing',
             'problem' => 'Quotes take an evening to write and a week of nudging to get answered. Invoices go out late because they get done in batches.',
             'build' => 'Quotes drafted from your own price list and past jobs, sent for your approval or straight to the customer, then chased politely on a schedule you set. When the job is marked done, the invoice goes out and gets chased too. It connects to the accounts software you already use.',
@@ -17,6 +19,7 @@
         ],
         [
             'id' => 'scheduling',
+            'visual' => 'diary',
             'heading' => 'Scheduling and reminders',
             'problem' => 'Bookings taken by phone, written in a diary, forgotten by the customer.',
             'build' => 'Customers book, reschedule and cancel themselves within the rules you set. Confirmations and reminders go out by text or email. Your diary, your staff\'s diaries and your job list stay in step. No-shows get followed up automatically.',
@@ -24,6 +27,7 @@
         ],
         [
             'id' => 'questions',
+            'visual' => 'chat',
             'heading' => 'Customer questions',
             'problem' => 'The same twenty questions, every week, answered by whoever picks up.',
             'build' => 'An assistant on your website, email or messaging channels that answers from your own information: your prices, your opening hours, your policies, your product details. It only says what you have told it. Anything it cannot answer goes to a person with the conversation attached.',
@@ -31,6 +35,7 @@
         ],
         [
             'id' => 'paperwork',
+            'visual' => 'receipt',
             'heading' => 'Paperwork and data entry',
             'problem' => 'The same customer details typed into three systems by hand, and one of them always ends up wrong.',
             'build' => 'Information captured once, from a form, an email, a photo of a document or a call note, then checked and pushed to every system that needs it. Job sheets, compliance records, supplier orders, onboarding forms.',
@@ -38,6 +43,7 @@
         ],
         [
             'id' => 'reporting',
+            'visual' => 'report',
             'heading' => 'Reporting',
             'problem' => 'You know the business is busy. You do not know if it is profitable this month until the accountant tells you.',
             'build' => 'The handful of numbers you actually run the business on, pulled from your systems and sent to you on the schedule you choose. Jobs booked, quotes outstanding, cash due, hours by staff member. Whatever matters to you.',
@@ -65,29 +71,34 @@
         </div>
     </section>
 
-    {{-- Areas --}}
+    {{-- Areas: copy on one side, the matching animated example on the other, alternating down the page --}}
     @foreach ($areas as $i => $area)
-        <section id="{{ $area['id'] }}" class="{{ $i % 2 === 0 ? 'bg-navy-950' : 'bg-navy-900' }} py-20 lg:py-24 scroll-mt-24">
-            <div class="container">
-                <div class="max-w-5xl mx-auto">
-                    <div class="flex items-center gap-4 mb-10">
-                        <span class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-accent-500 rounded-full font-bold text-lg text-white">
-                            {{ str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT) }}
-                        </span>
-                        <h2 class="text-display-sm md:text-display-md font-bold text-white">{{ $area['heading'] }}</h2>
-                    </div>
+        <section id="{{ $area['id'] }}" class="{{ $i % 2 === 0 ? 'bg-navy-950' : 'bg-navy-900' }} py-20 lg:py-28 scroll-mt-32 relative overflow-hidden">
+            <div class="absolute {{ $i % 2 === 0 ? '-right-40' : '-left-40' }} top-1/3 w-96 h-96 rounded-full blur-3xl {{ $i % 2 === 0 ? 'bg-accent-500/10' : 'bg-purple-500/10' }} pointer-events-none"></div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <x-ui.card variant="default" padding="lg" class="h-full">
-                            <p class="text-xs uppercase tracking-wider text-accent-400 mb-3">The problem</p>
-                            <p class="text-gray-300">{{ $area['problem'] }}</p>
-                        </x-ui.card>
-                        <x-ui.card variant="glass" padding="lg" class="h-full lg:col-span-2 border border-accent-500/20">
+            <div class="container relative">
+                <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="{{ $i % 2 === 1 ? 'lg:order-last' : '' }}">
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-accent-500 rounded-full font-bold text-lg text-white">
+                                {{ str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT) }}
+                            </span>
+                            <h2 class="text-3xl md:text-4xl font-bold text-white">{{ $area['heading'] }}</h2>
+                        </div>
+
+                        <p class="text-xs uppercase tracking-wider text-accent-400 mb-2">The problem</p>
+                        <p class="text-lg text-gray-300 mb-8">{{ $area['problem'] }}</p>
+
+                        <x-ui.card variant="glass" padding="lg" class="border border-accent-500/20">
                             <p class="text-xs uppercase tracking-wider text-accent-400 mb-3">What we build</p>
                             <p class="text-gray-200 mb-6">{{ $area['build'] }}</p>
                             <p class="text-xs uppercase tracking-wider text-gray-500 mb-2">What stays with you</p>
                             <p class="text-gray-400">{{ $area['yours'] }}</p>
                         </x-ui.card>
+                    </div>
+
+                    <div>
+                        <x-dynamic-component :component="'vignettes.'.$area['visual']" />
                     </div>
                 </div>
             </div>
