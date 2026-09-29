@@ -48,4 +48,56 @@ Alpine.data('newsletterForm', () => ({
     }
 }));
 
+// "Automation in action" examples: step through a short story while on screen, pause off screen,
+// loop after a hold, and show the final frame straight away when the visitor prefers reduced motion.
+Alpine.data('vignette', (steps = 5, stepMs = 1100, holdMs = 4200) => ({
+    step: 0,
+    timer: null,
+    visible: false,
+
+    init() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            this.step = steps;
+            return;
+        }
+
+        new IntersectionObserver(([entry]) => {
+            this.visible = entry.isIntersecting;
+            this.visible ? this.schedule(400) : this.halt();
+        }, { threshold: 0.3 }).observe(this.$el);
+    },
+
+    // A vignette on a carousel slide that is not showing waits at the start of its story.
+    offStage() {
+        return this.$el.closest('[aria-hidden="true"]') !== null;
+    },
+
+    schedule(delay) {
+        if (this.timer) return;
+
+        this.timer = setTimeout(() => {
+            this.timer = null;
+            if (!this.visible) return;
+
+            if (this.offStage()) {
+                this.step = 0;
+                this.schedule(stepMs);
+                return;
+            }
+
+            this.step = this.step >= steps ? 0 : this.step + 1;
+            this.schedule(this.step >= steps ? holdMs : (this.step === 0 ? 700 : stepMs));
+        }, delay);
+    },
+
+    halt() {
+        clearTimeout(this.timer);
+        this.timer = null;
+    },
+
+    at(n) {
+        return this.step >= n;
+    },
+}));
+
 Alpine.start();

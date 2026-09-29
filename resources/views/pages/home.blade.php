@@ -6,6 +6,7 @@
         [
             'eyebrow' => 'What is business automation?',
             'title' => 'Run your business on autopilot, not overtime.',
+            'visual' => 'missed-call',
             'body' => 'Business automation is AI quietly taking the repetitive, time-consuming jobs off your plate. Reading and answering email. Chasing quotes. Filing receipts. Booking customers in and reminding them to turn up. It works in your words and by your rules, around the clock, for a fraction of the cost of another pair of hands. You get the hours back for the work only you can do.',
             'points' => ['Built around your business, not a template', 'Works with the software you already use', 'Live in weeks, not months', 'Yours to keep'],
             'ctaText' => 'Book a free automation audit',
@@ -17,6 +18,7 @@
         [
             'eyebrow' => 'What we automate',
             'title' => 'Every enquiry answered in minutes, not days.',
+            'visual' => 'email',
             'body' => 'Website, email, socials, voicemail. Each one gets a proper reply in your voice, gets qualified, and gets followed up until it is a booking or a polite no. The ones that matter reach you by text. You see everything and step in whenever you like.',
             'ctaText' => 'See how',
             'ctaUrl' => $solutions('enquiries'),
@@ -26,6 +28,7 @@
         [
             'eyebrow' => 'What we automate',
             'title' => 'Quotes sent the same day and chased until they are answered.',
+            'visual' => 'quote',
             'body' => 'Drafted from your own price list, sent for your nod or straight to the customer, then nudged politely on a schedule you set. When the job is done, the invoice goes out and gets chased too, inside the accounts software you already use.',
             'ctaText' => 'See how',
             'ctaUrl' => $solutions('quotes'),
@@ -35,6 +38,7 @@
         [
             'eyebrow' => 'What we automate',
             'title' => 'A diary that fills itself and reminds people to turn up.',
+            'visual' => 'diary',
             'body' => 'Customers book, move and cancel within the rules you set. Confirmations and reminders go out by text. Your diary, your staff and your job list stay in step, and no-shows are followed up without anyone remembering to do it.',
             'ctaText' => 'See how',
             'ctaUrl' => $solutions('scheduling'),
@@ -44,6 +48,7 @@
         [
             'eyebrow' => 'What we automate',
             'title' => 'The twenty questions you answer every week, answered for you.',
+            'visual' => 'chat',
             'body' => 'On your website, by email or by message, day and night. It answers only from your own information, your prices, your hours, your policies, and hands anything it cannot answer to a person with the conversation attached.',
             'ctaText' => 'See how',
             'ctaUrl' => $solutions('questions'),
@@ -53,6 +58,7 @@
         [
             'eyebrow' => 'What we automate',
             'title' => 'Type it once. It lands everywhere it needs to be.',
+            'visual' => 'receipt',
             'body' => 'A form, an email, a photo of a receipt or a call note is read, checked and pushed into every system that needs it. Accounts, job sheets, compliance records, supplier orders. Anything that does not add up is flagged to you, not found by your accountant in January.',
             'ctaText' => 'See how',
             'ctaUrl' => $solutions('paperwork'),
@@ -62,6 +68,7 @@
         [
             'eyebrow' => 'What we automate',
             'title' => 'Monday morning numbers, without building the spreadsheet.',
+            'visual' => 'report',
             'body' => 'The handful of figures you actually run the business on, pulled from your systems and sent to you on the schedule you choose. Jobs booked, quotes outstanding, cash due, hours by person. You decide what to do about them.',
             'ctaText' => 'See how',
             'ctaUrl' => $solutions('reporting'),

@@ -532,3 +532,76 @@ Seven slides, auto-advancing every 8 seconds, paused on hover, focus and for vis
 
 1. **What is business automation?** (eyebrow) / "Run your business on autopilot, not overtime." / "Business automation is AI quietly taking the repetitive, time-consuming jobs off your plate. Reading and answering email. Chasing quotes. Filing receipts. Booking customers in and reminding them to turn up. It works in your words and by your rules, around the clock, for a fraction of the cost of another pair of hands. You get the hours back for the work only you can do." Four USP points: built around your business, works with the software you already use, live in weeks, yours to keep. CTAs: audit, plain-English guide.
 2. to 7. **What we automate** (eyebrow), one per area, each linking to its section on Solutions: "Every enquiry answered in minutes, not days." / "Quotes sent the same day and chased until they are answered." / "A diary that fills itself and reminds people to turn up." / "The twenty questions you answer every week, answered for you." / "Type it once. It lands everywhere it needs to be." / "Monday morning numbers, without building the spreadsheet."
+
+---
+
+## Addendum, 29 September 2026: visuals and "practise what we preach" (items 1 to 14)
+
+Approved by Justin on 29 September 2026 from the numbered suggestion list. Batch one is items 1, 2, 5, 6 and 8; batch two is the remainder. All example names, numbers and messages in the animations are illustrative, are labelled "Example" on screen, and are not claims about clients or results. Phone numbers use Ofcom's reserved drama range (07700 900xxx).
+
+### Item 1: "automation in action" animations
+
+Seven small looping animations built in code, each a short story that plays when it scrolls into view and shows its final frame to visitors who have reduced motion switched on.
+
+| Name | Story, frame by frame | Used on |
+| --- | --- | --- |
+| Missed call | Missed call from 07700 900123. Text goes out: "Sorry we missed you, we're on a job. What can we help with?" Reply: "Leaking tap in the kitchen, any chance this week?" Text: "We can do Wednesday 2pm or Friday 9am. Which suits?" Reply: "Friday 9am". Chip: "Booked. Summary sent to you." | Home slide 1, What is BA card 4 |
+| Email | Inbox fills: Sam P. "Boiler making that noise again, can you come Tuesday?"; Parts Supplier "Invoice 4471 attached"; D. Khan "What time do you open on Saturday?". D. Khan tagged "Answered", invoice tagged "Filed", Sam tagged "Important". A text arrives on your phone: "New enquiry from Sam P. Boiler service, wants Tuesday. Tap to reply." | Home slide 2, What is BA card 1, Solutions enquiries |
+| Quote | Quote Q-1042, kitchen rewire, £2,340. Timeline: "Sent Monday", "Thursday: friendly nudge", "Next Tuesday: second nudge", "Accepted". Chip: "Invoice goes out when the job is marked done." | Home slide 3, What is BA card 5, Solutions quotes |
+| Diary | A week view with booked slots. "Booked online" lands in Wednesday 10:00. "Reminder sent: see you tomorrow at 10:00." Thursday 2pm moves to Friday 9am, "Moved by customer". Chip: "Missed appointment: rebooking link sent." | Home slide 4, What is BA card 6, Solutions scheduling |
+| Chat | 21:47. Visitor: "Do you cover Basildon? How soon could you come out?" Typing. Reply: "Yes, we cover Basildon and the rest of south Essex. Our next free slots are Tuesday and Thursday morning. Shall I book one?" Visitor: "Thursday please." Reply: "Done. You'll get a confirmation by text." Chip: "Sent to the owner by text." | Home slide 5, What is BA card 2, Solutions questions |
+| Receipt | A receipt from a builders' merchant, total £84.60. It is read: supplier, date, VAT £14.10, total. A row lands in "Accounts": materials, £84.60, matched to bank. A flag: "Card payment of £36.00 on 12 September has no receipt." | Home slide 6, What is BA card 3, Solutions paperwork |
+| Report | "Your week, Monday 07:00". Bars fill for jobs booked, quotes out, cash due, hours by person. No figures. Chip: "Sent to your inbox." | Home slide 7, Solutions reporting |
+
+### Item 2: Solutions as a zig-zag
+
+Each of the six areas becomes two columns: the existing copy (problem, what we build, what stays with you) on one side and that area's animation on the other, alternating sides down the page. Copy unchanged.
+
+### Item 5: page heroes and texture
+
+Inner-page heroes become two columns on larger screens: headline and text on the left, a graphic on the right. Photos from the visual brief can replace or sit behind these later. Legal pages stay single column for reading.
+
+- **What is Business Automation:** a four-step diagram. "Something happens: an email, a call, a receipt." Then "AI reads it and works out what it is." Then "It does the job: replies, books, files, chases." Then "You hear about it only when it matters." (This also delivers item 4.)
+- **Solutions:** a hub graphic, the six areas around a central Ascend node, joined by moving lines.
+- **How It Works:** a stage ladder: "Free audit", "Scope and setup", "Stage 1 live", "Stage 2 live", "Monthly: run and improve".
+- **About:** a quote card in the founder's name, taken from the approved About copy: "We built automation around our own businesses first. Ascend AI is that, offered properly." Justin Johnson, founder.
+- **Contact:** a "what happens next" graphic: "You send the form", "We reply within one working day", "A 30 minute call", "Your written audit within two working days".
+
+Sections across the site gain subtle texture: a faint dot grid on some, soft coloured glows on others, and a thin light line between sections.
+
+### Item 6: instant reply to every enquiry
+
+Sent to the person who filled in the form, the moment it arrives. Not sent to submissions caught by the spam trap, and not sent twice to the same address within 24 hours. It never repeats the visitor's message back to them, so the form cannot be used to send someone else spam.
+
+**Subject:** Thanks, we've got your enquiry
+
+**Body:**
+
+> Hi {first name, or "there" if the name field does not look like a name},
+>
+> Thanks for getting in touch with Ascend AI. This reply went out automatically the moment your enquiry arrived. It is a small example of what we build.
+>
+> A person reads every enquiry, and you will hear from us within one working day.
+>
+> {Only if online booking is set up:} If you would rather not wait, pick a time for your free 30 minute automation audit: [Pick a time]
+>
+> You asked about: {enquiry type label}
+>
+> If you did not send this, you can ignore it and we will not contact you again.
+>
+> Justin Johnson
+> Ascend AI, Business Automation Solutions
+> contact@ascend-ai.co.uk
+
+Reply-to is the enquiries mailbox, so answering it reaches us.
+
+### Item 8: self-booking on the Contact page
+
+Shown only once a booking page address is configured (`BOOKING_URL`). The calendar comes from an outside booking service, so it loads only when the visitor asks for it.
+
+- **Heading:** Rather pick a time now?
+- **Body:** Choose a 30 minute slot for your free automation audit. It is the same call, without the emails back and forth.
+- **Button:** Show available times
+- **Link:** Open the booking page in a new tab
+- **Small print:** The calendar is provided by our booking service and loads only when you ask for it.
+- **After the form is sent:** a "Pick a time now" button appears under the thank-you message.

@@ -1,6 +1,6 @@
 @props([
     'slides' => [],      // each: eyebrow, title, body, points (optional list), ctaText, ctaUrl, secondaryCtaText, secondaryCtaUrl, note
-    'interval' => 6000,  // ms between automatic advances; paused while a control has keyboard focus, stopped once a visitor takes over
+    'interval' => 10000, // ms between automatic advances, long enough for a slide's animated example to finish; paused while a control has keyboard focus, stopped once a visitor takes over
     'label' => 'Highlights',
 ])
 
@@ -23,12 +23,13 @@
     <x-ui.circuit-background />
 
     <div class="container relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
+        <div class="max-w-6xl mx-auto text-center">
             {{-- Slides share one grid cell so the section keeps the height of the tallest slide --}}
             <div class="grid" aria-live="polite">
                 @foreach ($slides as $i => $slide)
+                    @php $hasVisual = !empty($slide['visual']); @endphp
                     <div
-                        class="col-start-1 row-start-1 self-center transition-all duration-700 ease-out motion-reduce:transition-none"
+                        class="col-start-1 row-start-1 self-center transition-all duration-700 ease-out motion-reduce:transition-none {{ $hasVisual ? 'lg:grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-14 lg:items-center' : '' }}"
                         :class="active === {{ $i }} ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'"
                         :aria-hidden="active !== {{ $i }}"
                         :inert="active !== {{ $i }}"
@@ -36,43 +37,52 @@
                         aria-roledescription="slide"
                         aria-label="{{ $i + 1 }} of {{ count($slides) }}"
                     >
-                        @if (!empty($slide['eyebrow']))
-                            <p class="text-sm uppercase tracking-widest text-accent-400 mb-5">{{ $slide['eyebrow'] }}</p>
-                        @endif
+                        <div class="{{ $hasVisual ? 'lg:text-left' : 'max-w-4xl mx-auto' }}">
+                            @if (!empty($slide['eyebrow']))
+                                <p class="text-sm uppercase tracking-widest text-accent-400 mb-5">{{ $slide['eyebrow'] }}</p>
+                            @endif
 
-                        @if ($i === 0)
-                            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{{ $slide['title'] }}</h1>
-                        @else
-                            <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">{{ $slide['title'] }}</h2>
-                        @endif
+                            @if ($i === 0)
+                                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight {{ $hasVisual ? '' : 'lg:text-6xl' }}">{{ $slide['title'] }}</h1>
+                            @else
+                                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight {{ $hasVisual ? '' : 'lg:text-6xl' }}">{{ $slide['title'] }}</h2>
+                            @endif
 
-                        @if (!empty($slide['body']))
-                            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">{{ $slide['body'] }}</p>
-                        @endif
+                            @if (!empty($slide['body']))
+                                <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed {{ $hasVisual ? 'lg:text-lg lg:mx-0' : '' }}">{{ $slide['body'] }}</p>
+                            @endif
 
-                        @if (!empty($slide['points']))
-                            <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10 max-w-2xl mx-auto text-sm text-gray-300">
-                                @foreach ($slide['points'] as $point)
-                                    <li class="flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-accent-400" aria-hidden="true"></span>{{ $point }}
-                                    </li>
-                                @endforeach
-                            </ul>
-                        @endif
+                            @if (!empty($slide['points']))
+                                <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10 max-w-2xl mx-auto text-sm text-gray-300 {{ $hasVisual ? 'lg:grid lg:grid-cols-2 lg:mx-0' : '' }}">
+                                    @foreach ($slide['points'] as $point)
+                                        <li class="flex items-center gap-2">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-accent-400" aria-hidden="true"></span>{{ $point }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @endif
 
-                        @if (!empty($slide['ctaText']) || !empty($slide['secondaryCtaText']))
-                            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                                @if (!empty($slide['ctaText']))
-                                    <a href="{{ $slide['ctaUrl'] }}" class="btn btn-primary px-8 py-4 text-lg" :tabindex="active === {{ $i }} ? 0 : -1">{{ $slide['ctaText'] }}</a>
-                                @endif
-                                @if (!empty($slide['secondaryCtaText']))
-                                    <a href="{{ $slide['secondaryCtaUrl'] }}" class="btn btn-ghost px-8 py-4 text-lg" :tabindex="active === {{ $i }} ? 0 : -1">{{ $slide['secondaryCtaText'] }}</a>
-                                @endif
+                            @if (!empty($slide['ctaText']) || !empty($slide['secondaryCtaText']))
+                                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 {{ $hasVisual ? 'lg:justify-start' : '' }}">
+                                    @if (!empty($slide['ctaText']))
+                                        <a href="{{ $slide['ctaUrl'] }}" class="btn btn-primary px-8 py-4 text-lg whitespace-nowrap {{ $hasVisual ? 'lg:px-6 lg:text-base' : '' }}" :tabindex="active === {{ $i }} ? 0 : -1">{{ $slide['ctaText'] }}</a>
+                                    @endif
+                                    @if (!empty($slide['secondaryCtaText']))
+                                        <a href="{{ $slide['secondaryCtaUrl'] }}" class="btn btn-ghost px-8 py-4 text-lg whitespace-nowrap {{ $hasVisual ? 'lg:px-6 lg:text-base' : '' }}" :tabindex="active === {{ $i }} ? 0 : -1">{{ $slide['secondaryCtaText'] }}</a>
+                                    @endif
+                                </div>
+                            @endif
+
+                            @if (!empty($slide['note']))
+                                <p class="mt-6 text-sm text-gray-400">{{ $slide['note'] }}</p>
+                            @endif
+                        </div>
+
+                        {{-- The animated example sits beside the text on larger screens; phones keep the hero short --}}
+                        @if ($hasVisual)
+                            <div class="hidden lg:block">
+                                <x-dynamic-component :component="'vignettes.'.$slide['visual']" />
                             </div>
-                        @endif
-
-                        @if (!empty($slide['note']))
-                            <p class="mt-6 text-sm text-gray-400">{{ $slide['note'] }}</p>
                         @endif
                     </div>
                 @endforeach

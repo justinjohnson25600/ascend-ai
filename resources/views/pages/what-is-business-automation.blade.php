@@ -46,14 +46,17 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                 @foreach ([
-                    ['What if your emails answered themselves?', 'Every email is read as it arrives. Routine ones get a proper reply, in your words. Anything that matters, a new customer, a complaint, a supplier problem, is sent to you by text so you can deal with it straight away. You open your inbox to find the routine work done and the important things already in your hand.'],
-                    ['What if the chat on your website did the same?', 'A visitor asks a question at 10pm. They get a real answer from your own information, not a script. If they want to book, or they need you, you get a text. Nobody waits until morning.'],
-                    ['What if receipts filed themselves?', 'You photograph a receipt, or forward the email it came in on, and that is the end of your involvement. It is read, entered into your accounts system, put against the right category and matched to the bank. Anything that does not add up, a missing receipt, a payment with no invoice, a duplicate, is flagged to you now rather than found by your accountant in January.'],
-                    ['What if a missed call was not a lost customer?', 'You are on a job and the phone rings out. Within a minute the caller gets a text: sorry we missed you, what can we help with? It takes their details or books them in, and you get a summary when you surface.'],
-                    ['What if quotes chased themselves?', 'The quote goes out. A polite nudge follows a few days later, then another, on the schedule you set. You find out when they say yes, or when it is time for a personal call.'],
-                    ['What if tomorrow confirmed itself?', 'Appointments are confirmed the day before by text or email, with a link to move them if needed. The ones who do not turn up are followed up without anyone remembering to do it.'],
-                ] as [$heading, $body])
-                    <x-ui.card variant="glass" padding="lg" class="h-full border border-white/5">
+                    ['email', 'What if your emails answered themselves?', 'Every email is read as it arrives. Routine ones get a proper reply, in your words. Anything that matters, a new customer, a complaint, a supplier problem, is sent to you by text so you can deal with it straight away. You open your inbox to find the routine work done and the important things already in your hand.'],
+                    ['chat', 'What if the chat on your website did the same?', 'A visitor asks a question at 10pm. They get a real answer from your own information, not a script. If they want to book, or they need you, you get a text. Nobody waits until morning.'],
+                    ['receipt', 'What if receipts filed themselves?', 'You photograph a receipt, or forward the email it came in on, and that is the end of your involvement. It is read, entered into your accounts system, put against the right category and matched to the bank. Anything that does not add up, a missing receipt, a payment with no invoice, a duplicate, is flagged to you now rather than found by your accountant in January.'],
+                    ['missed-call', 'What if a missed call was not a lost customer?', 'You are on a job and the phone rings out. Within a minute the caller gets a text: sorry we missed you, what can we help with? It takes their details or books them in, and you get a summary when you surface.'],
+                    ['quote', 'What if quotes chased themselves?', 'The quote goes out. A polite nudge follows a few days later, then another, on the schedule you set. You find out when they say yes, or when it is time for a personal call.'],
+                    ['diary', 'What if tomorrow confirmed itself?', 'Appointments are confirmed the day before by text or email, with a link to move them if needed. The ones who do not turn up are followed up without anyone remembering to do it.'],
+                ] as [$visual, $heading, $body])
+                    <x-ui.card variant="glass" padding="lg" class="h-full border border-white/5 flex flex-col">
+                        <div class="mb-6">
+                            <x-dynamic-component :component="'vignettes.'.$visual" />
+                        </div>
                         <h3 class="text-xl font-semibold text-white mb-3">{{ $heading }}</h3>
                         <p class="text-gray-300">{{ $body }}</p>
                     </x-ui.card>
