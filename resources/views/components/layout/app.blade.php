@@ -98,13 +98,5 @@
     @endif
 
     @stack('scripts')
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.section-droid-video').forEach((video) => {
-                video.addEventListener('playing', () => video.removeAttribute('poster'), { once: true });
-            });
-        });
-    </script>
 </body>
 </html>

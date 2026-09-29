@@ -82,10 +82,11 @@
     <x-sections.hero-carousel :slides="$slides" label="What Ascend AI does" />
 
     {{-- The problem --}}
-    <section class="bg-navy-900 py-20 lg:py-32 section-droid-bg relative overflow-hidden">
-        <video class="section-droid-video" autoplay muted loop playsinline poster="{{ asset('images/droid.webp') }}">
-            <source src="{{ asset('video/andriod-p.mp4') }}" type="video/mp4">
-        </video>
+    <section class="bg-navy-900 py-20 lg:py-32 relative overflow-hidden">
+        <picture class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <source media="(min-width: 1024px)" srcset="{{ asset('images/desktop-version.webp') }}" width="1672" height="941">
+            <img src="{{ asset('images/mobile-version.webp') }}" alt="" width="941" height="1672" loading="lazy" decoding="async" class="w-full h-full object-cover opacity-40">
+        </picture>
         <div class="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-transparent to-navy-950/60 pointer-events-none"></div>
 
         <div class="container relative z-10">
