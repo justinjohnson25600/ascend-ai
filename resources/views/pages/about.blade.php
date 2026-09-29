@@ -4,10 +4,14 @@
         title="Built by people who run small businesses"
         subtitle="We didn't come to automation from a software company. We came to it from doing the admin ourselves."
         :fullHeight="false"
-    />
+    >
+        <x-slot:visual>
+            <x-graphics.founder-quote />
+        </x-slot:visual>
+    </x-sections.hero>
 
     {{-- Why we exist --}}
-    <section class="bg-navy-900 py-20 lg:py-32">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-32">
         <div class="container">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8">Why we exist</h2>
@@ -21,7 +25,7 @@
     </section>
 
     {{-- Principles --}}
-    <section class="bg-navy-950 py-20 lg:py-32">
+    <section class="texture-dots divider-top bg-navy-950 py-20 lg:py-32">
         <div class="container">
             <x-ui.section-heading title="How we work" alignment="center" />
 
@@ -43,7 +47,7 @@
     </section>
 
     {{-- Who you'll deal with --}}
-    <section class="bg-navy-900 py-20 lg:py-24">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24">
         <div class="container">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8">Who you'll deal with</h2>

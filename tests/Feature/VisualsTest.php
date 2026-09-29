@@ -34,3 +34,23 @@ test('each solutions area sits beside its animated example', function () {
 
     $response->assertSeeInOrder(['id="enquiries"', 'data-vignette="email"', 'id="quotes"', 'data-vignette="quote"', 'id="reporting"', 'data-vignette="report"'], false);
 });
+
+test('inner page heroes carry their graphic', function (string $path, string $graphic) {
+    $this->get($path)->assertOk()->assertSee('data-graphic="'.$graphic.'"', false);
+})->with([
+    ['/what-is-business-automation', 'flow'],
+    ['/solutions', 'hub'],
+    ['/how-it-works', 'stages'],
+    ['/about', 'founder-quote'],
+    ['/contact', 'next-steps'],
+]);
+
+test('the four step diagram explains automation in plain words', function () {
+    $this->get('/what-is-business-automation')->assertSeeInOrder([
+        'Something happens', 'AI reads it', 'It does the job', 'You hear about it',
+    ]);
+});
+
+test('legal pages keep a plain single column hero', function (string $path) {
+    $this->get($path)->assertOk()->assertDontSee('data-graphic=', false);
+})->with(['/privacy-policy', '/terms-and-conditions']);

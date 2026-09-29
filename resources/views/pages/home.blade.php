@@ -122,7 +122,7 @@
     </section>
 
     {{-- What we automate --}}
-    <section class="bg-navy-950 py-20 lg:py-32 relative overflow-hidden">
+    <section class="texture-dots divider-top bg-navy-950 py-20 lg:py-32 relative overflow-hidden">
         <div class="absolute top-1/4 -left-32 w-64 h-64 bg-accent-500/20 rounded-full blur-3xl animate-float"></div>
         <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
 
@@ -162,7 +162,7 @@
     </section>
 
     {{-- Why bespoke --}}
-    <section class="bg-navy-900 py-20 lg:py-32">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-32">
         <div class="container">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
                 <div class="reveal-up">
@@ -190,7 +190,7 @@
     </section>
 
     {{-- How it works --}}
-    <section class="bg-navy-950 py-20 lg:py-32">
+    <section class="texture-dots divider-top bg-navy-950 py-20 lg:py-32">
         <div class="container">
             <x-ui.section-heading
                 title="From first call to running in the background"

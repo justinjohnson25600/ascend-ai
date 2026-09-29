@@ -605,3 +605,9 @@ Shown only once a booking page address is configured (`BOOKING_URL`). The calend
 - **Link:** Open the booking page in a new tab
 - **Small print:** The calendar is provided by our booking service and loads only when you ask for it.
 - **After the form is sent:** a "Pick a time now" button appears under the thank-you message.
+
+**Supporting lines used in the item 5 graphics** (drawn from approved copy elsewhere on the site):
+
+- Flow: "An email, a call, a receipt." / "And works out what it is." / "Replies, books, files, chases." / "Only when it matters."
+- Stages: "A 30 minute call and a written list" (Free) / "Access, hosting and the detailed plan" (Setup fee) / "Built, tested with your data, switched on" (Fixed price) / "Only when you are ready for it" (Fixed price) / "Hosted, monitored and kept up to date" (Monthly).
+- Next steps: "It takes a couple of minutes." / "A person reads every enquiry." / "About how your business runs." / "Within two working days of the call." Badge: "Free, and no obligation after it".

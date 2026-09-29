@@ -6,10 +6,14 @@
         ctaText="Book a free automation audit"
         :ctaUrl="$auditUrl"
         :fullHeight="false"
-    />
+    >
+        <x-slot:visual>
+            <x-graphics.stages />
+        </x-slot:visual>
+    </x-sections.hero>
 
     {{-- The process --}}
-    <section class="bg-navy-900 py-20 lg:py-32">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-32">
         <div class="container">
             <x-ui.section-heading title="The process" alignment="center" />
 
@@ -35,7 +39,7 @@
     </section>
 
     {{-- How we charge --}}
-    <section id="pricing" class="bg-navy-950 py-20 lg:py-32 scroll-mt-24">
+    <section id="pricing" class="texture-dots divider-top bg-navy-950 py-20 lg:py-32 scroll-mt-24">
         <div class="container">
             <x-ui.section-heading title="How we charge" subtitle="Three parts, no surprises." alignment="center" />
 
@@ -72,7 +76,7 @@
     </section>
 
     {{-- What we need from you --}}
-    <section class="bg-navy-900 py-20 lg:py-24">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24">
         <div class="container">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 text-center">What we'll need from you</h2>
@@ -93,7 +97,7 @@
     </section>
 
     {{-- FAQ --}}
-    <section id="faq" class="bg-navy-950 py-20 lg:py-32 scroll-mt-24">
+    <section id="faq" class="texture-dots divider-top bg-navy-950 py-20 lg:py-32 scroll-mt-24">
         <div class="container">
             <x-ui.section-heading title="Questions owners ask" alignment="center" />
 

@@ -416,4 +416,89 @@
         .vig-item, .vig-bar { transition: none; }
         .vig-typing span { animation: none; }
     }
+
+    /* Hero graphics (resources/views/components/graphics): a light travelling along a connector line */
+    .flow-line {
+        position: absolute;
+        overflow: hidden;
+        background: linear-gradient(to bottom, rgba(56, 189, 248, 0.35), rgba(168, 85, 247, 0.35));
+    }
+
+    .flow-line::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 3.5rem;
+        top: -3.5rem;
+        background: linear-gradient(to bottom, transparent, rgba(186, 230, 253, 0.95), transparent);
+        animation: flow-travel 3.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    }
+
+    @keyframes flow-travel {
+        from { top: -3.5rem; }
+        to { top: 100%; }
+    }
+
+    .hub-line {
+        stroke: rgba(56, 189, 248, 0.35);
+        stroke-width: 1.5;
+    }
+
+    .hub-pulse {
+        stroke: rgba(186, 230, 253, 0.95);
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-dasharray: 6 200;
+        animation: hub-pulse 2.8s linear infinite;
+        filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.9));
+    }
+
+    @keyframes hub-pulse {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: -206; }
+    }
+
+    /* Section texture: a faint dot grid fading out from the centre, soft glows, and a light line between sections */
+    .texture-dots {
+        position: relative;
+        isolation: isolate;
+    }
+
+    .texture-dots::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(148, 163, 184, 0.16) 1px, transparent 1px);
+        background-size: 26px 26px;
+        -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 72%);
+        mask-image: radial-gradient(ellipse at center, black 20%, transparent 72%);
+    }
+
+    .texture-glow {
+        background-image:
+            radial-gradient(55% 45% at 12% 0%, rgba(14, 165, 233, 0.10), transparent 70%),
+            radial-gradient(45% 40% at 92% 100%, rgba(139, 92, 246, 0.09), transparent 70%);
+    }
+
+    .divider-top {
+        position: relative;
+    }
+
+    .divider-top::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(80%, 64rem);
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), rgba(168, 85, 247, 0.3), transparent);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .flow-line::after, .hub-pulse { animation: none; }
+    }
 }

@@ -58,7 +58,11 @@
         ctaText="Book a free automation audit"
         :ctaUrl="$auditUrl"
         :fullHeight="false"
-    />
+    >
+        <x-slot:visual>
+            <x-graphics.hub />
+        </x-slot:visual>
+    </x-sections.hero>
 
     {{-- Jump links --}}
     <section class="bg-navy-900 border-y border-navy-800 py-6">
@@ -106,7 +110,7 @@
     @endforeach
 
     {{-- What we don't do --}}
-    <section class="bg-navy-950 py-20 lg:py-24 border-t border-navy-800">
+    <section class="texture-dots bg-navy-950 py-20 lg:py-24 border-t border-navy-800">
         <div class="container">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 text-center">What we don't do</h2>

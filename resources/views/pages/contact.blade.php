@@ -4,7 +4,11 @@
         title="Book your free automation audit"
         subtitle="Tell us a little about your business. We will reply within one working day to arrange a 30 minute call. If you just have a question, the same form works."
         :fullHeight="false"
-    />
+    >
+        <x-slot:visual>
+            <x-graphics.next-steps />
+        </x-slot:visual>
+    </x-sections.hero>
 
     <section class="bg-navy-900 py-20 lg:py-32 relative overflow-hidden" style="background-image: linear-gradient(to right, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.5) 40%, rgba(15, 23, 42, 0.8) 70%, rgba(15, 23, 42, 1) 100%), url('{{ asset('images/digi-city.webp') }}'); background-size: cover; background-position: left center; background-repeat: no-repeat;">
         <div class="container">

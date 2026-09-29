@@ -4,10 +4,14 @@
         title="What is business automation?"
         subtitle="A plain answer, for people who have never had a reason to ask."
         :fullHeight="false"
-    />
+    >
+        <x-slot:visual>
+            <x-graphics.flow />
+        </x-slot:visual>
+    </x-sections.hero>
 
     {{-- The short answer --}}
-    <section class="bg-navy-900 py-20 lg:py-28">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-28">
         <div class="container">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8">The short answer</h2>
@@ -20,7 +24,7 @@
     </section>
 
     {{-- You don't know what you don't know --}}
-    <section class="bg-navy-950 py-20 lg:py-28">
+    <section class="texture-dots divider-top bg-navy-950 py-20 lg:py-28">
         <div class="container">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8">You don't know what you don't know</h2>
@@ -33,7 +37,7 @@
     </section>
 
     {{-- What if --}}
-    <section class="bg-navy-900 py-20 lg:py-32 relative overflow-hidden">
+    <section class="divider-top bg-navy-900 py-20 lg:py-32 relative overflow-hidden">
         <div class="absolute top-1/4 -left-32 w-64 h-64 bg-accent-500/20 rounded-full blur-3xl animate-float"></div>
         <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float-delayed"></div>
 
@@ -71,7 +75,7 @@
     </section>
 
     {{-- What it is not --}}
-    <section class="bg-navy-950 py-20 lg:py-24">
+    <section class="texture-dots divider-top bg-navy-950 py-20 lg:py-24">
         <div class="container">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 text-center">What it is not</h2>
@@ -93,7 +97,7 @@
     </section>
 
     {{-- Signs --}}
-    <section class="bg-navy-900 py-20 lg:py-24">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24">
         <div class="container">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-4 text-center">How to tell if this is for you</h2>
