@@ -83,6 +83,10 @@
                                 :class="success ? 'bg-green-500/10 border-green-500/30 text-green-400' : 'bg-red-500/10 border-red-500/30 text-red-400'"
                                 class="p-4 rounded-lg border" x-text="statusMessage" role="status"></div>
 
+                            @if ($bookingUrl)
+                                <a x-show="success" x-cloak href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary block w-full py-3 text-center">Pick a time now</a>
+                            @endif
+
                             <button type="submit" :disabled="loading" class="w-full btn btn-primary py-4 text-lg flex items-center justify-center gap-3">
                                 <span x-show="!loading">Send</span>
                                 <span x-show="loading" x-cloak class="animate-spin">⟳</span>
@@ -99,6 +103,31 @@
             </div>
         </div>
     </section>
+
+    @if ($bookingUrl)
+        {{-- Self-booking. The outside calendar is only loaded when the visitor asks for it. --}}
+        <section id="book" class="texture-dots divider-top bg-navy-950 py-20 lg:py-24 scroll-mt-32" x-data="{ showCalendar: false }">
+            <div class="container">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Rather pick a time now?</h2>
+                    <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Choose a 30 minute slot for your free automation audit. It is the same call, without the emails back and forth.</p>
+
+                    <div x-show="!showCalendar" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button type="button" @click="showCalendar = true" class="btn btn-primary px-8 py-4 text-lg">Show available times</button>
+                        <a href="{{ $bookingUrl }}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost px-8 py-4 text-lg">Open the booking page in a new tab</a>
+                    </div>
+
+                    <template x-if="showCalendar">
+                        <div class="rounded-2xl overflow-hidden border border-white/10 bg-white">
+                            <iframe :src="@js($bookingUrl)" title="Book your free automation audit" class="w-full h-[720px]" loading="lazy"></iframe>
+                        </div>
+                    </template>
+
+                    <p class="mt-6 text-xs text-gray-500">The calendar is provided by our booking service and loads only when you ask for it.</p>
+                </div>
+            </div>
+        </section>
+    @endif
 
     @push('scripts')
     <script>

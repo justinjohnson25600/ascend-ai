@@ -11,6 +11,7 @@ use App\Mail\ContactFormMail;
 use App\Mail\EnquiryReceivedMail;
 use App\Models\Contact;
 use App\Models\NewsletterSubscription;
+use App\Support\Booking;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -66,7 +67,8 @@ final class PageController extends Controller
             ->with('title', 'Book a Free Automation Audit')
             ->with('description', 'Book a free 30 minute automation audit with Ascend AI, or send us a question. We reply within one working day.')
             ->with('enquiryTypes', EnquiryType::cases())
-            ->with('selectedType', (EnquiryType::tryFrom($requested) ?? EnquiryType::Audit)->value);
+            ->with('selectedType', (EnquiryType::tryFrom($requested) ?? EnquiryType::Audit)->value)
+            ->with('bookingUrl', Booking::url());
     }
 
     public function privacyPolicy(): View

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Mail;
 
 use App\Enums\EnquiryType;
+use App\Support\Booking;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
@@ -33,12 +34,11 @@ final class EnquiryReceivedMail extends Mailable
     public static function forEnquiry(array $enquiry): self
     {
         $type = EnquiryType::tryFrom((string) ($enquiry['enquiry_type'] ?? '')) ?? EnquiryType::General;
-        $bookingUrl = config('ascend.booking_url');
 
         return new self(
             greetingName: self::firstName((string) ($enquiry['name'] ?? '')) ?? 'there',
             enquiryLabel: $type->label(),
-            bookingUrl: is_string($bookingUrl) && $bookingUrl !== '' ? $bookingUrl : null,
+            bookingUrl: Booking::url(),
         );
     }
 
