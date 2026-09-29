@@ -109,6 +109,9 @@
         </section>
     @endforeach
 
+    {{-- Item 10: typical first stage by kind of business --}}
+    <x-sections.sector-picker />
+
     {{-- What we don't do --}}
     <section class="texture-dots bg-navy-950 py-20 lg:py-24 border-t border-navy-800">
         <div class="container">
