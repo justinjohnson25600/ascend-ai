@@ -33,6 +33,11 @@
                             <h3 class="text-lg font-semibold text-white mb-2">What happens next</h3>
                             <p class="text-gray-400">We read every enquiry ourselves and reply within one working day. For an audit, the reply includes a link to pick a time.</p>
                         </div>
+
+                        <div class="mt-12 hidden lg:block">
+                            <x-graphics.audit-preview :compact="true" />
+                            <p class="mt-6 text-center text-sm text-gray-300">What your written audit looks like.</p>
+                        </div>
                     </div>
 
                     {{-- Form --}}

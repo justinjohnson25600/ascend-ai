@@ -38,6 +38,22 @@
         </div>
     </section>
 
+    {{-- Item 13: what the free audit gives you --}}
+    <section class="texture-glow divider-top bg-navy-950 py-20 lg:py-28 overflow-hidden">
+        <div class="container">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-6">What you get from the free audit</h2>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-8">A short written document, yours to keep whether or not you work with us. It sets out how your business runs today, where the hours go, what we would automate first, what each piece would involve, and a rough cost range. You get it within two working days of the call.</p>
+                    <a href="{{ $auditUrl }}" class="btn btn-primary px-8 py-4 text-lg inline-block">Book a free automation audit</a>
+                </div>
+                <div class="px-4">
+                    <x-graphics.audit-preview />
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- How we charge --}}
     <section id="pricing" class="texture-dots divider-top bg-navy-950 py-20 lg:py-32 scroll-mt-24">
         <div class="container">
