@@ -167,15 +167,18 @@
                             body: JSON.stringify(this.form)
                         });
 
-                        const data = await response.json();
+                        const data = await response.json().catch(() => ({}));
 
                         if (response.ok && data.success) {
                             this.success = true;
                             this.statusMessage = data.message;
                             this.form = blank();
                         } else {
+                            // Validation messages help the visitor fix the form; anything else stays generic.
                             this.success = false;
-                            this.statusMessage = data.message || 'That did not send. Please try again or email {{ $company['email'] }}.';
+                            this.statusMessage = response.status === 422 && data.message
+                                ? data.message
+                                : 'That did not send. Please try again or email {{ $company['email'] }}.';
                         }
                     } catch (error) {
                         this.success = false;

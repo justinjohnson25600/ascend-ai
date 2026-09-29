@@ -47,6 +47,25 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Website Assistant
+    |--------------------------------------------------------------------------
+    |
+    | The chat assistant on every page. It appears only when ANTHROPIC_API_KEY
+    | is set (config/services.php) and enabled is true. daily_limit caps AI
+    | calls across the whole site per day; after it, visitors are pointed to
+    | the contact form.
+    |
+    */
+
+    'assistant' => [
+        'enabled' => (bool) env('ASSISTANT_ENABLED', true),
+        'model' => env('ASSISTANT_MODEL', 'claude-opus-5'),
+        'effort' => env('ASSISTANT_EFFORT', 'low'),
+        'daily_limit' => (int) env('ASSISTANT_DAILY_LIMIT', 300),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Company Details
     |--------------------------------------------------------------------------
     |

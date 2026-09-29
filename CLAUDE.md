@@ -26,6 +26,7 @@ The brochure website for Ascend AI (ascend-ai.co.uk). A Laravel 12 monolith with
 - `app/Http/Requests/`: a Form Request for every POST. `Concerns/DetectsHoneypot` provides `isSpam()`.
 - `app/Models/Contact.php` and `NewsletterSubscription.php`: the only custom tables.
 - `app/Actions/RecordEnquiry.php`: what happens when anyone gets in touch (contact form or website assistant): store the `Contact`, email `config('ascend.contact_to')` (`ContactFormMail`), send the visitor an instant reply (`EnquiryReceivedMail`, at most once a day per address, never echoing their text), and text the owner about audit and quote requests. Every send is synchronous and wrapped, so a failure is logged and the visitor still sees success.
+- `app/Services/Assistant/`: the website chat. `WebsiteAssistant` runs a visitor turn (model reply, the `pass_to_justin` hand-off through `RecordEnquiry`, at most two per chat); `ClaudeAssistantModel` calls Claude via the official `anthropic-ai/sdk` (cached briefing, strict tool, server-side refusal fallbacks, low effort); `AssistantModel` is the seam tests replace. `AssistantController` keeps the conversation in the session only, caps it at 40 messages, and enforces `ASSISTANT_DAILY_LIMIT`. The briefing, rules plus site content, is `resources/assistant/system-prompt.md`: update it whenever the site copy changes. `php artisan assistant:check` sends one real question.
 - `app/Services/Sms/`: `SmsSender` with `TwilioSmsSender` (plain HTTP, no SDK) and `LogSmsSender` (the default). Bound in `AppServiceProvider` from `SMS_DRIVER`.
 - `app/Support/`: `Booking::url()` (https-only booking link or null) and `AutomationIdeas` (the ideas library data).
 - `resources/views/components/vignettes/`: the animated "automation in action" stories, driven by the `vignette` Alpine component in `app.js`. `components/graphics/`: static hero graphics.
@@ -63,7 +64,8 @@ npm run build           # regenerate public/build; commit it with any view or CS
 ## Do not
 
 - Re-add public registration, or any "temporary" script under `public/`.
-- Add packages for features that are not being built. Filament, Horizon, Pulse, Reverb, Inertia, Ziggy and Sanctum were removed for this reason.
+- Add packages for features that are not being built. Filament, Horizon, Pulse, Reverb, Inertia, Ziggy and Sanctum were removed for this reason. `anthropic-ai/sdk` is the one deliberate addition, for the website assistant.
+- Show raw server error text to visitors. Front-end scripts display our own messages and 422 validation messages only.
 - Queue the contact mail unless a queue worker is confirmed running in production.
 - Add analytics or marketing cookies without a consent banner (UK PECR).
 - Write copy with metric claims (margins, timelines, customer counts) that the founder has not approved.

@@ -93,6 +93,10 @@
 
     <x-layout.footer />
 
+    @if (\App\Services\Assistant\WebsiteAssistant::enabled())
+        <x-assistant.widget />
+    @endif
+
     @stack('scripts')
 
     <script>

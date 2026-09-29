@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use Anthropic\Client;
+use App\Services\Assistant\AssistantModel;
+use App\Services\Assistant\ClaudeAssistantModel;
 use App\Services\Sms\LogSmsSender;
 use App\Services\Sms\SmsSender;
 use App\Services\Sms\TwilioSmsSender;
@@ -25,6 +28,14 @@ class AppServiceProvider extends ServiceProvider
 
             return new LogSmsSender;
         });
+
+        // The website assistant's model. Only resolved when a visitor sends a message.
+        $this->app->bind(AssistantModel::class, fn (): AssistantModel => new ClaudeAssistantModel(
+            client: new Client(apiKey: (string) config('services.anthropic.key')),
+            model: (string) config('ascend.assistant.model'),
+            effort: (string) config('ascend.assistant.effort'),
+            briefing: (string) file_get_contents(resource_path('assistant/system-prompt.md')),
+        ));
     }
 
     /**

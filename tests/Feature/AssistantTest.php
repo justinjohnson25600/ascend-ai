@@ -223,3 +223,19 @@ test('the briefing keeps the assistant to the website and away from invented fig
         ->toContain('pass_to_justin')
         ->toContain('Matrix House');
 });
+
+test('the check command sends one question through the assistant and prints the answer', function () {
+    scriptAssistant([textReply('We automate enquiries, quotes and diaries.')]);
+
+    $this->artisan('assistant:check', ['question' => 'What do you automate?'])
+        ->expectsOutputToContain('We automate enquiries, quotes and diaries.')
+        ->assertSuccessful();
+});
+
+test('the check command explains what is missing when the assistant is not set up', function () {
+    config(['services.anthropic.key' => null]);
+
+    $this->artisan('assistant:check', ['question' => 'Hello'])
+        ->expectsOutputToContain('ANTHROPIC_API_KEY')
+        ->assertFailed();
+});

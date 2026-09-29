@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\AssistantController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SitemapController;
@@ -38,6 +39,13 @@ Route::post('/contact', [PageController::class, 'submitContact'])
 Route::post('/newsletter/subscribe', [PageController::class, 'subscribeNewsletter'])
     ->middleware('throttle:5,1')
     ->name('newsletter.subscribe');
+
+// Website assistant (enabled once ANTHROPIC_API_KEY is set)
+Route::prefix('assistant')->name('assistant.')->group(function () {
+    Route::get('/history', [AssistantController::class, 'history'])->name('history');
+    Route::post('/messages', [AssistantController::class, 'message'])->middleware('throttle:20,1')->name('message');
+    Route::post('/reset', [AssistantController::class, 'reset'])->name('reset');
+});
 
 // Dashboard (protected)
 Route::get('/dashboard', [PageController::class, 'dashboard'])

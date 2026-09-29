@@ -29,15 +29,18 @@ Alpine.data('newsletterForm', () => ({
                 body: JSON.stringify({ email: this.email, website: this.website })
             });
 
-            const data = await response.json();
+            const data = await response.json().catch(() => ({}));
 
-            if (data.success) {
+            if (response.ok && data.success) {
                 this.success = true;
                 this.message = data.message || 'Thank you for subscribing!';
                 this.email = '';
             } else {
+                // Show our own "already subscribed" and validation messages, never raw server errors.
                 this.success = false;
-                this.message = data.message || 'Something went wrong. Please try again.';
+                this.message = [409, 422].includes(response.status) && data.message
+                    ? data.message
+                    : 'Something went wrong. Please try again.';
             }
         } catch (error) {
             this.success = false;
@@ -97,6 +100,117 @@ Alpine.data('vignette', (steps = 5, stepMs = 1100, holdMs = 4200) => ({
 
     at(n) {
         return this.step >= n;
+    },
+}));
+
+// Website assistant chat. The conversation is held in the visitor's session on the server,
+// so nothing is stored in the browser; opening the panel fetches it.
+const UNAVAILABLE = "Sorry, I can't answer right now. You can use the contact form or email contact@ascend-ai.co.uk.";
+
+Alpine.data('assistantChat', (urls) => ({
+    open: false,
+    loaded: false,
+    sending: false,
+    input: '',
+    messages: [],
+
+    headers() {
+        return {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+        };
+    },
+
+    async toggle() {
+        this.open = !this.open;
+
+        if (this.open) {
+            if (!this.loaded) {
+                await this.load();
+            }
+            this.$nextTick(() => {
+                this.$refs.input?.focus();
+                this.scroll();
+            });
+        }
+    },
+
+    close() {
+        this.open = false;
+        this.$nextTick(() => this.$refs.launcher?.focus());
+    },
+
+    async load() {
+        try {
+            const response = await fetch(urls.history, { headers: this.headers() });
+            const data = await response.json();
+            this.messages = data.messages || [];
+        } catch (error) {
+            this.messages = [];
+        }
+        this.loaded = true;
+    },
+
+    async send() {
+        const text = this.input.trim();
+
+        if (text === '' || this.sending) {
+            return;
+        }
+
+        this.messages.push({ role: 'user', content: text });
+        this.input = '';
+        this.sending = true;
+        this.scroll();
+
+        let reply;
+
+        try {
+            const response = await fetch(urls.message, {
+                method: 'POST',
+                headers: this.headers(),
+                body: JSON.stringify({ message: text }),
+            });
+            const data = await response.json().catch(() => ({}));
+
+            // Only our own replies and validation messages are shown; never raw server errors.
+            if (response.ok && data.reply) {
+                reply = data.reply;
+            } else if (response.status === 422 && data.message) {
+                reply = data.message;
+            } else if (response.status === 429) {
+                reply = 'You are sending messages a little fast. Please wait a moment and try again.';
+            } else {
+                reply = UNAVAILABLE;
+            }
+        } catch (error) {
+            reply = UNAVAILABLE;
+        }
+
+        this.messages.push({ role: 'assistant', content: reply });
+        this.sending = false;
+        this.scroll();
+        this.$nextTick(() => this.$refs.input?.focus());
+    },
+
+    async reset() {
+        try {
+            await fetch(urls.reset, { method: 'POST', headers: this.headers() });
+        } catch (error) {
+            // Nothing to do: the visible conversation is cleared either way.
+        }
+        this.messages = [];
+        this.$refs.input?.focus();
+    },
+
+    scroll() {
+        this.$nextTick(() => {
+            const log = this.$refs.log;
+            if (log) {
+                log.scrollTop = log.scrollHeight;
+            }
+        });
     },
 }));
 

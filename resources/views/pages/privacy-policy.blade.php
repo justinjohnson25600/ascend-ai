@@ -28,7 +28,7 @@
     <section class="bg-navy-900 py-16">
         <div class="container">
             <div class="max-w-3xl mx-auto">
-                <p class="text-sm text-accent-400 mb-8">Last updated: September 2026. Version 2.0.</p>
+                <p class="text-sm text-accent-400 mb-8">Last updated: September 2026. Version 2.1.</p>
 
                 <div class="bg-navy-800 rounded-lg p-6 mb-12">
                     <h3 class="text-white mb-4">On this page</h3>
@@ -72,6 +72,8 @@
                     <p class="text-gray-300 mb-4">Contact details for the people we work with at your business, billing details, scope documents, correspondence, and records of the work we do.</p>
                     <h3 class="text-xl font-semibold text-white mt-8 mb-3">3.4 Collected automatically</h3>
                     <p class="text-gray-300 mb-4">Our web server keeps standard access logs, which include your IP address, the pages requested and your browser type. We use these only to keep the site secure and working. We do not use analytics or advertising trackers on this site.</p>
+                    <h3 id="chat" class="text-xl font-semibold text-white mt-8 mb-3 scroll-mt-32">3.5 When you use the chat on this website</h3>
+                    <p class="text-gray-300 mb-4">The messages you type into the website assistant are sent to our AI provider, Anthropic, so it can write replies. The conversation is held in your browser session on our server only while your visit lasts, so the assistant can follow it, and is deleted when the session ends. We do not keep chat transcripts. If you ask the assistant to put you in touch, we keep your name, email address and the summary you agree to, in the same way as a contact form enquiry. Please do not type sensitive personal details into the chat.</p>
 
                     <hr class="border-navy-700 my-8">
 
@@ -81,6 +83,7 @@
                         <li class="mb-2"><strong>Delivering and supporting services to clients.</strong> Lawful basis: performance of our contract with you.</li>
                         <li class="mb-2"><strong>Sending the newsletter.</strong> Lawful basis: your consent, which you can withdraw at any time using the link in every email or by emailing us.</li>
                         <li class="mb-2"><strong>Invoicing, accounting and tax records.</strong> Lawful basis: legal obligation.</li>
+                        <li class="mb-2"><strong>Answering questions in the website chat.</strong> Lawful basis: our legitimate interest in answering visitors' questions; and, if you ask us to contact you, taking steps at your request before entering a contract.</li>
                         <li class="mb-2"><strong>Keeping the website and our systems secure.</strong> Lawful basis: legitimate interest.</li>
                         <li><strong>Establishing or defending legal claims.</strong> Lawful basis: legitimate interest.</li>
                     </ul>
@@ -107,7 +110,7 @@
                     <ul class="list-disc list-inside text-gray-300 mb-4 ml-4">
                         <li class="mb-2"><strong>Hosting and infrastructure providers</strong> that run this website and the automation we build.</li>
                         <li class="mb-2"><strong>Email and messaging providers</strong> used to send enquiry notifications, the newsletter and automated messages on behalf of clients.</li>
-                        <li class="mb-2"><strong>AI model providers</strong> used within client automation, named in each client's scope.</li>
+                        <li class="mb-2"><strong>AI model providers</strong> used within client automation, named in each client's scope, and Anthropic, which writes the replies in this website's chat.</li>
                         <li class="mb-2"><strong>Software connected to a client's automation</strong> at the client's instruction, such as their accounts or booking system.</li>
                         <li class="mb-2"><strong>Professional advisers</strong> such as our accountants, where necessary.</li>
                         <li><strong>Authorities</strong> where the law requires it.</li>
@@ -127,6 +130,7 @@
                         <li class="mb-1"><strong>Client records:</strong> for the length of the engagement and twelve months afterwards, except financial records, which we keep for six years as the law requires.</li>
                         <li class="mb-1"><strong>Client data processed on your behalf:</strong> for the length of the engagement, then deleted or returned as you instruct.</li>
                         <li class="mb-1"><strong>Newsletter:</strong> until you unsubscribe. We keep a record that you unsubscribed so we do not email you again.</li>
+                        <li class="mb-1"><strong>Website chat:</strong> for your visit only, then deleted when your session ends (after two hours without activity at most). Details you ask us to act on are kept as an enquiry, above.</li>
                         <li><strong>Server logs:</strong> ninety days.</li>
                     </ul>
 
