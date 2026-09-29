@@ -161,6 +161,9 @@
         </div>
     </section>
 
+    {{-- Item 3: an example day --}}
+    <x-sections.example-day />
+
     {{-- Why bespoke --}}
     <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-32">
         <div class="container">
@@ -188,6 +191,9 @@
             </div>
         </div>
     </section>
+
+    {{-- Item 12: what admin costs, in the visitor's own numbers --}}
+    <x-sections.admin-cost :ctaUrl="$auditUrl" />
 
     {{-- How it works --}}
     <section class="texture-dots divider-top bg-navy-950 py-20 lg:py-32">

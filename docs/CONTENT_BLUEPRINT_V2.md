@@ -611,3 +611,139 @@ Shown only once a booking page address is configured (`BOOKING_URL`). The calend
 - Flow: "An email, a call, a receipt." / "And works out what it is." / "Replies, books, files, chases." / "Only when it matters."
 - Stages: "A 30 minute call and a written list" (Free) / "Access, hosting and the detailed plan" (Setup fee) / "Built, tested with your data, switched on" (Fixed price) / "Only when you are ready for it" (Fixed price) / "Hosted, monitored and kept up to date" (Monthly).
 - Next steps: "It takes a couple of minutes." / "A person reads every enquiry." / "About how your business runs." / "Within two working days of the call." Badge: "Free, and no obligation after it".
+
+### Item 3: "A day in your business" timeline (Home)
+
+Placed after "Built around the jobs that eat your week". Labelled as an example.
+
+**Heading:** A day in your business, with the admin handled
+**Sub:** An example day. Everything below happens while you are doing the work you are actually paid for.
+
+| Time | What happens |
+| --- | --- |
+| 06:58 | A new enquiry from your website gets a reply, three questions answered, and a booking link. |
+| 08:14 | You miss a call on the way to a job. The caller gets a text within a minute and books Friday. |
+| 10:30 | Yesterday's quote gets its first friendly nudge. |
+| 12:05 | Three receipts you photographed on site are in the accounts, matched to the bank. |
+| 15:40 | A customer moves Thursday's appointment themselves. Your diary updates. |
+| 18:00 | Tomorrow's customers get their reminder. |
+| 21:15 | Someone asks your website chat whether you cover Basildon. It answers, and texts you because they want a quote. |
+
+**Closing line:** And you did none of it.
+
+### Item 12: "What does admin cost you?" calculator (Home)
+
+Placed after "We don't make your business fit the software".
+
+- **Heading:** What does admin cost you?
+- **Sub:** Your numbers, not ours. Move the sliders.
+- **Slider 1:** Hours a week your business spends on admin (1 to 60, starts at 10)
+- **Slider 2:** What an hour of that time is worth (£15 to £150, starts at £35)
+- **Result 1:** A year of admin costs you £{hours × value × 46}
+- **Result 2:** That is {hours × 46 ÷ 37.5, one decimal place} working weeks a year
+- **Small print:** Based on 46 working weeks a year and a 37.5 hour week. This is your number, not our promise. The audit tells you how much of it can be handed off.
+- **Button:** Find out how much could be handed off
+
+### Item 10: "I run a…" picker (Solutions)
+
+Placed after the six areas, before "What we don't do".
+
+**Heading:** What a first stage often looks like for a business like yours
+**Sub:** Typical, not fixed. Every business is different, which is why we start with the audit.
+
+| Tab | Intro | Typical first stage |
+| --- | --- | --- |
+| A trade | You are on the tools all day, so the phone and the inbox wait. | Missed calls texted back and booked in. Quotes drafted from your price list and chased. Receipts photographed on site and filed into your accounts. Review requests sent when a job is marked done. |
+| A clinic or salon | Your diary is the business. | Online booking with deposits and reminders. No-shows followed up and rebooked. Intake and consent forms completed before the appointment. Answers to the questions reception gets all day. |
+| An agency or consultancy | Your time is what you sell, so admin is lost revenue. | Enquiries qualified and booked into discovery calls. New clients onboarded: agreement, forms and folders set up. Timesheets and project updates collected without chasing. Overdue invoices chased politely. |
+| A café, pub or restaurant | Busy when your customers are, and short of hands. | Table and event enquiries answered and booked. Review replies drafted for you to approve. Supplier orders built from stock counts. Rota questions answered from the rota. |
+| A shop or online store | Customers want answers now, whatever the hour. | "Where is my order?" answered from your order system. Returns handled to your policy. Low stock flagged before it runs out. A daily sales summary sent to your phone. |
+
+**Link under the picker:** See more ideas in the automation ideas library
+
+### Item 13: what the free audit gives you
+
+A drawn example of the audit document: title "Automation audit", "Prepared for: Your business", then five headings with placeholder lines instead of text: "How your business runs today", "Where the hours go" (with an unlabelled bar chart), "What we would automate first", "What each would involve", "Rough cost range" (figures blurred). Labelled "Example layout".
+
+On **How It Works**, a new section after "The process":
+
+- **Heading:** What you get from the free audit
+- **Body:** A short written document, yours to keep whether or not you work with us. It sets out how your business runs today, where the hours go, what we would automate first, what each piece would involve, and a rough cost range. You get it within two working days of the call.
+
+On **Contact**, a smaller copy of the drawing sits under "What happens next" with the caption "What your written audit looks like."
+
+### Item 14: "Your data" page (`/your-data`)
+
+Linked from the How It Works FAQ answer "Is my data safe?", the footer and the sitemap.
+
+- **Meta title:** Your Data, in Plain English
+- **Meta description:** What Ascend AI can access when we build automation for you, where your data goes, what AI providers can and cannot do with it, and what happens when you leave.
+- **Hero:** "Your data, in plain English" / "What we touch, where it goes, and what we never do with it." Graphic: your systems, your automation (run by us) and the AI provider, joined by lines, with a key showing you hold the access.
+
+**The short version**
+- Your data stays in your systems wherever the design allows.
+- We only access what a stage needs, using permissions you grant and can take back at any time.
+- The AI providers we use are not allowed to train their models on your data.
+- You own the automation we build for you.
+- When you leave, we hand it over and delete what we hold.
+
+**What we might access, and why** (table: system / why / how access works)
+- Email inbox: to read and answer enquiries and route what matters to you. Access through a permission you grant in your email account.
+- Calendar: to book, move and remind. A permission you grant.
+- Accounts software: to file receipts, raise and chase invoices, and match payments. A connection you approve inside the accounts software.
+- Website forms and chat: to answer and capture enquiries. Added to your site with your agreement.
+- Phone and text provider: to text back missed calls and send reminders. An account in your name, or one we manage for you.
+
+**Where it goes**
+Automation runs on hosting we manage. When a step needs AI, the part of the message it needs is sent to the AI provider named in your scope, which reads it and sends back an answer. Their terms do not allow them to train on it. Some providers process data outside the UK; where they do, the transfer is covered by the UK's adequacy rules or the International Data Transfer Agreement, and you can ask for UK or EU processing only.
+
+**What we never do**
+- Sell your data or your customers' data.
+- Use your customers' details for our own marketing.
+- Train our own AI models on your data.
+- Keep copies we do not need.
+
+**If something goes wrong**
+We monitor what we build, so we usually know first. If personal data is affected we tell you without delay, and help you tell the Information Commissioner's Office where the law requires it.
+
+**When you leave**
+Either of us can end the monthly service with 30 days' notice. We hand over what we built with documentation, remove our access, and delete or return your data as you instruct.
+
+**Closing line:** The detail is in our Privacy Policy, and every client gets a data processing agreement on request.
+
+### Item 11: automation ideas library (`/automation-ideas`)
+
+- **Meta title:** Automation Ideas for Small Businesses
+- **Meta description:** Thirty-eight jobs small businesses hand to automation, from missed-call text backs to receipts that file themselves. Filter by the kind of business and the part of the day.
+- **Hero:** "Automation ideas for small businesses" / "{count} jobs small businesses hand to automation. Filter by the kind of business you run and the part of the day they take."
+- **Filters:** Business (All, Trades, Clinics and salons, Agencies and consultancies, Hospitality, Shops and online) and Job (All, Enquiries, Quotes and invoices, Diary, Customer questions, Paperwork, Reporting, Reviews and marketing, Team).
+- **Empty state:** Nothing matches both filters. Try "All" on one of them.
+- **Closing CTA:** "Seen something you want?" / "The audit is where we work out what yours would look like." / Book a free automation audit
+
+The ideas themselves live in `app/Support/AutomationIdeas.php`: 38 entries across the eight jobs, each with a title, one line, and the kinds of business it suits. Edit them there.
+
+### Item 7: text alerts to the owner
+
+When someone asks for an audit or a quote (by the form or through the website assistant), a text goes to the owner's mobile:
+
+> New {audit request / quote request} from {name}{, business}: "{first 110 characters of their message}" Reply by email: {email}
+
+Needs a text provider account (Twilio) and the owner's mobile number. Until those are set, alerts are written to the log instead of sent.
+
+### Item 9: website assistant
+
+A chat button on every page, bottom right. Hidden until an AI provider key is configured.
+
+- **Button:** Ask a question
+- **Panel title:** Ascend AI assistant
+- **Tag under the title:** An example of what we build
+- **Opening message:** Hi. Ask me anything about Ascend AI: what we automate, how it works or what it costs. I answer from this website, and if you would like to talk to a person I can pass your details to Justin.
+- **Input placeholder:** Type your question
+- **Small print under the input:** AI can make mistakes and only knows what is on this website. Please do not share sensitive personal details. How we handle chats is in our Privacy Policy.
+- **When a visitor wants a person, an audit or a quote:** it asks for their name, email and a line about the business, then passes them on (stored as an enquiry, emailed and texted to the owner, instant reply sent to the visitor) and says: "Done. Justin will reply within one working day, and a confirmation is on its way to your inbox."
+- **When it cannot help:** it says so plainly and offers to pass the question to Justin.
+- **If the service is busy or down:** "Sorry, I can't answer right now. You can use the contact form or email contact@ascend-ai.co.uk."
+
+**Rules it follows:** answers only from the website's content; never invents prices, timescales, clients or results; never gives legal, tax or financial advice; keeps answers short and in British English; asks for no more personal information than name, email and a line about the business.
+
+**Privacy Policy addition (sections 3, 6 and 8):** Website chat messages are sent to our AI provider, Anthropic, to generate replies. We do not keep chat transcripts. If you ask us to contact you through the chat, we keep your name, email and the summary you agree to, in the same way as a contact form enquiry.
