@@ -49,6 +49,7 @@
                     <li><a href="{{ route('what-is-business-automation') }}" class="text-gray-400 hover:text-white transition-colors text-sm">What is Business Automation?</a></li>
                     <li><a href="{{ route('solutions') }}" class="text-gray-400 hover:text-white transition-colors text-sm">Solutions</a></li>
                     <li><a href="{{ route('how-it-works') }}" class="text-gray-400 hover:text-white transition-colors text-sm">How It Works</a></li>
+                    <li><a href="{{ route('automation-ideas') }}" class="text-gray-400 hover:text-white transition-colors text-sm">Automation ideas</a></li>
                     <li><a href="{{ route('about') }}" class="text-gray-400 hover:text-white transition-colors text-sm">About</a></li>
                     <li><a href="{{ route('contact') }}" class="text-gray-400 hover:text-white transition-colors text-sm">Contact</a></li>
                 </ul>

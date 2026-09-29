@@ -52,6 +52,13 @@ final class PageController extends Controller
             ->with('description', 'Free audit, fixed-price stages, then a monthly fee to keep it running. How Ascend AI builds and prices AI automation for small businesses.');
     }
 
+    public function automationIdeas(): View
+    {
+        return view('pages.automation-ideas')
+            ->with('title', 'Automation Ideas for Small Businesses')
+            ->with('description', 'Thirty-eight jobs small businesses hand to automation, from missed-call text backs to receipts that file themselves. Filter by the kind of business and the part of the day.');
+    }
+
     public function about(): View
     {
         return view('pages.about')

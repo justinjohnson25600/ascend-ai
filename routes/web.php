@@ -19,6 +19,7 @@ Route::get('/what-is-business-automation', [PageController::class, 'whatIsBusine
 Route::get('/solutions', [PageController::class, 'solutions'])->name('solutions');
 Route::get('/how-it-works', [PageController::class, 'howItWorks'])->name('how-it-works');
 Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/automation-ideas', [PageController::class, 'automationIdeas'])->name('automation-ideas');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('/terms-and-conditions', [PageController::class, 'termsAndConditions'])->name('terms-and-conditions');

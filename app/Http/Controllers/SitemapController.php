@@ -17,6 +17,7 @@ final class SitemapController extends Controller
             ['what-is-business-automation', 'monthly', '0.9'],
             ['solutions', 'monthly', '0.9'],
             ['how-it-works', 'monthly', '0.9'],
+            ['automation-ideas', 'monthly', '0.8'],
             ['about', 'monthly', '0.7'],
             ['contact', 'monthly', '0.8'],
             ['privacy-policy', 'yearly', '0.3'],
