@@ -78,9 +78,13 @@
     {{-- Areas: copy on one side, the matching animated example on the other, alternating down the page --}}
     @foreach ($areas as $i => $area)
         <section id="{{ $area['id'] }}" class="{{ $i % 2 === 0 ? 'bg-navy-950' : 'bg-navy-900' }} py-20 lg:py-28 scroll-mt-32 relative overflow-hidden">
+            @if ($loop->first)
+                {{-- The first section under the hero carries a photo, like the other pages. Reuses the AI Agents van cab: an enquiry arriving mid-job. --}}
+                <x-ui.section-photo desktop="agents-van-desktop.webp" mobile="agents-van-mobile.webp" />
+            @endif
             <div class="absolute {{ $i % 2 === 0 ? '-right-40' : '-left-40' }} top-1/3 w-96 h-96 rounded-full blur-3xl {{ $i % 2 === 0 ? 'bg-accent-500/10' : 'bg-purple-500/10' }} pointer-events-none"></div>
 
-            <div class="container relative">
+            <div class="container relative z-10">
                 <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <div class="{{ $i % 2 === 1 ? 'lg:order-last' : '' }} reveal-up">
                         <div class="flex items-center gap-4 mb-8">

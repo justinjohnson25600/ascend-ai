@@ -34,6 +34,7 @@ Chosen from a map of every page. A photo only goes where the content is centred 
 | 10 | About: Why we exist | Garage office of a business owner | `about-garage-office-desktop.png`, `about-garage-office-mobile.png`: done |
 | 11 | Your data: The short version | Quiet, secure office at night | `data-office-desktop.png`, `data-office-mobile.png`: done |
 | 12 | AI Agents: What is an AI agent? (phone version of the existing photo) | Kitchen table, morning, portrait | `agents-mobile.png`: done |
+| — | Solutions: Enquiries and follow-up (first section under the hero) | Van cab at lunchtime, reused from 7 | reuses `agents-van-desktop.webp`, `agents-van-mobile.webp` |
 
 No photos on the Automation ideas library (a dense filtered grid), the legal pages (plain reading), or behind the animated examples, calculators, tables, forms and tabs, where a photo would fight the content.
 
