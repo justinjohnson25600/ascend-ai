@@ -20,7 +20,7 @@
             <div class="max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
                     {{-- Contact information --}}
-                    <div class="lg:col-span-2">
+                    <div class="lg:col-span-2 reveal-up">
                         <h2 class="text-2xl font-bold text-white mb-8">Contact</h2>
                         <a href="mailto:{{ $company['email'] }}" class="flex items-center gap-4 text-gray-300 hover:text-accent-400 transition-colors group">
                             <div class="w-12 h-12 flex items-center justify-center bg-navy-800 rounded-lg group-hover:bg-accent-500/20 transition-colors">
@@ -64,7 +64,7 @@
                     </div>
 
                     {{-- Form --}}
-                    <div class="lg:col-span-3">
+                    <div class="lg:col-span-3 reveal-up stagger-2">
                         <form x-data="contactForm()" @submit.prevent="submit" class="space-y-6" novalidate>
                             @csrf
                             <x-forms.honeypot model="form.website" />
@@ -136,7 +136,7 @@
         {{-- Self-booking. The outside calendar is only loaded when the visitor asks for it. --}}
         <section id="book" class="texture-dots divider-top bg-navy-950 py-20 lg:py-24 scroll-mt-32" x-data="{ showCalendar: false }">
             <div class="container">
-                <div class="max-w-4xl mx-auto text-center">
+                <div class="max-w-4xl mx-auto text-center reveal-up">
                     <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-4">Rather pick a time now?</h2>
                     <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Choose a 30 minute slot for your free automation audit. It is the same call, without the emails back and forth.</p>
 

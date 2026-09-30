@@ -14,8 +14,8 @@
     <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-28">
         <div class="container">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8">The short answer</h2>
-                <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 reveal-up">The short answer</h2>
+                <div class="space-y-6 text-lg text-gray-300 leading-relaxed reveal-up">
                     <p>Business automation is getting software to do the repetitive parts of running your business, the way a good assistant would, without you having to be there. Not the whole job. The parts that follow a pattern: reading an enquiry and replying, chasing a quote, typing a receipt into the accounts, reminding a customer about tomorrow.</p>
                     <p>Until recently that meant expensive systems and a consultant to set them up, so it stayed with big companies. What changed is AI. Software can now read an email and understand what is being asked, not just move data from one box to another. That makes automation practical for a business of three people, not just three hundred.</p>
                 </div>
@@ -27,8 +27,8 @@
     <section class="texture-dots divider-top bg-navy-950 py-20 lg:py-28">
         <div class="container">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8">You don't know what you don't know</h2>
-                <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 reveal-up">You don't know what you don't know</h2>
+                <div class="space-y-6 text-lg text-gray-300 leading-relaxed reveal-up">
                     <p>Most owners never go looking for this, because nobody tells them it exists. The evenings on email. The receipts in a drawer. The enquiry that sat until Thursday. It just feels like what running a business is.</p>
                     <p>It isn't. It's the part that can be handed off.</p>
                 </div>
@@ -48,7 +48,7 @@
                 alignment="center"
             />
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto reveal-stagger">
                 @foreach ([
                     ['email', 'What if your emails answered themselves?', 'Every email is read as it arrives. Routine ones get a proper reply, in your words. Anything that matters, a new customer, a complaint, a supplier problem, is sent to you by text so you can deal with it straight away. You open your inbox to find the routine work done and the important things already in your hand.'],
                     ['chat', 'What if the chat on your website did the same?', 'A visitor asks a question at 10pm. They get a real answer from your own information, not a script. If they want to book, or they need you, you get a text. Nobody waits until morning.'],
@@ -67,7 +67,7 @@
                 @endforeach
             </div>
 
-            <div class="max-w-3xl mx-auto mt-16 text-center">
+            <div class="max-w-3xl mx-auto mt-16 text-center reveal-up">
                 <p class="text-2xl md:text-3xl font-bold gradient-text mb-6">That list is a typical first stage.</p>
                 <p class="text-lg text-gray-300">Not a big project. A few weeks of work that takes the cost of a pair of hands off the business and gives you back the hours to do the work only you can do.</p>
             </div>
@@ -78,8 +78,8 @@
     <section class="texture-dots divider-top bg-navy-950 py-20 lg:py-24">
         <div class="container">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 text-center">What it is not</h2>
-                <ul class="space-y-4">
+                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 text-center reveal-up">What it is not</h2>
+                <ul class="space-y-4 reveal-stagger">
                     @foreach ([
                         ['Not a robot replacing your staff.', 'It takes the repetitive parts out of their day, so the people you have can do the work that needs a person.'],
                         ['Not another app to log into.', 'It works inside the email, calendar and accounts software you already use.'],
@@ -100,9 +100,9 @@
     <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24">
         <div class="container">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-4 text-center">How to tell if this is for you</h2>
-                <p class="text-gray-400 text-center mb-10">Honest answers only.</p>
-                <ul class="space-y-3">
+                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-4 text-center reveal-up">How to tell if this is for you</h2>
+                <p class="text-gray-400 text-center mb-10 reveal-up">Honest answers only.</p>
+                <ul class="space-y-3 reveal-stagger">
                     @foreach ([
                         'You answer emails after the kids are in bed.',
                         'You type the same customer details into more than one system.',
@@ -117,7 +117,7 @@
                         </li>
                     @endforeach
                 </ul>
-                <p class="text-center text-lg text-gray-300 mt-10">If two of those are you, the audit is worth thirty minutes. If you want more detail first, <a href="{{ route('solutions') }}" class="text-accent-400 hover:text-accent-300">see what we automate</a> and <a href="{{ route('how-it-works') }}" class="text-accent-400 hover:text-accent-300">how it works</a>.</p>
+                <p class="text-center text-lg text-gray-300 mt-10 reveal-up">If two of those are you, the audit is worth thirty minutes. If you want more detail first, <a href="{{ route('solutions') }}" class="text-accent-400 hover:text-accent-300">see what we automate</a> and <a href="{{ route('how-it-works') }}" class="text-accent-400 hover:text-accent-300">how it works</a>.</p>
             </div>
         </div>
     </section>

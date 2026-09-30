@@ -6,7 +6,7 @@ test('solutions shows a typical first stage for each kind of business', function
     $this->get('/solutions')->assertOk()
         ->assertSee('What a first stage often looks like for a business like yours')
         ->assertSee('Typical, not fixed.')
-        ->assertSeeInOrder(['A trade', 'A clinic or salon', 'An agency or consultancy', 'A café, pub or restaurant', 'A shop or online store'])
+        ->assertSeeInOrder(['A building firm or trade', 'A clinic or salon', 'An agency or consultancy', 'A café, pub or restaurant', 'A shop or online store'])
         ->assertSee('Missed calls texted back and booked in.')
         ->assertSee('A daily sales summary sent to your phone.')
         ->assertSee('role="tablist"', false);

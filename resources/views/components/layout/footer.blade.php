@@ -47,6 +47,7 @@
                 <ul class="space-y-2">
                     <li><a href="{{ route('home') }}" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a></li>
                     <li><a href="{{ route('what-is-business-automation') }}" class="text-gray-400 hover:text-white transition-colors text-sm">What is Business Automation?</a></li>
+                    <li><a href="{{ route('who-its-for') }}" class="text-gray-400 hover:text-white transition-colors text-sm">Who It's For</a></li>
                     <li><a href="{{ route('solutions') }}" class="text-gray-400 hover:text-white transition-colors text-sm">Solutions</a></li>
                     <li><a href="{{ route('ai-agents') }}" class="text-gray-400 hover:text-white transition-colors text-sm">AI Agents</a></li>
                     <li><a href="{{ route('how-it-works') }}" class="text-gray-400 hover:text-white transition-colors text-sm">How It Works</a></li>

@@ -51,6 +51,29 @@ Alpine.data('newsletterForm', () => ({
     }
 }));
 
+// Scroll reveal on every page: blocks marked .reveal-up, and the children of .reveal-stagger (three to a
+// row, so each row ripples left to right), fade up the first time they scroll into view.
+document.querySelectorAll('.reveal-stagger').forEach((group) => {
+    [...group.children].forEach((child, i) => child.classList.add('reveal-up', `stagger-${(i % 3) + 1}`));
+});
+
+const revealTargets = document.querySelectorAll('.reveal-up');
+
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    revealTargets.forEach((el) => el.classList.add('revealed'));
+} else {
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    revealTargets.forEach((el) => revealObserver.observe(el));
+}
+
 // "Automation in action" examples: step through a short story while on screen, pause off screen,
 // loop after a hold, and show the final frame straight away when the visitor prefers reduced motion.
 Alpine.data('vignette', (steps = 5, stepMs = 1100, holdMs = 4200) => ({

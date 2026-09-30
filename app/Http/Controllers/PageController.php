@@ -33,6 +33,13 @@ final class PageController extends Controller
             ->with('description', 'Business automation explained without jargon: what it is, what it looks like in a normal week for a small business, what it is not, and how to tell if it would help you.');
     }
 
+    public function whoItsFor(): View
+    {
+        return view('pages.who-its-for')
+            ->with('title', 'Automation for Small Building Firms and Trades')
+            ->with('description', 'Ascend AI is a UK company specialising in automation for small building firms and trades of 1 to 25 people. Receipts into your accounts, CIS and VAT checks before you submit, and pricing that learns from every job.');
+    }
+
     public function solutions(): View
     {
         return view('pages.solutions')

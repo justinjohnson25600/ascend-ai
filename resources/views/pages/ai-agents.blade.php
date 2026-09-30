@@ -52,20 +52,18 @@
 
     {{-- What is an AI agent? The photo covers the section on large screens and fades out below the heading on smaller ones. --}}
     <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-28 relative overflow-hidden">
-        <img src="{{ asset('images/agents-desktop.webp') }}" alt="" width="1672" height="941" loading="lazy" decoding="async" aria-hidden="true"
-            class="photo-fade absolute inset-x-0 top-0 w-full h-[30rem] lg:h-full object-cover object-[88%_center] lg:object-center opacity-40 pointer-events-none">
-        <div class="hidden lg:block absolute inset-0 bg-gradient-to-b from-navy-950/60 via-transparent to-navy-950/60 pointer-events-none"></div>
+        <x-ui.section-photo desktop="agents-desktop.webp" mobile-position="object-[88%_center]" />
 
         <div class="container relative z-10">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8">What is an AI agent?</h2>
-                <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 reveal-up">What is an AI agent?</h2>
+                <div class="space-y-6 text-lg text-gray-300 leading-relaxed reveal-up">
                     <p>You may have heard the phrase. In a small business it means this. Ordinary automation follows a fixed recipe: when this happens, do that. An agent is given a job and your rules, and works out the steps for each case. It reads what has come in, checks your diary or your price list, decides what needs doing, does it, and checks it worked.</p>
                     <p>When something does not fit, it asks you instead of guessing. And unlike a fixed recipe, it gets better at the job the longer it does it.</p>
                 </div>
             </div>
 
-            <div class="max-w-4xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="max-w-4xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger">
                 @foreach ([
                     ['Fixed automation', 'border-white/10', 'text-gray-500', [
                         'Follows the same steps every time.',
@@ -92,7 +90,7 @@
                 @endforeach
             </div>
 
-            <p class="max-w-3xl mx-auto mt-10 text-center text-lg text-gray-300">Both have their place. Where a job never varies, fixed steps are simpler and cost less. The audit tells you which is which.</p>
+            <p class="max-w-3xl mx-auto mt-10 text-center text-lg text-gray-300 reveal-up">Both have their place. Where a job never varies, fixed steps are simpler and cost less. The audit tells you which is which.</p>
         </div>
     </section>
 
@@ -106,7 +104,7 @@
             />
 
             <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <ol class="space-y-8">
+                <ol class="space-y-8 reveal-up">
                     @foreach ($steps as $i => [$heading, $body])
                         <li class="flex gap-5">
                             <span class="flex-shrink-0 w-11 h-11 flex items-center justify-center rounded-full font-bold text-white {{ $i === 2 ? 'bg-purple-500' : 'bg-accent-500' }}">
@@ -120,7 +118,7 @@
                     @endforeach
                 </ol>
 
-                <div>
+                <div class="reveal-up stagger-2">
                     <x-vignettes.lesson />
                 </div>
             </div>
@@ -134,7 +132,7 @@
 
         <div class="container relative z-10">
             <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div class="lg:order-last">
+                <div class="lg:order-last reveal-up">
                     <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-6">Suggestions, with its reasons</h2>
                     <div class="space-y-5 text-lg text-gray-300 leading-relaxed">
                         <p>Once a week, or once a month if you prefer, it sends you a short list of changes it thinks would help. Each one says what it noticed, what it would change and why. Some save time. Some win back work that was slipping away. Some are simply things you would want to know.</p>
@@ -142,7 +140,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="reveal-up stagger-2">
                     <x-vignettes.suggestions />
                 </div>
             </div>
@@ -153,12 +151,12 @@
     <section class="texture-glow divider-top bg-navy-950 py-20 lg:py-28">
         <div class="container">
             <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div>
+                <div class="reveal-up">
                     <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-6">You decide how much it does on its own</h2>
                     <p class="text-lg text-gray-300 leading-relaxed">Every job starts with you checking. It moves up only when you say so, one job at a time, and you can move it back whenever you like.</p>
                 </div>
 
-                <div class="px-4">
+                <div class="px-4 reveal-up stagger-2">
                     <x-graphics.trust-ladder />
                 </div>
             </div>
@@ -174,7 +172,7 @@
                 alignment="center"
             />
 
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
                 @foreach ($checks as $check)
                     @php [$heading, $body, $icon, $dataLink] = $check + [3 => false]; @endphp
                     <div class="h-full p-7 rounded-2xl bg-navy-800/60 border border-navy-700/50">
@@ -197,7 +195,7 @@
         <div class="container">
             <x-ui.section-heading title="What an agent does, and what it learns" alignment="center" />
 
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
                 @foreach ($areas as [$anchor, $heading, $does, $learns, $icon])
                     <x-ui.card variant="glass" padding="md" class="h-full border border-white/5">
                         <a href="{{ $solutions($anchor) }}" class="flex items-center gap-3 mb-5 group">
@@ -214,7 +212,7 @@
                 @endforeach
             </div>
 
-            <p class="text-center mt-10"><a href="{{ route('solutions') }}" class="text-accent-400 hover:text-accent-300 font-medium">See all six areas in detail</a></p>
+            <p class="text-center mt-10 reveal-up"><a href="{{ route('solutions') }}" class="text-accent-400 hover:text-accent-300 font-medium">See all six areas in detail</a></p>
         </div>
     </section>
 
@@ -223,7 +221,7 @@
         <div class="container">
             <x-ui.section-heading title="Questions owners ask" alignment="center" />
 
-            <div class="max-w-3xl mx-auto space-y-4" x-data="{ open: null }">
+            <div class="max-w-3xl mx-auto space-y-4 reveal-up" x-data="{ open: null }">
                 @foreach ($faqs as $i => $faq)
                     @php [$question, $answer, $dataLink] = $faq + [2 => false]; @endphp
                     <div class="card overflow-hidden">

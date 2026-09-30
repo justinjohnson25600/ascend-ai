@@ -1,5 +1,5 @@
 @props([
-    'slides' => [],      // each: eyebrow, title, body, points (optional list), ctaText, ctaUrl, secondaryCtaText, secondaryCtaUrl, note
+    'slides' => [],      // each: eyebrow, title, body, points (optional list), ctaText, ctaUrl, secondaryCtaText, secondaryCtaUrl, note, and visual (an animated example) or graphic (a static one)
     'interval' => 10000, // ms between automatic advances, long enough for a slide's animated example to finish; paused while a control has keyboard focus, stopped once a visitor takes over
     'label' => 'Highlights',
 ])
@@ -27,7 +27,7 @@
             {{-- Slides share one grid cell so the section keeps the height of the tallest slide --}}
             <div class="grid" aria-live="polite">
                 @foreach ($slides as $i => $slide)
-                    @php $hasVisual = !empty($slide['visual']); @endphp
+                    @php $hasVisual = !empty($slide['visual']) || !empty($slide['graphic']); @endphp
                     <div
                         class="col-start-1 row-start-1 self-center transition-all duration-700 ease-out motion-reduce:transition-none {{ $hasVisual ? 'lg:grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-14 lg:items-center' : '' }}"
                         :class="active === {{ $i }} ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'"
@@ -78,10 +78,14 @@
                             @endif
                         </div>
 
-                        {{-- The animated example sits beside the text on larger screens; phones keep the hero short --}}
+                        {{-- The example or graphic sits beside the text on larger screens; phones keep the hero short --}}
                         @if ($hasVisual)
                             <div class="hidden lg:block">
-                                <x-dynamic-component :component="'vignettes.'.$slide['visual']" />
+                                @if (!empty($slide['graphic']))
+                                    <x-dynamic-component :component="'graphics.'.$slide['graphic']" />
+                                @else
+                                    <x-dynamic-component :component="'vignettes.'.$slide['visual']" />
+                                @endif
                             </div>
                         @endif
                     </div>

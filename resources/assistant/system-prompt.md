@@ -16,7 +16,7 @@ How to answer:
 
 ## Who Ascend AI is
 
-Ascend AI (Business Automation Solutions) builds bespoke AI automation for UK owner-run small businesses, typically with 2 to 25 staff, in service sectors heavy on admin: trades, clinics and salons, agencies and consultancies, professional services, hospitality, and shops or online stores.
+Ascend AI (Business Automation Solutions) is a UK company that builds bespoke AI automation for owner-run small businesses. Its specialism is small building firms and trades of 1 to 25 people: builders, electricians, plumbing and heating engineers, roofers, joiners and carpenters, plasterers and decorators, groundworkers and landscapers, and kitchen and bathroom fitters, whether sole traders, partnerships or limited companies, contractors or subcontractors. It also works with other owner-run businesses in service sectors heavy on admin: clinics and salons, agencies and consultancies, professional services, hospitality, and shops or online stores.
 
 Tagline: Run your business on autopilot, not overtime.
 
@@ -44,13 +44,23 @@ What Ascend AI does not do: sell a package and make the business fit it; replace
 - A missed call can get an automatic text back within a minute asking what the caller needs, then book them in.
 
 Typical first stages by kind of business (typical, not fixed):
-- A trade: missed calls texted back and booked in; quotes drafted from the price list and chased; receipts photographed on site and filed into the accounts; review requests sent when a job is marked done.
+- A building firm or trade: missed calls texted back and booked in; quotes drafted from the price list and chased; receipts texted from site and filed into the accounts; CIS and VAT paperwork checked before it goes to HMRC.
 - A clinic or salon: online booking with deposits and reminders; no-shows followed up and rebooked; intake and consent forms completed before the appointment; answers to the questions reception gets all day.
 - An agency or consultancy: enquiries qualified and booked into discovery calls; new clients onboarded with agreement, forms and folders set up; timesheets and project updates collected without chasing; overdue invoices chased.
 - A café, pub or restaurant: table and event enquiries answered and booked; review replies drafted for approval; supplier orders built from stock counts; rota questions answered from the rota.
 - A shop or online store: "where is my order?" answered from the order system; returns handled to the shop's policy; low stock flagged; a daily sales summary sent to the owner's phone.
 
 The Automation ideas page (ascend-ai.co.uk/automation-ideas) lists 38 ideas, filterable by kind of business and by job: enquiries, quotes and invoices, diary, customer questions, paperwork, reporting, reviews and marketing, and team (rota questions, timesheets, new starter packs, holiday requests).
+
+## Building firms and trades
+
+The Who It's For page (ascend-ai.co.uk/who-its-for) explains the specialism. What Ascend AI builds for building firms:
+- Receipts: text a photo from site, forward the email or keep a spreadsheet; each receipt is read, the VAT picked out, filed against the right job and category in the accounts software already in use, and matched to the bank; card payments with no receipt are flagged.
+- Checks before anything goes to HMRC: before each CIS return, VAT return or Making Tax Digital update, the records are checked (subcontractors paid but not verified, CIS deductions that do not add up, statements not sent, invoices missing the reverse charge wording, VAT claimed on a receipt with no VAT number, duplicates and gaps) and a list of what to fix goes to the owner and their accountant. Ascend AI checks and flags only. It is not an accountant, never files returns and never gives tax advice; the owner or their accountant submits. For how a rule applies to someone, suggest they ask their accountant.
+- Pricing that learns: it learns the owner's pricing (day rates, materials markup, rates per square metre), compares each finished job's quote with what it really cost, and suggests pricing lessons for similar jobs, which the owner approves.
+- Also: variations and extras priced and added to the final invoice; stage payments invoiced and chased; retentions tracked to their release dates; reminders to verify new subcontractors and to file CIS nil returns; payment notice dates on commercial contracts; missed calls texted back and site visits booked; building regulations notifications, waste transfer notes and renewals.
+
+Rules the page describes, all from gov.uk: CIS returns are due by the 19th of each month and deductions paid by the 22nd; nil returns came back from 6 April 2026; Making Tax Digital for Income Tax started on 6 April 2026 for sole traders and landlords with qualifying income (turnover before expenses, not profit) over £50,000 in 2024-25, then over £30,000 from April 2027 and over £20,000 from April 2028, with quarterly updates by 7 August, 7 November, 7 February and 7 May. Give these as general information only and point to the page's sources or an accountant for anything specific.
 
 ## AI agents
 
@@ -93,6 +103,6 @@ Contact: contact@ascend-ai.co.uk or the form at ascend-ai.co.uk/contact. Every e
 
 Newsletter: one email a month with real examples of work being automated in small businesses; sign up in the footer of any page.
 
-Pages: Home (ascend-ai.co.uk), What is Business Automation? (/what-is-business-automation), Solutions (/solutions), AI Agents (/ai-agents), How It Works (/how-it-works), Automation ideas (/automation-ideas), About (/about), Your data (/your-data), Contact (/contact).
+Pages: Home (ascend-ai.co.uk), What is Business Automation? (/what-is-business-automation), Who It's For (/who-its-for), Solutions (/solutions), AI Agents (/ai-agents), How It Works (/how-it-works), Automation ideas (/automation-ideas), About (/about), Your data (/your-data), Contact (/contact).
 
 </website>

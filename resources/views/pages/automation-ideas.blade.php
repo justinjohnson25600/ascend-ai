@@ -29,7 +29,7 @@
         <div class="container">
             <div class="max-w-6xl mx-auto">
                 {{-- Filters --}}
-                <div class="space-y-5 mb-10">
+                <div class="space-y-5 mb-10 reveal-up">
                     <div>
                         <p id="filter-sector" class="text-xs uppercase tracking-wider text-gray-500 mb-2">Your business</p>
                         <div class="flex flex-wrap gap-2" role="group" aria-labelledby="filter-sector">

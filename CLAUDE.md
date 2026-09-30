@@ -4,7 +4,7 @@
 
 The brochure website for Ascend AI (ascend-ai.co.uk). A Laravel 12 monolith with eight public marketing pages, a contact form and a newsletter signup. There is no API and no product logic. Laravel Breeze provides login for a future admin area; public registration is disabled.
 
-**Positioning (since September 2026): Business Automation Solutions.** Bespoke AI automation for UK owner-run small businesses. The copy on every page comes from `docs/CONTENT_BLUEPRINT_V2.md`; change the blueprint first, then the Blade. Do not invent claims, metrics or customers. Phase 2 items (examples page, imagery, analytics with consent, newsletter double opt-in) are listed in `docs/REPOSITIONING-PLAN.md`.
+**Positioning (since September 2026): Business Automation Solutions.** Bespoke AI automation for UK owner-run small businesses, specialising in small building firms and trades of 1 to 25 people (use that wording). Other sectors are welcome and come second. On accounts and tax the automation checks and flags only: never write copy that says we file returns or give tax advice. The copy on every page comes from `docs/CONTENT_BLUEPRINT_V2.md`; change the blueprint first, then the Blade. Do not invent claims, metrics or customers. Phase 2 items (examples page, imagery, analytics with consent, newsletter double opt-in) are listed in `docs/REPOSITIONING-PLAN.md`.
 
 ## Stack as it actually is
 
@@ -31,7 +31,7 @@ The brochure website for Ascend AI (ascend-ai.co.uk). A Laravel 12 monolith with
 - `app/Support/`: `Booking::url()` (https-only booking link or null) and `AutomationIdeas` (the ideas library data).
 - `resources/views/components/vignettes/`: the animated "automation in action" stories, driven by the `vignette` Alpine component in `app.js`. `components/graphics/`: static hero graphics.
 - `config/ascend.php`: project settings (contact mailbox, company name and registered address, social profile URLs, seeded admin). Put new project config here. The footer, legal pages and JSON-LD all read from it.
-- `resources/views/components/`: `layout/` (app, header, footer), `sections/` (hero, cta), `ui/` (card, section-heading, social-links), `buttons/`, `forms/honeypot`.
+- `resources/views/components/`: `layout/` (app, header, footer), `sections/` (hero, cta), `ui/` (card, section-heading, section-photo, social-links), `buttons/`, `forms/honeypot`.
 - `resources/views/errors/404.blade.php`: the branded not-found page.
 - `resources/views/pages/`: one Blade file per public page, wrapped in `<x-layout.app :title :description>`.
 - `resources/js/app.js`: Alpine bootstrap and the `newsletterForm` component. Page-specific Alpine lives in `@push('scripts')` inside that page.
@@ -43,6 +43,8 @@ The brochure website for Ascend AI (ascend-ai.co.uk). A Laravel 12 monolith with
 - Forms post JSON with `fetch`, send `Accept: application/json`, and expect `{ success, message }`. Validation failures come back as 422 with Laravel's `message`.
 - Every public form includes `<x-forms.honeypot model="..." />` and its Alpine state has a `website: ''` field.
 - Dark theme only. Colours are the `navy` and `accent` scales in `tailwind.config.js`. No inline styles except background images.
+- Every page reveals its content on scroll the same way (`resources/js/app.js`): `reveal-up` on a block, `reveal-stagger` on a grid or list, `stagger-2` for the second column of a row. Section headings and CTAs reveal themselves. Never inside a hero, on a `<section>`, or inside `x-show`, `x-if` or `<template>`. A new page needs these too (a test checks).
+- Photos behind sections use `<x-ui.section-photo desktop="..." mobile="..." />` (40% opacity); the section needs `relative overflow-hidden` and its content `relative z-10`. The planned slots and the prompts that make the photos are in `docs/IMAGE-PROMPTS.md`.
 - British English in copy and comments (organisation, enquiry).
 - Tables are snake_case plural, models singular PascalCase, casts via the `casts()` method.
 - Every audit call to action links to `route('contact', ['type' => 'audit'])`, which preselects the enquiry type.

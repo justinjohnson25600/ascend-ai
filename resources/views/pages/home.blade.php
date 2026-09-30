@@ -81,13 +81,28 @@
     {{-- Hero carousel: slide 1 explains business automation, slides 2 to 7 are what we automate --}}
     <x-sections.hero-carousel :slides="$slides" label="What Ascend AI does" />
 
+    {{-- Who it's for: the specialism, straight after the hero --}}
+    <section class="texture-dots divider-top bg-navy-950 py-14 lg:py-16">
+        <div class="container">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+                <div class="lg:col-span-3 reveal-up">
+                    <p class="text-xs uppercase tracking-wider text-accent-400 mb-3">Who it's for</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Built for small building firms and trades</h2>
+                    <p class="text-lg text-gray-300 mb-6">We specialise in building firms and trades of 1 to 25 people. Receipts into your accounts, CIS and VAT checks before you submit, and quotes priced from what your jobs really cost. Other owner-run businesses are welcome too.</p>
+                    <a href="{{ route('who-its-for') }}" class="text-accent-400 hover:text-accent-300 font-medium">See who we work with</a>
+                </div>
+                <ul class="lg:col-span-2 flex flex-wrap gap-2 reveal-up stagger-2" aria-label="Trades we work with">
+                    @foreach (['Builders', 'Electricians', 'Plumbing and heating', 'Roofers', 'Joiners and carpenters', 'Plasterers and decorators', 'Groundworkers', 'Kitchen and bathroom fitters'] as $trade)
+                        <li class="rounded-full border border-white/10 bg-navy-800/70 px-3.5 py-1.5 text-sm text-gray-200">{{ $trade }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    </section>
+
     {{-- The problem --}}
     <section class="bg-navy-900 py-20 lg:py-32 relative overflow-hidden">
-        <picture class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <source media="(min-width: 1024px)" srcset="{{ asset('images/desktop-version.webp') }}" width="1672" height="941">
-            <img src="{{ asset('images/mobile-version.webp') }}" alt="" width="941" height="1672" loading="lazy" decoding="async" class="w-full h-full object-cover opacity-40">
-        </picture>
-        <div class="absolute inset-0 bg-gradient-to-b from-navy-950/60 via-transparent to-navy-950/60 pointer-events-none"></div>
+        <x-ui.section-photo desktop="desktop-version.webp" mobile="mobile-version.webp" />
 
         <div class="container relative z-10">
             <x-ui.section-heading
@@ -237,19 +252,4 @@
         :ctaUrl="$auditUrl"
         variant="gradient"
     />
-
-    @push('scripts')
-    <script>
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal-up').forEach((el) => revealObserver.observe(el));
-    </script>
-    @endpush
 </x-layout.app>

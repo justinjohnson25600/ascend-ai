@@ -239,25 +239,35 @@
         z-index: 2;
     }
 
-    /* Reveal animations */
-    .reveal-up {
+    /* Scroll reveal, driven by resources/js/app.js on every page. Mark a block "reveal-up", or a grid or list
+       "reveal-stagger" to reveal its children in turn. Content is only hidden once the layout has marked the
+       page "js", so it stays visible without scripts, and it is never animated for reduced motion. */
+    .js .reveal-up {
         opacity: 0;
         transform: translateY(30px);
-        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
                     transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .reveal-up.revealed {
+    .js .reveal-up.revealed {
         opacity: 1;
         transform: translateY(0);
     }
 
-    /* Stagger delays */
-    .stagger-1 { transition-delay: 0.1s; }
-    .stagger-2 { transition-delay: 0.2s; }
-    .stagger-3 { transition-delay: 0.3s; }
-    .stagger-4 { transition-delay: 0.4s; }
-    .stagger-5 { transition-delay: 0.5s; }
+    /* Stagger delays (declared after the transition above so they win) */
+    .js .stagger-1 { transition-delay: 0.1s; }
+    .js .stagger-2 { transition-delay: 0.2s; }
+    .js .stagger-3 { transition-delay: 0.3s; }
+    .js .stagger-4 { transition-delay: 0.4s; }
+    .js .stagger-5 { transition-delay: 0.5s; }
+
+    @media (prefers-reduced-motion: reduce) {
+        .js .reveal-up {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+    }
 
     /* Floating gradient orbs */
     @keyframes float {

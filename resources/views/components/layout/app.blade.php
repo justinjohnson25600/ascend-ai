@@ -36,6 +36,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{-- Lets the scroll reveal hide content before first paint; without scripts nothing is hidden --}}
+    <script>document.documentElement.classList.add('js');</script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ $title ? "$title | " : "" }}Ascend AI</title>

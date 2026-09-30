@@ -14,8 +14,8 @@
     <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-32">
         <div class="container">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8">Why we exist</h2>
-                <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 reveal-up">Why we exist</h2>
+                <div class="space-y-6 text-lg text-gray-300 leading-relaxed reveal-up">
                     <p>Ascend AI started because the founder runs several small businesses and got tired of the same problem in each one. Good work, decent customers, and every spare hour eaten by tasks that did not need a person.</p>
                     <p>The tools on offer were built for companies with an IT department. They needed weeks of setup, a consultant to change anything, and they still expected the business to work their way.</p>
                     <p>So we built automation around our own businesses instead. Systems that followed our rules, connected to the software we already had, and quietly did the repetitive work. Then other owners asked for the same. Ascend AI is that, offered properly.</p>
@@ -29,7 +29,7 @@
         <div class="container">
             <x-ui.section-heading title="How we work" alignment="center" />
 
-            <div class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
+            <div class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto reveal-stagger">
                 @foreach ([
                     ['Built around you', 'We start with how your business runs, not with a product we want to sell.'],
                     ['Plain English', 'You will always know what it does, what it costs and what happens next. If we cannot explain it simply, we have not understood it yet.'],
@@ -50,8 +50,8 @@
     <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24">
         <div class="container">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8">Who you'll deal with</h2>
-                <x-ui.card variant="default" padding="lg">
+                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 reveal-up">Who you'll deal with</h2>
+                <x-ui.card variant="default" padding="lg" class="reveal-up">
                     <h3 class="text-xl font-semibold text-white mb-3">Justin Johnson, founder</h3>
                     <p class="text-gray-300 mb-4">Justin runs several small businesses of his own, across manufacturing, health services and software. Ascend AI grew out of the automation he built to keep those running without a back office.</p>
                     <p class="text-gray-400">You deal with the people who build it. No account managers, no handoffs.</p>

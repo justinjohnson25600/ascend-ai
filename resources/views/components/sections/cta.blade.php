@@ -13,7 +13,7 @@ $backgroundClasses = $variant === 'gradient'
 @endphp
 
 <section class="{{ $backgroundClasses }} py-20">
-    <div class="container text-center">
+    <div class="container text-center reveal-up">
         <h2 class="text-display-md md:text-display-lg font-bold text-white mb-6">
             {{ $title }}
         </h2>

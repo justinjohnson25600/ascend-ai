@@ -1,11 +1,11 @@
 @php
     // Copy approved in CONTENT_BLUEPRINT_V2, item 10. Typical first stages, not fixed packages.
     $sectors = [
-        ['trade', 'A trade', 'You are on the tools all day, so the phone and the inbox wait.', [
+        ['trade', 'A building firm or trade', 'You are on the tools all day, so the phone and the inbox wait.', [
             'Missed calls texted back and booked in.',
             'Quotes drafted from your price list and chased.',
-            'Receipts photographed on site and filed into your accounts.',
-            'Review requests sent when a job is marked done.',
+            'Receipts texted from site and filed into your accounts.',
+            'CIS and VAT paperwork checked before it goes to HMRC.',
         ]],
         ['clinic', 'A clinic or salon', 'Your diary is the business.', [
             'Online booking with deposits and reminders.',
@@ -49,7 +49,7 @@
             alignment="center"
         />
 
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-5xl mx-auto reveal-up">
             <p class="text-center text-sm uppercase tracking-wider text-gray-500 mb-3">I run…</p>
             <div class="flex flex-wrap justify-center gap-2 mb-10" role="tablist" aria-label="Kind of business" @keydown.arrow-right.prevent="move(1)" @keydown.arrow-left.prevent="move(-1)">
                 @foreach ($sectors as [$key, $label])

@@ -14,7 +14,7 @@ Approve or edit the copy in this document. Once agreed, it is implemented page b
 | Decision | Agreed answer |
 |----------|---------------|
 | Positioning | Business Automation Solutions. AI automation built for small businesses |
-| Customer | UK owner-run businesses, roughly 2 to 25 staff, in service sectors heavy on admin: trades, clinics, agencies, professional services, hospitality |
+| Customer | UK owner-run businesses, roughly 2 to 25 staff, in service sectors heavy on admin: trades, clinics, agencies, professional services, hospitality. **Refined 30 September 2026:** our specialism is small building firms and trades of 1 to 25 people; other owner-run businesses are welcome and come second (see the Who It's For addendum) |
 | Offer | Bespoke. Built around each business's own way of working. No productised platforms, no generic packages |
 | Commercial model | Setup fee, then a development fee sized to the project and often staged as each part goes live, then an ongoing monthly fee |
 | Primary CTA | Book a free automation audit (30 minute call) |
@@ -655,7 +655,7 @@ Placed after the six areas, before "What we don't do".
 
 | Tab | Intro | Typical first stage |
 | --- | --- | --- |
-| A trade | You are on the tools all day, so the phone and the inbox wait. | Missed calls texted back and booked in. Quotes drafted from your price list and chased. Receipts photographed on site and filed into your accounts. Review requests sent when a job is marked done. |
+| A building firm or trade | You are on the tools all day, so the phone and the inbox wait. | Missed calls texted back and booked in. Quotes drafted from your price list and chased. Receipts texted from site and filed into your accounts. CIS and VAT paperwork checked before it goes to HMRC. (Changed 30 September 2026, see the Who It's For addendum.) |
 | A clinic or salon | Your diary is the business. | Online booking with deposits and reminders. No-shows followed up and rebooked. Intake and consent forms completed before the appointment. Answers to the questions reception gets all day. |
 | An agency or consultancy | Your time is what you sell, so admin is lost revenue. | Enquiries qualified and booked into discovery calls. New clients onboarded: agreement, forms and folders set up. Timesheets and project updates collected without chasing. Overdue invoices chased politely. |
 | A café, pub or restaurant | Busy when your customers are, and short of hands. | Table and event enquiries answered and booked. Review replies drafted for you to approve. Supplier orders built from stock counts. Rota questions answered from the rota. |
@@ -880,3 +880,177 @@ Section 10's imagery item, in part. One setting throughout: a British kitchen ta
 | Link previews (Open Graph and X) on every page | `share-card.jpg`, 1200 by 630, with the logo, "Run your business on autopilot, not overtime." and "Business Automation Solutions" | the logo |
 
 Still to review: the site-wide background `full-back.webp`.
+
+---
+
+## Addendum, 30 September 2026: Who It's For (`/who-its-for`) and "trades first"
+
+Justin's decisions, 30 September 2026:
+
+- **Specialism:** small building firms and trades of 1 to 25 people. Use that wording, not "construction trades".
+- **Scope:** trades first, others welcome. Who It's For states the specialism, Home and Solutions lead with trades, and the sector picker opens on trades. Clinics, salons, agencies, hospitality and shops stay, second.
+- **Accounts and tax:** the automation checks and flags only. We never file returns and never give tax advice. The owner or their accountant submits.
+- **Carousel:** the page opens with a carousel of the businesses we work with, starting with building firms and trades.
+
+Every rule and figure below was checked against the source listed on the page (gov.uk, legislation.gov.uk and DBT and Insolvency Service tables) on 30 September 2026. Recheck the figures when the next releases come out: business population each October, insolvencies monthly, material prices monthly. Figures in the animations are illustrative and labelled Example.
+
+**Nav:** "Who It's For", second item, after "What is Business Automation?". The menu now has six links, so from 1024px to 1279px it collapses behind the menu button, with "Book a free audit" still showing. Footer site list and sitemap (0.9) as well.
+**Meta title:** Automation for Small Building Firms and Trades
+**Meta description:** Ascend AI is a UK company specialising in automation for small building firms and trades of 1 to 25 people. Receipts into your accounts, CIS and VAT checks before you submit, and pricing that learns from every job.
+
+### 1. Carousel (the page hero)
+
+1. **Our specialism** / "Small building firms and trades" / "Ascend AI is a UK company that specialises in automation for building firms and trades of 1 to 25 people. You do the work. We take the paperwork out of your evenings: receipts, CIS, VAT, quotes and pricing."
+   - Points: Receipts texted from site, filed in your accounts / CIS and VAT checked before you submit / Quotes priced from what jobs really cost / From one person and a van to a team of 25.
+   - Buttons: Book a free automation audit; "What we do for builders" (jumps down the page).
+   - Graphic: the trades we work with (Builders, Electricians, Plumbing and heating, Roofers, Joiners and carpenters, Plasterers and decorators, Groundworkers and landscapers, Kitchen and bathroom fitters) and "From one person and a van to a team of 25."
+2. **We also work with** / "Clinics and salons". Section 10 picker copy plus "A typical first stage looks like this." Animation: diary.
+3. **We also work with** / "Cafés, pubs and restaurants". Picker copy. Animation "table-booking": "Table for 6 tomorrow at 7? It's a birthday." / "Happy birthday to them! 7pm for 6 is booked. Any dietary needs we should know about?" / "One vegan, one nut allergy." / "Noted on your booking. See you tomorrow." / chip "Booking diary and kitchen notes updated".
+4. **We also work with** / "Agencies and consultancies". Picker copy. Animation "onboarding", window "New client · Harper & Co":
+   - "Enquiry qualified: budget and timing fit"
+   - "Discovery call booked for Tuesday 10:00"
+   - "Agreement sent for signature, and signed"
+   - "Project folder and intake form set up"
+   - chip "First invoice scheduled for the 1st".
+5. **We also work with** / "Shops and online stores". Picker copy. Animation "order-status": "Where's my order? It's #10582." / "It left us yesterday and arrives on Thursday. Here's your tracking link." / "Can I send it back if it doesn't fit?" / "Yes, within 30 days. I've emailed you a returns label, just in case." / flag "Low stock: that jacket in medium has 2 left. Added to your reorder list."
+
+Each "We also work with" slide has two buttons: the audit, and "See what we automate" (the matching Solutions section).
+
+### 2. Why we specialise in building firms and trades
+
+Few small businesses carry as much paperwork as a building firm, and none have less time for it. A monthly CIS return. Reverse charge VAT. Stage payments, retentions and variations. And since April 2026, Making Tax Digital updates every quarter for many sole traders. All of it done after a day on site.
+
+So that is where we specialise. We know what a CIS statement is, why a reverse charge invoice has no VAT on it, and why the extra socket agreed on Tuesday needs to be on Friday's invoice. You will not have to explain your business to us from scratch.
+
+Three figures:
+
+- **885,485** construction businesses in the UK, more than any other sector. Almost 98% have fewer than 10 employees.
+  - Source: DBT Business Population Estimates 2025, table 5, start of 2025.
+  - The next largest section is professional, scientific and technical, with 819,465.
+  - 865,550 of the 885,485 have fewer than 10 employees (97.75%).
+- **17%** of company insolvencies in England and Wales in the year to August 2026 were construction firms, more than any other sector.
+  - Source: Insolvency Service, published 18 September 2026.
+  - 3,866 cases, counting only cases where the industry was recorded.
+- **43%** more for building materials than in January 2021, on the government's all-work price index.
+  - Source: DBT building materials statistics, August 2026 release, table 1a.
+  - The index was 116.3 in January 2021 and 166.3 in July 2026 (provisional).
+
+**Closing line:** Thin margins, fixed prices and rising costs leave little room for an underpriced job or a missed receipt. That is why pricing and paperwork are where we start.
+
+### 3. The three things building firms ask for most
+
+Each section has three parts (the problem, what we build, what stays with you) and sits beside an animation.
+
+#### 01 Receipts that file themselves
+
+- **The problem:** Receipts in the van, in a drawer, in a pile of emails. Typed in on a Sunday, or handed to your accountant in a carrier bag.
+- **What we build:** Text a photo from site, forward the email, or keep using your spreadsheet. Each receipt is read, the VAT picked out, filed against the right job and category in the accounts software you already use, and matched to the bank. A card payment with no receipt is flagged within days, not found in January.
+- **What stays with you:** Nothing you want to keep doing by hand. Making Tax Digital still expects you to keep your receipts, so a copy stays with every record.
+- **Animation "receipts-in":**
+  - A receipt photo texted: "Merchant receipt for Elm Road."
+  - "Builders' merchant, £84.60 including £14.10 VAT. Filed under materials for Elm Road."
+  - A spreadsheet line "Fuel, £62.00", filed to van costs.
+  - An emailed "Plumbing supplies, £212.40", filed and matched to the bank.
+  - Flag: "A £48.20 card payment on 22 September has no receipt. Text a photo when you can."
+
+#### 02 A second pair of eyes before anything goes to HMRC
+
+- **The problem:** The CIS return is due on the 19th and the VAT return is never far behind. A mistake found after you submit costs more to put right than one found before.
+- **What we build:** Before each CIS return, VAT return or Making Tax Digital update, your records are checked. Subcontractors paid but not verified. Deductions that do not add up. Statements not sent. Invoices missing the reverse charge wording. VAT claimed on a receipt with no VAT number. Duplicates and gaps. You and your accountant get a short list of what to fix, in time to fix it.
+- **What stays with you:** The submission. We check and flag; we never file anything or give tax advice. You or your accountant still submit.
+- **Animation "pre-check",** window "Checks before you submit · 15 October":
+  - Passed: "Five subcontractor payments this month"
+  - Passed: "CIS deductions add up: £1,236.00" (20% of £6,180 of labour)
+  - To fix: "J. Barker has not been verified with HMRC"
+  - To fix: "Invoice 2291 is missing the reverse charge wording"
+  - Chip: "Two to fix before the 19th. Sent to you and your accountant."
+
+#### 03 Pricing that learns from every job
+
+- **The problem:** You find out a job was underpriced when it is finished, if you find out at all. The next one like it gets priced the same way.
+- **What we build:** It learns how you price: your day rates, your markup on materials, your rates per square metre, what you add for access or an awkward site. When a job is finished, it compares what you quoted with what the job really cost, from your receipts and your team's hours. If a job made less than it should have, it works out where, and suggests a pricing lesson for similar jobs. You approve it, and the next quote uses it.
+- **What stays with you:** The price. It suggests; you decide.
+- **Link:** How an agent learns from you (the AI Agents page).
+- **Animation "job-review",** window "Job review · Elm Road extension":
+  - Materials quoted £6,200, actual £7,050. Labour quoted 18 days, actual 22 days.
+  - "Margin on £18,400: planned 21% · actual 6%".
+  - Pricing lesson for approval: "Extensions with groundwork: allow 22% more labour and 14% more for materials."
+  - Chip: "Approved. Your next extension quote uses it."
+  - The figures are consistent with each other.
+
+### 4. More of the paperwork, handled
+
+**Sub:** The jobs that come with running a building firm, not just any business.
+
+- **Variations and extras.** The extra agreed on site by text is priced, confirmed with the customer in writing, and added to the final invoice, not forgotten.
+- **Stage payments and retentions.** Stage invoices go out as each stage is signed off, and get chased. Retentions, typically 3 to 5% of the job, are tracked to their release dates, so the second half is claimed when the defects period ends. (DBT late payments consultation.)
+- **Subcontractors and CIS.** A reminder to verify each new subcontractor before their first payment, deductions worked out on every payment, and statements ready to send by the 19th. Paid nobody this month? You are reminded, because nil returns came back in April 2026. (SI 2026/289.)
+- **Getting paid on commercial work.** On contracts covered by the Construction Act, the dates for payment notices and pay less notices are tracked, and you are reminded before each one passes. (The Act does not cover work for a homeowner on their own home.)
+- **Enquiries and site visits.** Missed calls texted back within a minute. Enquiries asked the questions you would ask: where, what, when, and a few photos. Site visits booked into your diary.
+- **Certificates and renewals.** Building regulations notifications for Part P and gas work, due within 30 days of finishing, prompted when the job is marked done. Waste transfer notes filed. Insurance, van and card renewals reminded in time. (Building Regulations 2010, regulation 20.)
+
+### 5. The paperwork calendar
+
+**Sub:** What HMRC expects from a building firm, and when. The rules changed again in April 2026.
+
+- **Every month, if you pay subcontractors:** CIS return by the 19th. Deductions paid to HMRC by the 22nd. Statements to your subcontractors by the 19th. And since 6 April 2026, a nil return if you paid nobody, unless you told HMRC in advance. Late returns cost £100 the day after, and more from there.
+- **Every quarter, if Making Tax Digital applies to you:** Updates by 7 August, 7 November, 7 February and 7 May. It started on 6 April 2026 for sole traders and landlords with qualifying income over £50,000 in 2024-25. Over £30,000 joins in April 2027, and over £20,000 in April 2028.
+- **Every VAT period, if you are VAT registered:** Returns through software, usually due one month and seven days after the period ends. Reverse charge invoices worded correctly, with no VAT charged on them.
+- **Every year, and for years after:** Tax return by 31 January. Receipts kept for at least five years after that deadline if you are a sole trader, and six years from the year end for a company.
+
+**Callout: It is turnover, not profit.** Making Tax Digital counts your income before expenses. A sole trader who turned over £60,000 in 2024-25, with £35,000 profit after materials and costs, has been in it since April 2026. Automation keeps your records right every quarter, not just once a year.
+
+### 6. Who we work with
+
+The trades as labels, then:
+
+- Sole traders, partnerships and limited companies.
+- Main contractors who pay subcontractors, and subcontractors paid under CIS.
+- Domestic customers, commercial clients, or both.
+- From one person and a van to a team of 25.
+
+**Not a building firm?** Building firms and trades are our specialism, not our only customers. We work with other owner-run businesses too, from clinics and salons to agencies, cafés and shops. Link: See what we automate.
+
+### 7. What stays with you
+
+- **You price the work.** It learns your pricing and suggests changes. The number on the quote is always yours.
+- **You approve the changes.** Nothing about how your business deals with customers, prices or money changes without your yes.
+- **Your accountant files the returns.** We check and flag. We never file anything or give tax advice.
+
+### 8. Questions builders ask
+
+- **Are you accountants?** No. We build the automation that keeps your records right as you go and checks them before anything is submitted. Your accountant still prepares and files your returns, and gets tidier records to work from.
+- **I am a subcontractor, not a contractor. Is this for me?** Yes. Your side of CIS is making sure the deductions on your statements match what you were paid, so you can claim them back: on your tax return as a sole trader, or each month as a limited company. That is exactly the kind of checking automation does well.
+- **I keep my receipts in a spreadsheet. Is that a problem?** No. It can read the spreadsheet you already keep. Spreadsheets are allowed for Making Tax Digital as long as they are linked to the software that sends your updates rather than copied across by hand, and automation can make that link.
+- **Does Making Tax Digital for Income Tax apply to me yet?** If you are a sole trader or landlord and your qualifying income was over £50,000 in 2024-25, it started on 6 April 2026. Qualifying income is your turnover before expenses, not your profit. Over £30,000 in 2025-26 means April 2027, and over £20,000 in 2026-27 means April 2028. HMRC has a checker on gov.uk. Link: HMRC's Making Tax Digital checker.
+- **It is just me and a van. Is that too small?** No. One person and a van is where the evenings on paperwork hurt most. At the other end, if you are bigger than 25 people, talk to us anyway and we will tell you honestly whether we are the right fit.
+- **I am not a building firm. Can you still help?** Yes. Building firms and trades are our specialism, not our only customers. We work with other owner-run businesses too, from clinics and salons to agencies, cafés and shops. Link: See what we automate.
+
+### 9. Sources
+
+The page lists each source, headed "Sources, checked 30 September 2026", and closes: "This page describes the rules in general. It is not tax or legal advice; your accountant can tell you how they apply to you."
+
+### 10. CTA
+
+"Get your evenings back" / "Book a free automation audit. Thirty minutes on a call, and a written list of what could come off your plate, from receipts to CIS to pricing." / Book a free automation audit
+
+### Elsewhere on the site
+
+- **Home.** A band straight after the carousel:
+  - Eyebrow: "Who it's for". Heading: "Built for small building firms and trades".
+  - "We specialise in building firms and trades of 1 to 25 people. Receipts into your accounts, CIS and VAT checks before you submit, and quotes priced from what your jobs really cost. Other owner-run businesses are welcome too."
+  - The trades as labels, and a link: "See who we work with".
+- **Solutions hero sub:** "These are the areas small businesses ask us about most. We specialise in small building firms and trades, so most of our examples come from there. Yours might need one area or a combination. The audit works out which."
+- **Sector picker, first tab:** "A building firm or trade". "Review requests sent when a job is marked done" becomes "CIS and VAT paperwork checked before it goes to HMRC". "Receipts photographed on site" becomes "Receipts texted from site". Review requests stay in the ideas library.
+- **Website assistant:** briefed on the specialism, the page, and "checks and flags only; never files or gives tax advice".
+
+---
+
+## Addendum, 30 September 2026: one look and feel
+
+- **Scroll reveal on every page.** Content below the hero fades up as it scrolls into view, the way Home always has. Grids and lists ripple left to right. Visitors who have reduced motion switched on, and browsers without JavaScript, see everything straight away.
+- **Section photos.** Every section photo uses the same treatment (`<x-ui.section-photo>`, 40% opacity). The next eleven photos, their places on each page and the prompts that make them are in `docs/IMAGE-PROMPTS.md`. They are placed only where the content is centred or light:
+  - long pages get two;
+  - never behind animated examples, calculators, tables, forms or tabs;
+  - never on the ideas library or the legal pages.
+

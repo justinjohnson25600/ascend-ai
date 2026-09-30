@@ -54,7 +54,7 @@
 <x-layout.app :title="$title" :description="$description">
     <x-sections.hero
         title="What we automate"
-        subtitle="These are the areas small businesses ask us about most. Yours might need one of them or a combination. The audit works out which."
+        subtitle="These are the areas small businesses ask us about most. We specialise in small building firms and trades, so most of our examples come from there. Yours might need one area or a combination. The audit works out which."
         ctaText="Book a free automation audit"
         :ctaUrl="$auditUrl"
         :fullHeight="false"
@@ -67,7 +67,7 @@
     {{-- Jump links --}}
     <section class="bg-navy-900 border-y border-navy-800 py-6">
         <div class="container">
-            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm" aria-label="On this page">
+            <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm reveal-up" aria-label="On this page">
                 @foreach ($areas as $area)
                     <a href="#{{ $area['id'] }}" class="text-gray-400 hover:text-accent-400 transition-colors">{{ $area['heading'] }}</a>
                 @endforeach
@@ -82,7 +82,7 @@
 
             <div class="container relative">
                 <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    <div class="{{ $i % 2 === 1 ? 'lg:order-last' : '' }}">
+                    <div class="{{ $i % 2 === 1 ? 'lg:order-last' : '' }} reveal-up">
                         <div class="flex items-center gap-4 mb-8">
                             <span class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-accent-500 rounded-full font-bold text-lg text-white">
                                 {{ str_pad((string) ($i + 1), 2, '0', STR_PAD_LEFT) }}
@@ -101,7 +101,7 @@
                         </x-ui.card>
                     </div>
 
-                    <div>
+                    <div class="reveal-up stagger-2">
                         <x-dynamic-component :component="'vignettes.'.$area['visual']" />
                     </div>
                 </div>
@@ -116,8 +116,8 @@
     <section class="texture-dots bg-navy-950 py-20 lg:py-24 border-t border-navy-800">
         <div class="container">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 text-center">What we don't do</h2>
-                <ul class="space-y-4">
+                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 text-center reveal-up">What we don't do</h2>
+                <ul class="space-y-4 reveal-stagger">
                     @foreach ([
                         "We don't sell a package and make you fit it.",
                         "We don't replace the software you like. We connect to it.",
@@ -130,7 +130,7 @@
                         </li>
                     @endforeach
                 </ul>
-                <p class="text-center text-gray-400 mt-6">The last one is covered in <a href="{{ route('how-it-works') }}" class="text-accent-400 hover:text-accent-300">how it works</a>.</p>
+                <p class="text-center text-gray-400 mt-6 reveal-up">The last one is covered in <a href="{{ route('how-it-works') }}" class="text-accent-400 hover:text-accent-300">how it works</a>.</p>
             </div>
         </div>
     </section>

@@ -15,6 +15,7 @@ final class SitemapController extends Controller
         $pages = [
             ['home', 'weekly', '1.0'],
             ['what-is-business-automation', 'monthly', '0.9'],
+            ['who-its-for', 'monthly', '0.9'],
             ['solutions', 'monthly', '0.9'],
             ['ai-agents', 'monthly', '0.9'],
             ['how-it-works', 'monthly', '0.9'],

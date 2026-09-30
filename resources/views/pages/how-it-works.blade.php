@@ -17,7 +17,7 @@
         <div class="container">
             <x-ui.section-heading title="The process" alignment="center" />
 
-            <div class="max-w-4xl mx-auto space-y-10">
+            <div class="max-w-4xl mx-auto space-y-10 reveal-stagger">
                 @foreach ([
                     ['The audit', 'A 30 minute call. You tell us how the business runs and where your time goes. We ask a lot of questions. Within two working days you get a short written document: the jobs we think can be automated, roughly what each would involve, and the order we would do them in. It is free and it is yours to keep, whether or not you work with us.'],
                     ['Scope and setup', 'If you want to go ahead, we scope the first stage in detail: what it does, what it connects to, what it will cost, how long it will take. You pay a setup fee, which covers getting access to your systems, the hosting and the groundwork everything else sits on.'],
@@ -42,12 +42,12 @@
     <section class="texture-glow divider-top bg-navy-950 py-20 lg:py-28 overflow-hidden">
         <div class="container">
             <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16 items-center">
-                <div>
+                <div class="reveal-up">
                     <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-6">What you get from the free audit</h2>
                     <p class="text-lg text-gray-300 leading-relaxed mb-8">A short written document, yours to keep whether or not you work with us. It sets out how your business runs today, where the hours go, what we would automate first, what each piece would involve, and a rough cost range. You get it within two working days of the call.</p>
                     <a href="{{ $auditUrl }}" class="btn btn-primary px-8 py-4 text-lg inline-block">Book a free automation audit</a>
                 </div>
-                <div class="px-4">
+                <div class="px-4 reveal-up stagger-2">
                     <x-graphics.audit-preview />
                 </div>
             </div>
@@ -59,7 +59,7 @@
         <div class="container">
             <x-ui.section-heading title="How we charge" subtitle="Three parts, no surprises." alignment="center" />
 
-            <div class="max-w-4xl mx-auto overflow-x-auto">
+            <div class="max-w-4xl mx-auto overflow-x-auto reveal-up">
                 <table class="w-full text-left border-collapse">
                     <thead>
                         <tr class="border-b border-navy-700">
@@ -95,8 +95,8 @@
     <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24">
         <div class="container">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 text-center">What we'll need from you</h2>
-                <ul class="space-y-4">
+                <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 text-center reveal-up">What we'll need from you</h2>
+                <ul class="space-y-4 reveal-stagger">
                     @foreach ([
                         'An hour or two of your time per stage, mostly at the start, to explain how things really work.',
                         'Access to the systems involved: your calendar, accounts package, website, inbox. We set this up securely and you can revoke it at any time.',
@@ -117,7 +117,7 @@
         <div class="container">
             <x-ui.section-heading title="Questions owners ask" alignment="center" />
 
-            <div class="max-w-3xl mx-auto space-y-4" x-data="{ open: null }">
+            <div class="max-w-3xl mx-auto space-y-4 reveal-up" x-data="{ open: null }">
                 @foreach ([
                     ['Will this replace my staff?', 'Usually it replaces evenings and weekends, not people. It takes the repetitive parts off whoever is doing them, so they can do the work that needs a person.'],
                     ['Do I have to change the software I use?', 'No. We connect to what you already have. If something you use genuinely cannot be connected to, we will tell you at the audit.'],

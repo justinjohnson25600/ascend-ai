@@ -1,6 +1,7 @@
 @php
     $links = [
         ['route' => 'what-is-business-automation', 'label' => 'What is Business Automation?'],
+        ['route' => 'who-its-for', 'label' => "Who It's For"],
         ['route' => 'solutions', 'label' => 'Solutions'],
         ['route' => 'ai-agents', 'label' => 'AI Agents'],
         ['route' => 'how-it-works', 'label' => 'How It Works'],
@@ -16,7 +17,7 @@
         </a>
 
         {{-- Desktop Navigation --}}
-        <nav class="hidden lg:flex items-center space-x-5 xl:space-x-8 text-sm xl:text-base" aria-label="Main">
+        <nav class="hidden xl:flex items-center space-x-6 2xl:space-x-8" aria-label="Main">
             @foreach ($links as $link)
                 <a href="{{ route($link['route']) }}" class="whitespace-nowrap transition-colors hover:text-white {{ request()->routeIs($link['route']) ? 'text-accent-400' : 'text-gray-300' }}">
                     {{ $link['label'] }}
@@ -25,7 +26,7 @@
         </nav>
 
         {{-- Desktop CTA --}}
-        <div class="hidden lg:block">
+        <div class="hidden lg:block ml-auto xl:ml-0">
             <a href="{{ $auditUrl }}" class="btn btn-primary px-6 py-2.5">
                 Book a free audit
             </a>
@@ -34,7 +35,7 @@
         {{-- Mobile Menu Button --}}
         <button
             @click="mobileMenuOpen = !mobileMenuOpen"
-            class="lg:hidden p-2 text-gray-300 hover:text-white"
+            class="xl:hidden p-2 ml-2 text-gray-300 hover:text-white"
             aria-label="Toggle menu"
             :aria-expanded="mobileMenuOpen"
         >
@@ -62,7 +63,7 @@
         x-transition:leave="transition ease-in duration-150"
         x-transition:leave-start="opacity-100 translate-y-0"
         x-transition:leave-end="opacity-0 -translate-y-2"
-        class="lg:hidden bg-navy-950 border-t border-navy-800"
+        class="xl:hidden bg-navy-950 border-t border-navy-800"
     >
         <nav class="container py-4 flex flex-col space-y-4" aria-label="Mobile">
             <a href="{{ route('home') }}" class="py-2 transition-colors hover:text-white {{ request()->routeIs('home') ? 'text-accent-400' : 'text-gray-300' }}">Home</a>

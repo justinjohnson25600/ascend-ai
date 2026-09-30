@@ -24,8 +24,8 @@
     <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24">
         <div class="container">
             <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-8">The short version</h2>
-                <ul class="space-y-4">
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-8 reveal-up">The short version</h2>
+                <ul class="space-y-4 reveal-stagger">
                     @foreach ([
                         'Your data stays in your systems wherever the design allows.',
                         'We only access what a stage needs, using permissions you grant and can take back at any time.',
@@ -47,8 +47,8 @@
     <section class="texture-dots divider-top bg-navy-950 py-20 lg:py-24">
         <div class="container">
             <div class="max-w-5xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-8 text-center">What we might access, and why</h2>
-                <div class="overflow-x-auto">
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-8 text-center reveal-up">What we might access, and why</h2>
+                <div class="overflow-x-auto reveal-up">
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr class="border-b border-navy-700">
@@ -75,7 +75,7 @@
     {{-- Where it goes, never, wrong, leaving --}}
     <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24">
         <div class="container">
-            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger">
                 <x-ui.card variant="glass" padding="lg" class="md:col-span-2 border border-white/5">
                     <h2 class="text-2xl font-bold text-white mb-4">Where it goes</h2>
                     <p class="text-gray-300 leading-relaxed">Automation runs on hosting we manage. When a step needs AI, the part of the message it needs is sent to the AI provider named in your scope, which reads it and sends back an answer. Their terms do not allow them to train on it. Some providers process data outside the UK; where they do, the transfer is covered by the UK's adequacy rules or the International Data Transfer Agreement, and you can ask for UK or EU processing only.</p>
@@ -111,7 +111,7 @@
                 </div>
             </div>
 
-            <p class="max-w-3xl mx-auto text-center text-gray-400 mt-12">The detail is in our <a href="{{ route('privacy-policy') }}" class="text-accent-400 hover:text-accent-300">Privacy Policy</a>, and every client gets a data processing agreement on request.</p>
+            <p class="max-w-3xl mx-auto text-center text-gray-400 mt-12 reveal-up">The detail is in our <a href="{{ route('privacy-policy') }}" class="text-accent-400 hover:text-accent-300">Privacy Policy</a>, and every client gets a data processing agreement on request.</p>
         </div>
     </section>
 
