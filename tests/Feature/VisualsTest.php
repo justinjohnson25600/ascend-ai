@@ -40,6 +40,7 @@ test('inner page heroes carry their graphic', function (string $path, string $gr
 })->with([
     ['/what-is-business-automation', 'flow'],
     ['/solutions', 'hub'],
+    ['/ai-agents', 'learning-loop'],
     ['/how-it-works', 'stages'],
     ['/about', 'founder-quote'],
     ['/contact', 'next-steps'],
@@ -49,6 +50,30 @@ test('the four step diagram explains automation in plain words', function () {
     $this->get('/what-is-business-automation')->assertSeeInOrder([
         'Something happens', 'AI reads it', 'It does the job', 'You hear about it',
     ]);
+});
+
+test('section photos are served from files that exist', function (string $path, string $image) {
+    $this->get($path)->assertOk()->assertSee('images/'.$image, false);
+
+    expect(public_path('images/'.$image))->toBeFile();
+})->with([
+    ['/', 'desktop-version.webp'],
+    ['/', 'mobile-version.webp'],
+    ['/ai-agents', 'agents-desktop.webp'],
+    ['/contact', 'contact-desktop.webp'],
+]);
+
+test('the contact page no longer uses the city background', function () {
+    $this->get('/contact')->assertOk()->assertDontSee('digi-city', false);
+});
+
+test('shared links preview the share card', function () {
+    $this->get('/')->assertOk()
+        ->assertSee('<meta property="og:image" content="'.asset('images/share-card.jpg').'">', false)
+        ->assertSee('<meta property="og:image:width" content="1200">', false)
+        ->assertSee('<meta name="twitter:image" content="'.asset('images/share-card.jpg').'">', false);
+
+    expect(public_path('images/share-card.jpg'))->toBeFile();
 });
 
 test('legal pages keep a plain single column hero', function (string $path) {

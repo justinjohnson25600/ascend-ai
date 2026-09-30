@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/what-is-business-automation', [PageController::class, 'whatIsBusinessAutomation'])->name('what-is-business-automation');
 Route::get('/solutions', [PageController::class, 'solutions'])->name('solutions');
+Route::get('/ai-agents', [PageController::class, 'aiAgents'])->name('ai-agents');
 Route::get('/how-it-works', [PageController::class, 'howItWorks'])->name('how-it-works');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/automation-ideas', [PageController::class, 'automationIdeas'])->name('automation-ideas');

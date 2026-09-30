@@ -54,7 +54,12 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $title ?? 'Ascend AI' }}">
     <meta property="og:description" content="{{ $description }}">
-    <meta property="og:image" content="{{ $ogImage ?? asset('images/ascend-logo.webp') }}">
+    <meta property="og:image" content="{{ $ogImage ?? asset('images/share-card.jpg') }}">
+    @unless ($ogImage)
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt" content="Ascend AI. Run your business on autopilot, not overtime.">
+    @endunless
     <meta property="og:site_name" content="Ascend AI">
     <meta property="og:locale" content="en_GB">
 
@@ -62,7 +67,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $title ?? 'Ascend AI' }}">
     <meta name="twitter:description" content="{{ $description }}">
-    <meta name="twitter:image" content="{{ $ogImage ?? asset('images/ascend-logo.webp') }}">
+    <meta name="twitter:image" content="{{ $ogImage ?? asset('images/share-card.jpg') }}">
 
     <link rel="canonical" href="{{ url()->current() }}">
 

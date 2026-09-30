@@ -49,6 +49,12 @@ test('the contact form defaults to the audit enquiry type', function () {
         ->assertSee('value="audit" selected', false);
 });
 
+test('the contact page shows our address', function () {
+    $this->get('/contact')->assertOk()
+        ->assertSee('<address', false)
+        ->assertSeeInOrder(['15 Brook Road', 'Rayleigh', 'Essex', 'SS6 7UT']);
+});
+
 test('the legal pages carry the registered address', function (string $path) {
     $this->get($path)->assertOk()->assertSee('Matrix House');
 })->with(['/privacy-policy', '/terms-and-conditions']);

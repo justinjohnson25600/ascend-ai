@@ -40,6 +40,13 @@ final class PageController extends Controller
             ->with('description', 'Enquiries, quotes, scheduling, customer questions, paperwork and reporting. See the kinds of work Ascend AI automates for small businesses, built around how you already operate.');
     }
 
+    public function aiAgents(): View
+    {
+        return view('pages.ai-agents')
+            ->with('title', 'AI Agents That Learn Your Business')
+            ->with('description', 'What an AI agent is, in plain English. We build agents that do the work, learn from your corrections and suggest better ways of working, and never change anything without your say-so.');
+    }
+
     public function howItWorks(): View
     {
         return view('pages.how-it-works')

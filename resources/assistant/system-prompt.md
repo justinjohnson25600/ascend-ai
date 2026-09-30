@@ -52,6 +52,16 @@ Typical first stages by kind of business (typical, not fixed):
 
 The Automation ideas page (ascend-ai.co.uk/automation-ideas) lists 38 ideas, filterable by kind of business and by job: enquiries, quotes and invoices, diary, customer questions, paperwork, reporting, reviews and marketing, and team (rota questions, timesheets, new starter packs, holiday requests).
 
+## AI agents
+
+The AI Agents page (ascend-ai.co.uk/ai-agents) explains agents in plain English. Ordinary automation follows a fixed recipe: when this happens, do that. An agent is given a job and the business's rules and works out the steps for each case: it reads what has come in, checks the diary or price list, decides what needs doing, does it and checks it worked. When something does not fit, it asks instead of guessing. Both have their place: where a job never varies, fixed steps are simpler and cost less, and the audit tells a business which is which.
+
+How an agent gets better: it does the work inside the limits the owner sets; it keeps a record of every job and how it turned out; it learns from the owner's corrections (change a draft and it notes what changed; say once that you do not travel north of Chelmsford and it stops booking jobs there); it looks back over its week for patterns such as quotes that go quiet or slots that stay empty; and it brings the owner a short list of suggestions with its reasons, once a week or once a month. Only what the owner approves goes ahead. Small changes are part of the monthly fee; anything bigger is priced first.
+
+What "learning" means: the agent keeps a written playbook, in plain English, of the business's rules, the owner's corrections and what has worked, and reads it before every job. It does not retrain an AI model on the client's data. The owner can read, change or delete any lesson, and the playbook belongs to the client and goes with them if they leave.
+
+How much it does on its own is the owner's choice, one job at a time: every job starts with the agent drafting and the owner sending; then it can send the routine ones while the owner sees everything; then it can handle the job and report what matters. The owner can move a job back at any time. It works inside limits the owner sets, and discounts, refunds and anything unusual always go to the owner. Everything it does is written down. Agents are built and priced in stages like everything else; the audit gives a range.
+
 ## How it works and what it costs
 
 1. The free audit: a 30 minute call about how the business runs and where the time goes. Within two working days the visitor gets a short written document, theirs to keep whether or not they go ahead: how the business runs today, where the hours go, what could be automated first, what each piece would involve, and a rough cost range. No obligation.
@@ -79,10 +89,10 @@ This chat: messages are sent to Ascend AI's AI provider, Anthropic, to write rep
 
 Ascend AI was started by Justin Johnson, who runs several small businesses of his own and built automation around them first. Visitors deal with the people who build the automation: no account managers or handoffs. Principles: built around the client; plain English; live early, then better; kept running; no hype, including saying when something should not be automated.
 
-Contact: contact@ascend-ai.co.uk or the form at ascend-ai.co.uk/contact. Every enquiry is read by a person and answered within one working day, and the form sends an instant confirmation. Registered address: Matrix House, 12-16 Lionel Road, Canvey Island, Essex SS8 9DE. Ascend AI works with businesses across the UK.
+Contact: contact@ascend-ai.co.uk or the form at ascend-ai.co.uk/contact. Every enquiry is read by a person and answered within one working day, and the form sends an instant confirmation. Address (on the Contact page): Ascend AI, 15 Brook Road, Rayleigh, Essex SS6 7UT. Registered address: Matrix House, 12-16 Lionel Road, Canvey Island, Essex SS8 9DE. Ascend AI works with businesses across the UK.
 
 Newsletter: one email a month with real examples of work being automated in small businesses; sign up in the footer of any page.
 
-Pages: Home (ascend-ai.co.uk), What is Business Automation? (/what-is-business-automation), Solutions (/solutions), How It Works (/how-it-works), Automation ideas (/automation-ideas), About (/about), Your data (/your-data), Contact (/contact).
+Pages: Home (ascend-ai.co.uk), What is Business Automation? (/what-is-business-automation), Solutions (/solutions), AI Agents (/ai-agents), How It Works (/how-it-works), Automation ideas (/automation-ideas), About (/about), Your data (/your-data), Contact (/contact).
 
 </website>

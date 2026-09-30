@@ -436,6 +436,29 @@
         to { stroke-dashoffset: -206; }
     }
 
+    /* The learning loop: a light going round a circle of radius 140 (circumference 879.65) */
+    .loop-pulse {
+        stroke: rgba(186, 230, 253, 0.95);
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-dasharray: 14 865.65;
+        animation: loop-travel 7s linear infinite;
+        filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.9));
+    }
+
+    @keyframes loop-travel {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: -879.65; }
+    }
+
+    /* Section photos shown as a band at the top of the section below the lg breakpoint, fading into the background */
+    @media (max-width: 1023px) {
+        .photo-fade {
+            -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent);
+            mask-image: linear-gradient(to bottom, black 55%, transparent);
+        }
+    }
+
     /* Section texture: a faint dot grid fading out from the centre, soft glows, and a light line between sections */
     .texture-dots {
         position: relative;
@@ -476,6 +499,6 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-        .flow-line::after, .hub-pulse { animation: none; }
+        .flow-line::after, .hub-pulse, .loop-pulse { animation: none; }
     }
 }

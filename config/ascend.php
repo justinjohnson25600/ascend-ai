@@ -70,6 +70,8 @@ return [
     |--------------------------------------------------------------------------
     |
     | Used by the footer, the legal pages and the structured data in the layout.
+    | "address" is the registered address; "contact_address" is the one shown
+    | on the Contact page.
     |
     */
 
@@ -83,6 +85,12 @@ return [
             'Canvey Island',
             'Essex',
             'SS8 9DE',
+        ],
+        'contact_address' => [
+            '15 Brook Road',
+            'Rayleigh',
+            'Essex',
+            'SS6 7UT',
         ],
     ],
 

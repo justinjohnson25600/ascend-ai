@@ -2,6 +2,7 @@
     $links = [
         ['route' => 'what-is-business-automation', 'label' => 'What is Business Automation?'],
         ['route' => 'solutions', 'label' => 'Solutions'],
+        ['route' => 'ai-agents', 'label' => 'AI Agents'],
         ['route' => 'how-it-works', 'label' => 'How It Works'],
         ['route' => 'about', 'label' => 'About'],
     ];
@@ -15,9 +16,9 @@
         </a>
 
         {{-- Desktop Navigation --}}
-        <nav class="hidden lg:flex items-center space-x-8" aria-label="Main">
+        <nav class="hidden lg:flex items-center space-x-5 xl:space-x-8 text-sm xl:text-base" aria-label="Main">
             @foreach ($links as $link)
-                <a href="{{ route($link['route']) }}" class="transition-colors hover:text-white {{ request()->routeIs($link['route']) ? 'text-accent-400' : 'text-gray-300' }}">
+                <a href="{{ route($link['route']) }}" class="whitespace-nowrap transition-colors hover:text-white {{ request()->routeIs($link['route']) ? 'text-accent-400' : 'text-gray-300' }}">
                     {{ $link['label'] }}
                 </a>
             @endforeach

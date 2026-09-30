@@ -378,6 +378,8 @@ You deal with the people who build it. No account managers, no handoffs.
 
 **Email:** contact@ascend-ai.co.uk
 
+**Address:** Ascend AI, 15 Brook Road, Rayleigh, Essex SS6 7UT (added 29 September 2026; the registered address stays on the legal pages)
+
 **Response box heading:** What happens next
 **Response box body:** We read every enquiry ourselves and reply within one working day. For an audit, the reply includes a link to pick a time.
 
@@ -749,3 +751,132 @@ A chat button on every page, bottom right. Hidden until an AI provider key is co
 **Privacy Policy addition (new 3.5, and sections 4, 6 and 8; version 2.1):** Website chat messages are sent to our AI provider, Anthropic, to generate replies. The conversation is held in the visitor's session on our server only while the visit lasts, then deleted; we do not keep chat transcripts. If you ask us to contact you through the chat, we keep your name, email and the summary you agree to, in the same way as a contact form enquiry.
 
 **Your data page closing call to action:** "Questions about your data?" / "Ask them on the audit call. We will go through exactly what a first stage would touch." / Book a free automation audit. The How It Works answer to "Is my data safe?" now ends with a link to this page instead of "Details are in the Privacy Policy."
+
+---
+
+## Addendum, 29 September 2026: AI agents (`/ai-agents`)
+
+Added at Justin's request: agents that do a job, learn from the owner's corrections and suggest ways to work better. **Justin to read and confirm before it goes live**, because it describes how agents are built and run (playbook, suggestions, limits, approval), so it must match what we deliver.
+
+What "learning" means on this page, and everywhere else: the agent keeps a written playbook of the business's rules, the owner's corrections and what has worked, and reads it before each job. It is not an AI model trained on the client's data. The Your data page promises that never happens, and this page must never suggest otherwise.
+
+**Nav label:** AI Agents (after Solutions). Also in the footer site list and the sitemap (priority 0.9).
+**Meta title:** AI Agents That Learn Your Business
+**Meta description:** What an AI agent is, in plain English. We build agents that do the work, learn from your corrections and suggest better ways of working, and never change anything without your say-so.
+
+### 1. Hero
+
+**H1:** AI agents that get better at your business
+**Sub:** Most automation does exactly what it was set up to do, for ever. An agent does the job, learns from the way you correct it, and comes back with ideas to save time and win more work. Nothing changes without your say-so.
+**Button:** Book a free automation audit
+**Graphic:** five steps in a loop, a light travelling round them: "Does the work", "Keeps a record", "Learns from you", "Spots a better way", "You decide". In the middle: "Your playbook" / "What it has learned, in plain English" (the second line is dropped on phones for space).
+
+### 2. What is an AI agent?
+
+You may have heard the phrase. In a small business it means this. Ordinary automation follows a fixed recipe: when this happens, do that. An agent is given a job and your rules, and works out the steps for each case. It reads what has come in, checks your diary or your price list, decides what needs doing, does it, and checks it worked.
+
+When something does not fit, it asks you instead of guessing. And unlike a fixed recipe, it gets better at the job the longer it does it.
+
+| Fixed automation | An agent |
+| --- | --- |
+| Follows the same steps every time. | Works out the steps for each job, inside your rules. |
+| Needs someone to change it when your business changes. | Picks up changes from the way you correct it. |
+| Is exactly as good on day 300 as it was on day one. | Is better on day 300 than on day one, and can show you why. |
+
+**Closing line:** Both have their place. Where a job never varies, fixed steps are simpler and cost less. The audit tells you which is which.
+
+### 3. How it gets better
+
+**Sub:** The way a good new starter does: by doing the work, listening when you put it right, and writing it down.
+
+1. **It does the work.** Replies to enquiries, drafts quotes, files receipts, fills the diary: whatever it was built for, inside the limits you set.
+2. **It keeps a record.** Every job, what it did and how it turned out. Which quotes were accepted, which replies got an answer, which questions it could not answer.
+3. **It learns from you.** Change a draft before it goes out and it notes what you changed. Tell it once that you do not travel north of Chelmsford and it stops booking jobs there. Each lesson goes into your playbook, in plain English.
+4. **It looks back over its week.** It reads its own record for patterns: quotes that go quiet, questions it keeps passing to you, steps that always need a person, slots that stay empty.
+5. **It brings you suggestions.** A short list, with its reasons. You say yes, no or "let's talk". Only what you approve goes ahead.
+
+**Animation "lesson"** (labelled Example; names and prices illustrative), window title "Quote replies":
+
+1. Draft, "Mrs Patel, new patio", tagged "Waiting for you": "We can do it for £1,850 including materials."
+2. The owner adds a line, and the tag becomes "Edited by you": "And we take all the waste away."
+3. "Lesson added to your playbook": "Patio quotes: say waste removal is included."
+4. The next draft, "Mr Hughes, patio", tagged "Learned from you": "We can do it for £2,200 including materials. And we take all the waste away."
+5. Chip: "Approved without changes".
+
+### 4. Suggestions, with its reasons
+
+Once a week, or once a month if you prefer, it sends you a short list of changes it thinks would help. Each one says what it noticed, what it would change and why. Some save time. Some win back work that was slipping away. Some are simply things you would want to know.
+
+You decide which go ahead. Small changes are part of the monthly fee. Anything bigger is priced before it starts, as always.
+
+**Animation "suggestions"** (labelled Example; figures illustrative), window title "Suggestions · Friday 16:00":
+
+1. "Quotes over £2,000 often go quiet after the first nudge." / "Suggest: remind you to call on day five."
+2. "Parking came up in 9 enquiries this month." / "Suggest: add the answer to your website."
+3. "Tuesday mornings are often empty." / "Suggest: offer Tuesday slots first."
+4. The first two are tagged "Approved", the third "Not now".
+5. Chip: "Two changes live from Monday".
+
+### 5. You decide how much it does on its own
+
+Every job starts with you checking. It moves up only when you say so, one job at a time, and you can move it back whenever you like.
+
+**Graphic, three steps:** "It drafts, you send" / "Where every job starts". "It sends the routine ones" / "You still see everything". "It handles the job" / "And tells you what matters". Note: "You move a job up, or back, whenever you like."
+
+### 6. Built to be checked
+
+**Sub:** An agent that learns is only useful if you can trust what it has learned.
+
+- **Nothing changes without your yes.** Suggestions wait for you. It does not quietly rewrite how your business works.
+- **It works inside limits you set.** What it can send, book or promise without asking. Discounts, refunds and anything unusual always come to you.
+- **Everything is written down.** What it did, when and why. Pick any job and see how it was handled.
+- **You can read what it has learned.** Your playbook is in plain English. Change a lesson or delete it, and it stops.
+- **It asks when it is not sure.** Anything it has not seen before comes to you with the details attached.
+- **It learns your business, and nobody else's.** Your data does not train anyone's AI model, ours or the provider's. The playbook is yours, and comes with you if you ever leave. Link: Your data, in plain English.
+
+### 7. What an agent does, and what it learns
+
+Six cards, each heading linking to its section on Solutions. Link under the cards: "See all six areas in detail".
+
+| Area | Does | Learns |
+| --- | --- | --- |
+| Enquiries | Replies, asks your questions and books the call. | Which replies get an answer, and which enquiries tend to become work. |
+| Quotes | Drafts from your price list, sends and chases. | How you price the awkward jobs, and when a nudge works better than a call. |
+| Diary | Books, reminds and follows up no-shows. | Which slots stay empty, and who needs a second reminder. |
+| Customer questions | Answers from your information. | The questions it could not answer, so you only have to answer them once. |
+| Paperwork | Reads receipts and files them into your accounts. | How you and your accountant like things categorised. |
+| Reporting | Sends you the numbers you run the business on. | Which numbers you actually look at, and tells you when one moves. |
+
+### 8. Questions owners ask
+
+- **Is it really learning, or just following rules?** It learns, but not by retraining an AI model on your data. It keeps a written playbook of your rules, your corrections and what has worked, and reads it before every job. That is how it gets better, and why you can see exactly what it has learned.
+- **Will it change things on its own?** Only inside the limits you set at the start, such as sending routine replies. Anything that changes how your business deals with customers, prices or money waits for your yes.
+- **What if it learns the wrong thing?** Every lesson is written down with where it came from. If one is wrong, you or we remove it, and it stops straight away.
+- **Do I have to check everything it does, for ever?** No. Every job starts with you checking. As it proves itself on a job, you can let it handle that job on its own, and take it back at any time.
+- **Does an agent cost more than ordinary automation?** It depends on the job. Agents are built and priced in stages like everything else we do, and the audit gives you a range before you commit to anything. Small changes it suggests are covered by the monthly fee; anything bigger is priced first.
+- **Is my data used to train AI?** No. The AI providers we use are not allowed to train on your data, and we never train our own models on it. What your agent learns stays in its playbook, which is yours. Link: Your data, in plain English.
+
+### 9. CTA
+
+**Heading:** Find the jobs an agent would do well
+**Sub:** The free audit is where we work out which jobs in your business suit an agent, which suit simpler automation, and which should stay with a person.
+**Button:** Book a free automation audit
+
+### Contact page address
+
+The contact panel gains an address under the email: **Address** / Ascend AI, 15 Brook Road, Rayleigh, Essex SS6 7UT. It is set in `config/ascend.php` as `company.contact_address`. The registered address (Matrix House, Canvey Island) stays on the legal pages and in the structured data until Justin decides otherwise.
+
+---
+
+## Addendum, 29 September 2026: photography
+
+Section 10's imagery item, in part. One setting throughout: a British kitchen table where the business is run. Evening chaos on Home, the calm morning after on AI Agents. No people, no readable text, no brands. Photos sit behind sections at 40% so the copy stays readable. All in `public/images`.
+
+| Where | File | Replaces |
+| --- | --- | --- |
+| Home, "The work that never makes it onto the invoice" | `desktop-version.webp` (1024px and wider), `mobile-version.webp` | the android video |
+| AI Agents, "What is an AI agent?" | `agents-desktop.webp`; below 1024px it sits at the top of the section and fades out | new |
+| Contact, form section | `contact-desktop.webp`; below 1024px it sits at the top of the section and fades out | `digi-city.webp` |
+| Link previews (Open Graph and X) on every page | `share-card.jpg`, 1200 by 630, with the logo, "Run your business on autopilot, not overtime." and "Business Automation Solutions" | the logo |
+
+Still to review: the site-wide background `full-back.webp`.

@@ -10,8 +10,13 @@
         </x-slot:visual>
     </x-sections.hero>
 
-    <section class="bg-navy-900 py-20 lg:py-32 relative overflow-hidden" style="background-image: linear-gradient(to right, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.5) 40%, rgba(15, 23, 42, 0.8) 70%, rgba(15, 23, 42, 1) 100%), url('{{ asset('images/digi-city.webp') }}'); background-size: cover; background-position: left center; background-repeat: no-repeat;">
-        <div class="container">
+    {{-- The photo fills the section behind a left-to-right fade on large screens, and sits at the top and fades out on smaller ones --}}
+    <section class="bg-navy-900 py-20 lg:py-32 relative overflow-hidden">
+        <img src="{{ asset('images/contact-desktop.webp') }}" alt="" width="1672" height="941" decoding="async" aria-hidden="true"
+            class="photo-fade absolute inset-x-0 top-0 w-full h-[30rem] lg:h-full object-cover object-left pointer-events-none">
+        <div class="absolute inset-x-0 top-0 h-[30rem] lg:h-full bg-navy-900/60 lg:bg-transparent lg:bg-gradient-to-r lg:from-navy-900/60 lg:via-navy-900/75 lg:to-navy-900 pointer-events-none"></div>
+
+        <div class="container relative z-10">
             <div class="max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
                     {{-- Contact information --}}
@@ -28,6 +33,24 @@
                                 <p class="font-medium">{{ $company['email'] }}</p>
                             </div>
                         </a>
+
+                        <div class="mt-6 flex items-start gap-4 text-gray-300">
+                            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-navy-800 rounded-lg">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Address</p>
+                                <address class="not-italic font-medium">
+                                    {{ $company['name'] }}<br>
+                                    @foreach ($company['contact_address'] as $line)
+                                        {{ $line }}@if (! $loop->last)<br>@endif
+                                    @endforeach
+                                </address>
+                            </div>
+                        </div>
 
                         <div class="mt-12 card-glass p-6">
                             <h3 class="text-lg font-semibold text-white mb-2">What happens next</h3>
