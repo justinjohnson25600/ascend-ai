@@ -11,8 +11,9 @@
     </x-sections.hero>
 
     {{-- Why we exist --}}
-    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-32">
-        <div class="container">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-32 relative overflow-hidden">
+        <x-ui.section-photo desktop="about-garage-office-desktop.webp" mobile="about-garage-office-mobile.webp" />
+        <div class="container relative z-10">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 reveal-up">Why we exist</h2>
                 <div class="space-y-6 text-lg text-gray-300 leading-relaxed reveal-up">

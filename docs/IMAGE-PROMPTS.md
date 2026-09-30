@@ -1,6 +1,6 @@
 # Section photo prompts
 
-Prompts for the photos that sit behind sections of the site, at 40% opacity, like the kitchen-table photo on Home. Written 30 September 2026 for GPT-6 Astra.
+Prompts for the photos that sit behind sections of the site, at 40% opacity, like the kitchen-table photo on Home. Written 30 September 2026 for GPT-6 Astra. Placed on 30 September 2026: every scene except 1 (Home), which is still to make.
 
 ## How to use them
 
@@ -20,20 +20,20 @@ Chosen from a map of every page. A photo only goes where the content is centred 
 | # | Page and section | Scene | Files |
 | --- | --- | --- | --- |
 | — | Home: The work that never makes it onto the invoice | Kitchen table, evening | done |
-| — | AI Agents: What is an AI agent? | Kitchen table, morning (desktop only, see 12) | done |
+| — | AI Agents: What is an AI agent? | Kitchen table, morning | done |
 | — | Contact: the form | Phone and notebook under the lamp | done |
-| 1 | Home: From first call to running in the background | Van tailgate on site, early morning | `home-onsite-desktop.png`, `home-onsite-mobile.png` |
-| 2 | What is Business Automation?: The short answer | Café just after closing | `what-cafe-desktop.png`, `what-cafe-mobile.png` |
-| 3 | What is Business Automation?: How to tell if this is for you | The receipts drawer, late at night | `what-drawer-desktop.png`, `what-drawer-mobile.png` |
-| 4 | Who It's For: Why we specialise | Portable site office with hard hat | `who-site-office-desktop.png`, `who-site-office-mobile.png` |
-| 5 | Who It's For: You price the work, you approve the changes | Van on the drive, home on time | `who-home-on-time-desktop.png`, `who-home-on-time-mobile.png` |
-| 6 | Solutions: What we don't do | Workshop bench at night | `solutions-workshop-desktop.png`, `solutions-workshop-mobile.png` |
-| 7 | AI Agents: Questions owners ask | Van cab at lunchtime | `agents-van-desktop.png`, `agents-van-mobile.png` |
-| 8 | How It Works: The process | Hair salon after closing | `how-salon-desktop.png`, `how-salon-mobile.png` |
-| 9 | How It Works: What we'll need from you | Clinic reception before opening | `how-clinic-desktop.png`, `how-clinic-mobile.png` |
-| 10 | About: Why we exist | Garage office of a business owner | `about-garage-office-desktop.png`, `about-garage-office-mobile.png` |
-| 11 | Your data: The short version | Quiet, secure office at night | `data-office-desktop.png`, `data-office-mobile.png` |
-| 12 | AI Agents: What is an AI agent? (phone version of the existing photo) | Kitchen table, morning, portrait | `agents-mobile.png` |
+| 1 | Home: From first call to running in the background | Van tailgate on site, early morning | `home-onsite-desktop.png`, `home-onsite-mobile.png`: **still to make** |
+| 2 | What is Business Automation?: The short answer | Café just after closing | `what-cafe-desktop.png`, `what-cafe-mobile.png`: done |
+| 3 | What is Business Automation?: How to tell if this is for you | The receipts drawer, late at night | `what-drawer-desktop.png`, `what-drawer-mobile.png`: done |
+| 4 | Who It's For: Why we specialise | Portable site office with hard hat | `who-site-office-desktop.png`, `who-site-office-mobile.png`: done |
+| 5 | Who It's For: You price the work, you approve the changes | Van on the drive, home on time | `who-home-on-time-desktop.png`, `who-home-on-time-mobile.png`: done |
+| 6 | Solutions: What we don't do | Workshop bench at night | `solutions-workshop-desktop.png`, `solutions-workshop-mobile.png`: done |
+| 7 | AI Agents: Questions owners ask | Van cab at lunchtime | `agents-van-desktop.png`, `agents-van-mobile.png`: done |
+| 8 | How It Works: The process | Hair salon after closing | `how-salon-desktop.png`, `how-salon-mobile.png`: done |
+| 9 | How It Works: What we'll need from you | Clinic reception before opening | `how-clinic-desktop.png`, `how-clinic-mobile.png`: done |
+| 10 | About: Why we exist | Garage office of a business owner | `about-garage-office-desktop.png`, `about-garage-office-mobile.png`: done |
+| 11 | Your data: The short version | Quiet, secure office at night | `data-office-desktop.png`, `data-office-mobile.png`: done |
+| 12 | AI Agents: What is an AI agent? (phone version of the existing photo) | Kitchen table, morning, portrait | `agents-mobile.png`: done |
 
 No photos on the Automation ideas library (a dense filtered grid), the legal pages (plain reading), or behind the animated examples, calculators, tables, forms and tabs, where a photo would fight the content.
 

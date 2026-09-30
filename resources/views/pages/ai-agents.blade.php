@@ -50,9 +50,9 @@
         </x-slot:visual>
     </x-sections.hero>
 
-    {{-- What is an AI agent? The photo covers the section on large screens and fades out below the heading on smaller ones. --}}
+    {{-- What is an AI agent? --}}
     <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-28 relative overflow-hidden">
-        <x-ui.section-photo desktop="agents-desktop.webp" mobile-position="object-[88%_center]" />
+        <x-ui.section-photo desktop="agents-desktop.webp" mobile="agents-mobile.webp" />
 
         <div class="container relative z-10">
             <div class="max-w-3xl mx-auto">
@@ -217,8 +217,9 @@
     </section>
 
     {{-- FAQ --}}
-    <section id="faq" class="texture-dots divider-top bg-navy-900 py-20 lg:py-28 scroll-mt-24">
-        <div class="container">
+    <section id="faq" class="texture-dots divider-top bg-navy-900 py-20 lg:py-28 scroll-mt-24 relative overflow-hidden">
+        <x-ui.section-photo desktop="agents-van-desktop.webp" mobile="agents-van-mobile.webp" />
+        <div class="container relative z-10">
             <x-ui.section-heading title="Questions owners ask" alignment="center" />
 
             <div class="max-w-3xl mx-auto space-y-4 reveal-up" x-data="{ open: null }">

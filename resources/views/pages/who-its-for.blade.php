@@ -144,8 +144,9 @@
     <x-sections.hero-carousel :slides="$slides" label="Who we work with" />
 
     {{-- Why we specialise --}}
-    <section id="specialism" class="texture-glow divider-top bg-navy-900 py-20 lg:py-28 scroll-mt-32">
-        <div class="container">
+    <section id="specialism" class="texture-glow divider-top bg-navy-900 py-20 lg:py-28 scroll-mt-32 relative overflow-hidden">
+        <x-ui.section-photo desktop="who-site-office-desktop.webp" mobile="who-site-office-mobile.webp" />
+        <div class="container relative z-10">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 reveal-up">Why we specialise in building firms and trades</h2>
                 <div class="space-y-6 text-lg text-gray-300 leading-relaxed reveal-up">
@@ -291,8 +292,9 @@
     </section>
 
     {{-- What stays with you --}}
-    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24">
-        <div class="container">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24 relative overflow-hidden">
+        <x-ui.section-photo desktop="who-home-on-time-desktop.webp" mobile="who-home-on-time-mobile.webp" />
+        <div class="container relative z-10">
             <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center reveal-stagger">
                 @foreach ([
                     ['You price the work.', 'It learns your pricing and suggests changes. The number on the quote is always yours.'],

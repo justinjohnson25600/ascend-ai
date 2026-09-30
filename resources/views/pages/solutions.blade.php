@@ -113,8 +113,9 @@
     <x-sections.sector-picker />
 
     {{-- What we don't do --}}
-    <section class="texture-dots bg-navy-950 py-20 lg:py-24 border-t border-navy-800">
-        <div class="container">
+    <section class="texture-dots bg-navy-950 py-20 lg:py-24 border-t border-navy-800 relative overflow-hidden">
+        <x-ui.section-photo desktop="solutions-workshop-desktop.webp" mobile="solutions-workshop-mobile.webp" />
+        <div class="container relative z-10">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 text-center reveal-up">What we don't do</h2>
                 <ul class="space-y-4 reveal-stagger">

@@ -11,8 +11,9 @@
     </x-sections.hero>
 
     {{-- The short answer --}}
-    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-28">
-        <div class="container">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-28 relative overflow-hidden">
+        <x-ui.section-photo desktop="what-cafe-desktop.webp" mobile="what-cafe-mobile.webp" />
+        <div class="container relative z-10">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 reveal-up">The short answer</h2>
                 <div class="space-y-6 text-lg text-gray-300 leading-relaxed reveal-up">
@@ -97,8 +98,9 @@
     </section>
 
     {{-- Signs --}}
-    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24">
-        <div class="container">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24 relative overflow-hidden">
+        <x-ui.section-photo desktop="what-drawer-desktop.webp" mobile="what-drawer-mobile.webp" />
+        <div class="container relative z-10">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-4 text-center reveal-up">How to tell if this is for you</h2>
                 <p class="text-gray-400 text-center mb-10 reveal-up">Honest answers only.</p>

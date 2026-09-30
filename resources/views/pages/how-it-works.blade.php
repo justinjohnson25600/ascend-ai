@@ -13,8 +13,9 @@
     </x-sections.hero>
 
     {{-- The process --}}
-    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-32">
-        <div class="container">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-32 relative overflow-hidden">
+        <x-ui.section-photo desktop="how-salon-desktop.webp" mobile="how-salon-mobile.webp" />
+        <div class="container relative z-10">
             <x-ui.section-heading title="The process" alignment="center" />
 
             <div class="max-w-4xl mx-auto space-y-10 reveal-stagger">
@@ -92,8 +93,9 @@
     </section>
 
     {{-- What we need from you --}}
-    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24">
-        <div class="container">
+    <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-24 relative overflow-hidden">
+        <x-ui.section-photo desktop="how-clinic-desktop.webp" mobile="how-clinic-mobile.webp" />
+        <div class="container relative z-10">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 text-center reveal-up">What we'll need from you</h2>
                 <ul class="space-y-4 reveal-stagger">

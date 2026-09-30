@@ -875,8 +875,19 @@ Section 10's imagery item, in part. One setting throughout: a British kitchen ta
 | Where | File | Replaces |
 | --- | --- | --- |
 | Home, "The work that never makes it onto the invoice" | `desktop-version.webp` (1024px and wider), `mobile-version.webp` | the android video |
-| AI Agents, "What is an AI agent?" | `agents-desktop.webp`; below 1024px it sits at the top of the section and fades out | new |
+| AI Agents, "What is an AI agent?" | `agents-desktop.webp`, `agents-mobile.webp` (phone version added 30 September) | new |
 | Contact, form section | `contact-desktop.webp`; below 1024px it sits at the top of the section and fades out | `digi-city.webp` |
+| What is Business Automation?, "The short answer" | `what-cafe-desktop.webp`, `what-cafe-mobile.webp` | new |
+| What is Business Automation?, "How to tell if this is for you" | `what-drawer-desktop.webp`, `what-drawer-mobile.webp` | new |
+| Who It's For, "Why we specialise" | `who-site-office-desktop.webp`, `who-site-office-mobile.webp` | new |
+| Who It's For, "You price the work" row | `who-home-on-time-desktop.webp`, `who-home-on-time-mobile.webp` | new |
+| Solutions, "What we don't do" | `solutions-workshop-desktop.webp`, `solutions-workshop-mobile.webp` | new |
+| AI Agents, "Questions owners ask" | `agents-van-desktop.webp`, `agents-van-mobile.webp` | new |
+| How It Works, "The process" | `how-salon-desktop.webp`, `how-salon-mobile.webp` | new |
+| How It Works, "What we'll need from you" | `how-clinic-desktop.webp`, `how-clinic-mobile.webp` | new |
+| About, "Why we exist" | `about-garage-office-desktop.webp`, `about-garage-office-mobile.webp` | new |
+| Your data, "The short version" | `data-office-desktop.webp`, `data-office-mobile.webp` | new |
+| Home, "From first call to running in the background" | `home-onsite-desktop.webp`, `home-onsite-mobile.webp` | still to make |
 | Link previews (Open Graph and X) on every page | `share-card.jpg`, 1200 by 630, with the logo, "Run your business on autopilot, not overtime." and "Business Automation Solutions" | the logo |
 
 Still to review: the site-wide background `full-back.webp`.
