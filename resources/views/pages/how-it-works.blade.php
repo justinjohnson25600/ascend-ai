@@ -14,7 +14,7 @@
 
     {{-- The process --}}
     <section class="texture-glow divider-top bg-navy-900 py-20 lg:py-32 relative overflow-hidden">
-        <x-ui.section-photo desktop="how-salon-desktop.webp" mobile="how-salon-mobile.webp" />
+        <x-ui.section-photo desktop="how-salon-desktop.webp" mobile="how-salon-mobile.webp" mobile-position="object-[75%_center]" />
         <div class="container relative z-10">
             <x-ui.section-heading title="The process" alignment="center" />
 

@@ -145,7 +145,7 @@
 
     {{-- Why we specialise --}}
     <section id="specialism" class="texture-glow divider-top bg-navy-900 py-20 lg:py-28 scroll-mt-32 relative overflow-hidden">
-        <x-ui.section-photo desktop="who-site-office-desktop.webp" mobile="who-site-office-mobile.webp" />
+        <x-ui.section-photo desktop="who-site-office-desktop.webp" mobile="who-site-office-mobile.webp" mobile-position="object-[70%_center]" />
         <div class="container relative z-10">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-display-sm md:text-display-md font-bold gradient-text mb-8 reveal-up">Why we specialise in building firms and trades</h2>

@@ -14,7 +14,8 @@
     <section class="bg-navy-900 py-20 lg:py-32 relative overflow-hidden">
         <img src="{{ asset('images/contact-desktop.webp') }}" alt="" width="1672" height="941" decoding="async" aria-hidden="true"
             class="photo-fade absolute inset-x-0 top-0 w-full h-[30rem] lg:h-full object-cover object-left pointer-events-none">
-        <div class="absolute inset-x-0 top-0 h-[30rem] lg:h-full bg-navy-900/60 lg:bg-transparent lg:bg-gradient-to-r lg:from-navy-900/60 lg:via-navy-900/75 lg:to-navy-900 pointer-events-none"></div>
+        <div class="absolute inset-x-0 top-0 h-[30rem] lg:h-full bg-navy-900/60 lg:bg-transparent lg:bg-gradient-to-r lg:from-navy-900/70 lg:via-navy-900/85 lg:via-45% lg:to-navy-900 pointer-events-none"></div>
+        <div class="hidden lg:block absolute inset-0 bg-gradient-to-b from-navy-950/60 via-transparent to-navy-950/60 pointer-events-none"></div>
 
         <div class="container relative z-10">
             <div class="max-w-4xl mx-auto">
@@ -29,7 +30,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <p class="text-sm text-gray-500">Email</p>
+                                <p class="text-sm text-gray-400">Email</p>
                                 <p class="font-medium">{{ $company['email'] }}</p>
                             </div>
                         </a>
@@ -42,7 +43,7 @@
                                 </svg>
                             </div>
                             <div>
-                                <p class="text-sm text-gray-500">Address</p>
+                                <p class="text-sm text-gray-400">Address</p>
                                 <address class="not-italic font-medium">
                                     {{ $company['name'] }}<br>
                                     @foreach ($company['contact_address'] as $line)
