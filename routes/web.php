@@ -6,6 +6,7 @@ use App\Http\Controllers\AssistantController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SitemapController;
+use App\SystemStatus\SystemStatusController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,6 +54,14 @@ Route::prefix('assistant')->name('assistant.')->group(function () {
 Route::get('/dashboard', [PageController::class, 'dashboard'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+// System status (admin emails only, config/system-status.php): installed versions, updates and security problems
+Route::middleware(['auth', 'verified', 'can:view-system-status'])->group(function () {
+    Route::get('/admin/system-status', [SystemStatusController::class, 'show'])->name('system-status');
+    Route::post('/admin/system-status/check', [SystemStatusController::class, 'check'])
+        ->middleware('throttle:6,1')
+        ->name('system-status.check');
+});
 
 // Profile (protected)
 Route::middleware('auth')->group(function () {

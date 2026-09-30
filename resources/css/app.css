@@ -5,6 +5,12 @@
 @tailwind utilities;
 
 @layer base {
+    /* Alpine: keep x-cloak elements (menus, answers, messages) hidden until Alpine has started. Only once the
+       layout has marked the page "js", so without scripts the menu and answers stay readable. */
+    .js [x-cloak] {
+        display: none !important;
+    }
+
     /* Dark mode base styles */
     .dark {
         color-scheme: dark;

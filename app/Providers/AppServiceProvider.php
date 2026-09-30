@@ -3,11 +3,13 @@
 namespace App\Providers;
 
 use Anthropic\Client;
+use App\Models\User;
 use App\Services\Assistant\AssistantModel;
 use App\Services\Assistant\ClaudeAssistantModel;
 use App\Services\Sms\LogSmsSender;
 use App\Services\Sms\SmsSender;
 use App\Services\Sms\TwilioSmsSender;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
@@ -44,5 +46,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Vite::prefetch(concurrency: 3);
+
+        // The system status page (config/system-status.php): only listed admin emails, and only once verified,
+        // because users can change their own email and User does not enforce verification on routes.
+        Gate::define('view-system-status', fn (User $user): bool => $user->hasVerifiedEmail()
+            && in_array(strtolower($user->email), (array) config('system-status.admins', []), true));
     }
 }

@@ -44,6 +44,13 @@
 
         {{-- Quick Actions --}}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            @can('view-system-status')
+                <a href="{{ route('system-status') }}" class="card-glass p-6 hover:bg-white/10 transition-colors md:col-span-2">
+                    <h3 class="text-lg font-semibold mb-2">System status</h3>
+                    <p class="text-gray-400 text-sm">Installed versions, available updates and security problems, ready to copy for Claude Code</p>
+                </a>
+            @endcan
+
             <a href="{{ route('profile.edit') }}" class="card-glass p-6 hover:bg-white/10 transition-colors">
                 <h3 class="text-lg font-semibold mb-2">Edit Profile</h3>
                 <p class="text-gray-400 text-sm">Update your account information</p>
